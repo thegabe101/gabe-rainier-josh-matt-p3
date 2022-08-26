@@ -9,6 +9,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "sequelize": "^6.21.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -34,5 +35,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "AS A lifting coach\r I WANT an application to conveniently have access to all my coaching tasks\r SO THAT I will not have to switch between multiple apps for a singular client",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thegabe101/gabe-rainier-josh-matt-p3.git"
+  },
+  "author": "rainier josh matt gabe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thegabe101/gabe-rainier-josh-matt-p3/issues"
+  },
+  "homepage": "https://github.com/thegabe101/gabe-rainier-josh-matt-p3#readme"
 }
