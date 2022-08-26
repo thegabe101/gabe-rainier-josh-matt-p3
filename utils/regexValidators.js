@@ -22,4 +22,12 @@ function validateEmail(inputText) {
     }
 }
 
+function isUserName(val) {
+    let regUser = /^[a-zA-Z0-9](_(?!(\.|_))|\.(?!(_|\.))|[a-zA-Z0-9]){6,18}[a-zA-Z0-9]$/;
+    if (!regUser.test(val)) {
+        return 'Your username can only use letters,numbers, minimum length is 8 characters';
+    }
+}
+
 export default function validateEmail();
+export default function isUserName();
