@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+/*GMS for padding on some experimental elements*/
+.wrapper {
+  padding: 20px;
+}
