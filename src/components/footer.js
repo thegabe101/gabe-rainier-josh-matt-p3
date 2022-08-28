@@ -1,13 +1,13 @@
 import React from "react";
+import lifter1 from "../images/lifter.png";
+import '../styles/Footer.css';
 
 const Footer = () => (
-  <footer className="bg-light p-3 text-center">
-    <div className="logo" />
+  <footer className="bg-light p-3 text-center flex">
+    <div />
+    <img className="siteLogo" src={lifter1}></img>
     <p>
-      Sample project provided by{" "}
-      <a target="_blank" rel="noopener noreferrer" href="https://auth0.com">
-        Auth0
-      </a>
+      Contact the team behind Coach App @ {" "}
     </p>
   </footer>
 );
