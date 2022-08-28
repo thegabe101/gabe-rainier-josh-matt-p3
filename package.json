@@ -1,29 +1,22 @@
 {
-  "name": "coach-app",
-  "version": "0.1.0",
+  "name": "auth0-react-sample",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.1",
-    "sequelize": "^6.21.4",
-    "web-vitals": "^2.1.4"
+    "@auth0/auth0-react": "^1.10.2",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "cross-env PORT=4040 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -37,20 +30,7 @@
       "last 1 safari version"
     ]
   },
-  "description": "A scheduling app to make coaching and training easier for all.",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/thegabe101/gabe-rainier-josh-matt-p3.git"
-  },
-  "author": "rainier josh matt gabe",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/thegabe101/gabe-rainier-josh-matt-p3/issues"
-  },
-  "homepage": "http://localhost:3000/",
   "devDependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.18.1"
+    "cross-env": "^7.0.2"
   }
 }

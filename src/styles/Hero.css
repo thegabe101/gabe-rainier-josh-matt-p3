@@ -1,0 +1,28 @@
+.heroBody {
+    background-image: url('https://marathonhandbook.com/wp-content/uploads/2021/04/2-1-1024x644.jpg');
+    background-repeat: no-repeat;
+    object-fit: cover;
+    color: white;
+    background-attachment: fixed;
+    background-size: 100%;
+    background-color: rgba(200,100,0,.72); /* Tint color */
+    background-blend-mode: multiply;
+    height: 35vh;
+}
+
+.siteLogo {
+    justify-content: center;
+}
+
+.background-tint {
+    background-color: rgba(200,100,0,.5); /* Tint color */
+    background-blend-mode: multiply;
+  }
+
+.title {
+    text-align: center;
+}
+
+.lead {
+    text-align: center;
+}
