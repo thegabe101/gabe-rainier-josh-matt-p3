@@ -1,6 +1,6 @@
 import React from "react";
-import lifter from "../images/lifter.png";
-import '../styles/Hero.css';
+import lifter from "../../images/lifter.png";
+import '../../styles/Hero.css';
 
 const Hero = () => (
   <div className="heroBody">

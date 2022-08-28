@@ -2,8 +2,8 @@ import React from 'react';
 import MainNav from './main-nav';
 import AuthNav from './auth-nav';
 import { Link } from 'react-router-dom';
-import '../styles/Nav-bar.css';
-import lifter1 from '../images/lifter.png';
+import '../../styles/Nav-bar.css';
+import lifter1 from '../../images/lifter.png';
 
 const NavBar = () => {
   return (
