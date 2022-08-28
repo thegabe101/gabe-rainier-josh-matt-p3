@@ -3,6 +3,7 @@ import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 
 const Profile = () => {
+  //GMS every time you sign up you're creating an auth0 user 
   const { user } = useAuth0();
   const { name, picture, email } = user;
 
