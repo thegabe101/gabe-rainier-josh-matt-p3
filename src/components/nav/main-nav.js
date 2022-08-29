@@ -1,4 +1,4 @@
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import React from "react";
 
 const MainNav = () => (
@@ -18,6 +18,14 @@ const MainNav = () => (
       activeClassName="router-link-exact-active"
     >
       Profile
+    </NavLink>
+    <NavLink
+      to="/workouts"
+      exact
+      className="nav-link"
+      activeClassName="router-link-exact-active"
+    >
+      Workouts
     </NavLink>
     <NavLink
       to="/external-api"
