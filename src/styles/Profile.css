@@ -1,37 +1,72 @@
-.userText {
-    color: white;
-    margin-left: 32%;
+/* .userText {
+	color: white;
+	margin-left: 32%;
 }
 
 .custom-header {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
-            linear-gradient(127deg, rgba(27, 37, 27, 0.8), rgba(0,255,0,0) 70.71%),
-            linear-gradient(336deg, rgba(159, 59, 59, 0.8), rgba(4, 4, 6, 0) 70.71%);
-    border: 2px red solid;
-}
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	background: linear-gradient(
+			217deg,
+			rgba(255, 0, 0, 0.8),
+			rgba(255, 0, 0, 0) 70.71%
+		),
+		linear-gradient(127deg, rgba(27, 37, 27, 0.8), rgba(0, 255, 0, 0) 70.71%),
+		linear-gradient(336deg, rgba(159, 59, 59, 0.8), rgba(4, 4, 6, 0) 70.71%);
+	border: 2px red solid;
+} */
 
 .divBody {
-    display: flex;
-    flex-direction: column;
-    background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Z3ltfGVufDB8fDB8fA%3D%3D&w=1000&q=80');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 60vh;
-    border: 2px red solid;
-    align-items: center;
+	background: white;
 }
 
-.profileInfo {
-    width: 100%;
+.form-control:focus {
+	box-shadow: none;
+	border-color: #ba68c8;
+}
+
+.profile-button {
+	background: rgb(99, 39, 120);
+	box-shadow: none;
+	border: none;
+	margin-left: 20px;
+}
+
+.profile-button:hover {
+	background: #682773;
+}
+
+.profile-button:focus {
+	background: #682773;
+	box-shadow: none;
+}
+
+.profile-button:active {
+	background: #682773;
+	box-shadow: none;
+}
+
+.back:hover {
+	color: #80318e;
+	cursor: pointer;
+}
+
+.labels {
+	font-size: 11px;
+}
+
+.add-experience:hover {
+	background: #ba68c8;
+	color: #fff;
+	cursor: pointer;
+	border: solid 1px #ba68c8;
 }
 
 @media only screen and (max-width: 700px) {
-    .divBody .profileInfo {
-      display: column;
-      display: flex;
-      word-wrap: wrap;
-    }
-  }
+	.divBody .profileInfo {
+		display: column;
+		display: flex;
+		word-wrap: wrap;
+	}
+}
