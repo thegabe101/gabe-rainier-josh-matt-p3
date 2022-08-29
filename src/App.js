@@ -4,7 +4,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 import NavBar from './components/nav/nav-bar.js';
 import { Footer, Loading } from './components';
-import { Home, Profile, ExternalApi } from './views';
+import { Home, Profile, ExternalApi, Workouts } from './views';
 import ProtectedRoute from './auth/protected-route';
 
 import './App.css';
@@ -33,6 +33,7 @@ const App = () => {
         <Switch>
           <Route path="/" exact component={Home} />
           <ProtectedRoute path="/profile" component={Profile} />
+          <ProtectedRoute path="/workouts" component={Workouts} />
           <ProtectedRoute path="/external-api" component={ExternalApi} />
         </Switch>
       </div>
