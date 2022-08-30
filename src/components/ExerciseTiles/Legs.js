@@ -73,10 +73,10 @@ export default function Legs() {
             <div className="tile">
                 <img src={hipabduction} />
                 <div className="text">
-                    <h1>Hip abduction</h1>
-                    <h2 className="animate-text">More lorem ipsum bacon ipsum.</h2>
-                    <p className="animate-text">Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta bresaola pork chicken meatloaf. Flank sirloin strip steak prosciutto kevin turducken. </p>
-                    <a className="animate-text">Learn more: https://www.youtube.com/watch?v=yeKv5oX_6GY</a>
+                    <h1>Hip Abduction</h1>
+                    <h2 className="animate-text">Strengthen the hips!</h2>
+                    <p className="animate-text">The hips are often neglected when it comes to lifting, but they're extremely important when it comes to stabilizing movements like walking and running, which are everyday activities for many people.</p>
+                    <a className="animate-text">Learn more: https://www.youtube.com/watch?v=h9BqUMqK-SY</a>
                     <div className="dots">
                         <span></span>
                         <span></span>
@@ -87,10 +87,10 @@ export default function Legs() {
             <div className="tile">
                 <img src={hipthrust} />
                 <div className="text">
-                    <h1>Hip thrust</h1>
-                    <h2 className="animate-text">More lorem ipsum bacon ipsum.</h2>
-                    <p className="animate-text">Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta bresaola pork chicken meatloaf. Flank sirloin strip steak prosciutto kevin turducken. </p>
-                    <a className="animate-text">Learn more: https://www.youtube.com/watch?v=yeKv5oX_6GY</a>
+                    <h1>Hip Thrust</h1>
+                    <h2 className="animate-text">Booty Blaster</h2>
+                    <p className="animate-text">A great accessory excercise to target specifically your glutes, but also a great core excercise as well!</p>
+                    <a className="animate-text">Learn more: https://www.youtube.com/watch?v=xDmFkJxPzeM</a>
                     <div className="dots">
                         <span></span>
                         <span></span>
