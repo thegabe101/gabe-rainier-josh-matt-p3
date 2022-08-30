@@ -1,13 +1,21 @@
 import React from 'react'
+import shoulderpress from '../../images/shoulderpress.gif';
+import dumbellpress from '../../images/dumbell-press.gif';
+import skullcrushers from '../../images/skullcrushers.gif';
+import barbellrow from '../../images/barbellrow.gif';
+import dips from '../../images/dips.gif';
+import lateralraise from '../../images/Lateral-Raise.gif';
+
+
 
 
 export default function UpperBody() {
   return (
     <div>
       <div className="tile">
-        <img src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
+        <img src={shoulderpress} />
         <div className="text">
-          <h1>Shoulder Press</h1>
+          <h1>Shoulder press</h1>
           <h2 className="animate-text">More lorem ipsum bacon ipsum.</h2>
           <p className="animate-text">Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta bresaola pork chicken meatloaf. Flank sirloin strip steak prosciutto kevin turducken. </p>
           <div className="dots">
@@ -18,9 +26,9 @@ export default function UpperBody() {
         </div>
       </div>
       <div className="tile">
-        <img src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
+        <img src={dumbellpress} />
         <div className="text">
-          <h1>Dumbbell Press</h1>
+          <h1>Dumbbell press</h1>
           <h2 className="animate-text">More lorem ipsum bacon ipsum.</h2>
           <p className="animate-text">Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta bresaola pork chicken meatloaf. Flank sirloin strip steak prosciutto kevin turducken. </p>
           <div className="dots">
@@ -31,7 +39,7 @@ export default function UpperBody() {
         </div>
       </div>
       <div className="tile">
-        <img src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
+        <img src={skullcrushers} />
         <div className="text">
           <h1>Skullcrushers</h1>
           <h2 className="animate-text">More lorem ipsum bacon ipsum.</h2>
@@ -44,9 +52,9 @@ export default function UpperBody() {
         </div>
       </div>
       <div className="tile">
-        <img src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
+        <img src={barbellrow} />
         <div className="text">
-          <h1>Barbell Row</h1>
+          <h1>Barbell row</h1>
           <h2 className="animate-text">More lorem ipsum bacon ipsum.</h2>
           <p className="animate-text">Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta bresaola pork chicken meatloaf. Flank sirloin strip steak prosciutto kevin turducken. </p>
           <div className="dots">
@@ -57,7 +65,7 @@ export default function UpperBody() {
         </div>
       </div>
       <div className="tile">
-        <img src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
+        <img src={dips} />
         <div className="text">
           <h1>Dips</h1>
           <h2 className="animate-text">More lorem ipsum bacon ipsum.</h2>
@@ -70,9 +78,9 @@ export default function UpperBody() {
         </div>
       </div>
       <div className="tile">
-        <img src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
+        <img src={lateralraise} />
         <div className="text">
-          <h1>Lateral Raise</h1>
+          <h1>Lateral raise</h1>
           <h2 className="animate-text">More lorem ipsum bacon ipsum.</h2>
           <p className="animate-text">Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta bresaola pork chicken meatloaf. Flank sirloin strip steak prosciutto kevin turducken. </p>
           <div className="dots">
