@@ -21,14 +21,14 @@ const authorizeAccessToken = jwt({
         cache: true,
         rateLimit: true,
         jwksRequestsPerMinute: 5,
-        jwksUri: `https://${authConfig.domain}/lftr/api.json`
+        jwksUri: `https://${authConfig.domain}/.well-known/jwks.json`
     }),
     audience: authConfig.audience,
     issuer: `https://${authConfig.domain}/`,
     algorithms: ["RS256"]
 });
 
-
+// app.use(authorizeAccessToken);
 app.use(cors({ origin: appOrigin }));
 
 app.get("/api/public", (req, res) => {
