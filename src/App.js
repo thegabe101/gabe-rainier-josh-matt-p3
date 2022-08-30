@@ -33,7 +33,7 @@ const App = () => {
           <Route path="/" exact component={Home} />
           <ProtectedRoute path="/profile" component={Profile} />
           <ProtectedRoute path="/workouts" component={Workouts} />
-          <ProtectedRoute path="/external-api" component={ExternalApi} />
+          <Route path="/external-api" component={ExternalApi} />
         </Switch>
       </div>
       <Footer />
