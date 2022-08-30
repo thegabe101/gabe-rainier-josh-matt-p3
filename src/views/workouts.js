@@ -154,18 +154,6 @@ const ExerciseReference = () => {
     const [Type, setType] = useState(localStorage.getItem('Type'))
     const selectedType = localStorage.getItem('Type');
     console.log(selectedType);
-    let isCore = false;
-    let isCompound = true;
-    let isLegs = false;
-    let isChest = false;
-    let isUpper = false;
-    let isArms = false;
-    let isBack = false;
-
-
-
-
-
 
     // const exercise = getExerciseData();
 

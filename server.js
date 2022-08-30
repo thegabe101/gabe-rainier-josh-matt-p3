@@ -1,15 +1,12 @@
-//GMS server app for serving our login token
+const express = require("express");
+const { join } = require("path");
 
-const express = require('express');
-const cors = require('cors');
 const app = express();
 
-app.use(cors());
+const port = process.env.SERVER_PORT || 3000;
 
-app.use('/login', (req, res) => {
-    res.send({
-        token: 'test123'
-    });
-});
 
-app.listen(8080, () => console.log('TokenServer is running on http://localhost:8080/login'));
+
+app.use(express.static(join(__dirname, "build")));
+
+app.listen(port, () => console.log(`Server listening on port ${port}`));
