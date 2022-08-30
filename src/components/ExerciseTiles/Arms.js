@@ -9,8 +9,8 @@ export default function Arms() {
                 <img src={bicepcurls} />
                 <div className="text">
                     <h1>Bicep curls</h1>
-                    <h2 className="animate-text">More lorem ipsum bacon ipsum.</h2>
-                    <p className="animate-text">Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta bresaola pork chicken meatloaf. Flank sirloin strip steak prosciutto kevin turducken. </p>
+                    <h2 className="animate-text">Curls for girls!</h2>
+                    <p className="animate-text">The classic dumbbell bicep curl has been a staple of pro bodybuilders for decades, but doing bicep work can also encourage better elbow health as well to complement your pressing movements.</p>
                     <div className="dots">
                         <span></span>
                         <span></span>
@@ -23,8 +23,8 @@ export default function Arms() {
                 <img src={tricepextensions} />
                 <div className="text">
                     <h1>Tricep extensions</h1>
-                    <h2 className="animate-text">More lorem ipsum bacon ipsum.</h2>
-                    <p className="animate-text">Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta bresaola pork chicken meatloaf. Flank sirloin strip steak prosciutto kevin turducken. </p>
+                    <h2 className="animate-text">The tricep represents a larger portion of the arm than the bicep.</h2>
+                    <p className="animate-text">So go work your triceps if you want bigger arms! Tricep extensions are a staple tricep accessory exercise.</p>
                     <div className="dots">
                         <span></span>
                         <span></span>
