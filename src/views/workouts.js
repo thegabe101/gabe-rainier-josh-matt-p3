@@ -75,7 +75,7 @@ const exercises = [
     },
     {
         id: 12,
-        type: "Core",
+        type: "Back",
         name: "Lat Pulldown"
     },
     {
@@ -105,17 +105,17 @@ const exercises = [
     },
     {
         id: 18,
-        type: "Core",
+        type: "Legs",
         name: "Hip Thrust"
     },
     {
         id: 19,
-        type: "Core",
+        type: "Legs",
         name: "Hip Abduction"
     },
     {
         id: 20,
-        type: "Core",
+        type: "Legs",
         name: "Hip Adduction"
     },
     {
