@@ -1,10 +1,12 @@
 import React from "react";
+import bicepcurls from "../../images/bicepcurls.gif";
+import tricepextensions from "../../images/tricepextensions.webp";
 
 export default function Arms() {
     return (
         <div>
             <div className="tile">
-                <img src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
+                <img src={bicepcurls} />
                 <div className="text">
                     <h1>Bicep curls</h1>
                     <h2 className="animate-text">More lorem ipsum bacon ipsum.</h2>
@@ -18,7 +20,7 @@ export default function Arms() {
             </div>
 
             <div className="tile">
-                <img src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
+                <img src={tricepextensions} />
                 <div className="text">
                     <h1>Tricep extensions</h1>
                     <h2 className="animate-text">More lorem ipsum bacon ipsum.</h2>

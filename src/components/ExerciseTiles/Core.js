@@ -1,12 +1,16 @@
 import React from 'react'
+import latpulldown from '../../images/latpulldown.gif';
+import hipabduction from '../../images/hipabduction.gif';
+import hipthrust from '../../images/hipthrust.gif';
+import planks from '../../images/planks.webp';
 
 export default function Core() {
   return (
     <div>
       <div className="tile">
-        <img src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
+        <img src={latpulldown} />
         <div className="text">
-          <h1>Lat PullDown</h1>
+          <h1>Lat pullDown</h1>
           <h2 className="animate-text">More lorem ipsum bacon ipsum.</h2>
           <p className="animate-text">Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta bresaola pork chicken meatloaf. Flank sirloin strip steak prosciutto kevin turducken. </p>
           <div className="dots">
@@ -17,9 +21,9 @@ export default function Core() {
         </div>
       </div>
       <div className="tile">
-        <img src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
+        <img src={hipabduction} />
         <div className="text">
-          <h1>Hip Abduction</h1>
+          <h1>Hip abduction</h1>
           <h2 className="animate-text">More lorem ipsum bacon ipsum.</h2>
           <p className="animate-text">Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta bresaola pork chicken meatloaf. Flank sirloin strip steak prosciutto kevin turducken. </p>
           <div className="dots">
@@ -30,9 +34,9 @@ export default function Core() {
         </div>
       </div>
       <div className="tile">
-        <img src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
+        <img src={hipthrust} />
         <div className="text">
-          <h1>Hip Thrust</h1>
+          <h1>Hip thrust</h1>
           <h2 className="animate-text">More lorem ipsum bacon ipsum.</h2>
           <p className="animate-text">Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta bresaola pork chicken meatloaf. Flank sirloin strip steak prosciutto kevin turducken. </p>
           <div className="dots">
@@ -43,7 +47,7 @@ export default function Core() {
         </div>
       </div>
       <div className="tile">
-        <img src='https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg' />
+        <img src={planks} />
         <div className="text">
           <h1>Planks</h1>
           <h2 className="animate-text">More lorem ipsum bacon ipsum.</h2>
