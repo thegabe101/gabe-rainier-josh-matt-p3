@@ -6,9 +6,6 @@ import barbellrow from '../../images/barbellrow.gif';
 import dips from '../../images/dips.gif';
 import lateralraise from '../../images/Lateral-Raise.gif';
 
-
-
-
 export default function UpperBody() {
   return (
     <div>

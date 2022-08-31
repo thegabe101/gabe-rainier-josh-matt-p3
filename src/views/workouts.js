@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import '../styles/Workouts.css';
-import { useAuth0 } from '@auth0/auth0-react';
 import benchPress from '../images/benchpress.gif';
 import squat from '../images/squatgif.gif';
 import deadLift from '../images/dead-lift.gif';
-// import getExerciseData from '../data/exerciseData';
 import onClickOutside from 'react-onclickoutside';
 import Dropdown from '../components/dropdown';
 //EXERCISE TILES
@@ -154,16 +152,6 @@ const ExerciseReference = () => {
     const [Type, setType] = useState(localStorage.getItem('Type'))
     const selectedType = localStorage.getItem('Type');
     console.log(selectedType);
-
-    const { user } = useAuth0()
-    console.log(user);
-
-    // const exercise = getExerciseData();
-
-    //GMS all of the spans in these cards are for future text placement. 
-    //GMS it's sort of clunky but the way we can add cards right now is simply alt-shifting these. we could write a loop to render more if we're drawing from a database later. 
-
-    //GMS multiselect currently disabled in dropdown call, add to enable
 
     return (
         <div className="wrap">
