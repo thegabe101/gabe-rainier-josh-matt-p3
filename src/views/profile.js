@@ -1,6 +1,9 @@
 import React from 'react'
 import '../styles/Profile.css'
 import { useAuth0 } from '@auth0/auth0-react'
+import axios from 'axios';
+
+
 
 const Profile = () => {
 	const { user } = useAuth0()
@@ -13,6 +16,19 @@ const Profile = () => {
 		logins_count,
 		email_verified,
 	} = user
+
+	const URL_PREFIX = "http://localhost:3001";
+
+	// axios.post(URL_PREFIX + "/api/coaches", {
+	// 	firstName: 'Matth',
+	// 	lastName: "Hoefyh",
+	// 	username: 'mattmattt',
+	// 	email: 'matt2@gmail.com',
+	// 	password: 'password'
+	// }).then(function (response) {
+	// 	console.log(response)
+	// })
+
 	return (
 		<div className='divBody'>
 			<div className='row'>
