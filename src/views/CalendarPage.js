@@ -21,6 +21,7 @@ class CalendarPage extends Component {
 		],
 	}
 
+	
 	onEventResize = (data) => {
 		const { start, end } = data
 

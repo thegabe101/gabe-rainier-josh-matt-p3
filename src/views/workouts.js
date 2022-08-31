@@ -155,6 +155,9 @@ const ExerciseReference = () => {
     const selectedType = localStorage.getItem('Type');
     console.log(selectedType);
 
+    const { user } = useAuth0()
+    console.log(user);
+
     // const exercise = getExerciseData();
 
     //GMS all of the spans in these cards are for future text placement. 
