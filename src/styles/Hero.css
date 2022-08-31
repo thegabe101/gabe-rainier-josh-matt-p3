@@ -5,9 +5,10 @@
     color: white;
     background-attachment: fixed;
     background-size: 100%;
-    background-color: rgba(200,100,0,.72); /* Tint color */
+    background-color: rgba(203, 30, 17, 0.551); /* Tint color */
     background-blend-mode: multiply;
     height: 35vh;
+    width: 100%;
 }
 
 .siteLogo {
