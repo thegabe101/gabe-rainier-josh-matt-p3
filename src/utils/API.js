@@ -2,10 +2,18 @@ import axios from 'axios'
 
 const URL_PREFIX = 'http://localhost:3001/'
 //COACH API REQ----------------------------------------------------------------
-
+//TODO: Adding a conditional to determine which route to hit. 
 const API = {
-	login(email, password) {
+	loginCoach(email, password) {
 		axios.post(URL_PREFIX + 'api/coaches/login', {
+			email: email,
+			password: password
+		}).then((res) => {
+			console.log(res)
+		})
+	},
+	loginClient(email, password) {
+		axios.post(URL_PREFIX + 'api/clients/login', {
 			email: email,
 			password: password
 		}).then((res) => {
@@ -17,8 +25,8 @@ const API = {
 			console.log(response)
 		})
 	},
-	getOneCoach(username) {
-		axios.get(URL_PREFIX + `api/coaches/${username}`).then((response) => {
+	getOneCoach(id) {
+		axios.get(URL_PREFIX + `api/coaches/${id}`).then((response) => {
 			console.log(response)
 		})
 	},

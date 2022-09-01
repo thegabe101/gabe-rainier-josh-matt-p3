@@ -6,19 +6,30 @@ import "../styles/LoginForm.css";
 
 
 export default function LoginForm() {
-
-
     const { register, handleSubmit, err } = useForm()
     const [user, setUser] = useState({
         id: 0,
         email: ''
     })
 
+    const [radioValues, setRadioValues] = useState({
+        radAnswer: '',
+    });
+
+    const setRadAnswer = (event) => {
+        console.log(event.target.value);
+        setRadioValues({ ...radioValues, radAnswer: event.target.value });
+        console.log(radioValues);
+    };
 
     const onSubmit = data => {
         console.log(data)
-        API.login(data.email, data.password);
+        console.log(radioValues)
+        if (radioValues.radAnswer === "coach") {
+            API.loginCoach(data.email, data.password);
+        } else API.loginClient(data.email, data.password);
     }
+
 
 
     return (
@@ -26,6 +37,12 @@ export default function LoginForm() {
             <div className="form-container sign-in-container">
                 <form className="signinForm" onSubmit={handleSubmit(onSubmit)} action="#">
                     <h1 className="signIn">Welcome to liftr</h1>
+                    <div onChange={setRadAnswer}>
+                        <input name="radAnswer" type="radio" className="superCoolStyle" label="check" id="checkClient" value="client"></input>
+                        <label for="client">I am a client.</label>
+                        <input name="radAnswer" type="radio" className="superCoolStyle" label="check" id="checkCoach" value="coach"></input>
+                        <label for="coach">I am a coach.</label>
+                    </div>
                     <h1 className="signIn">Sign in</h1>
                     <input className="signyInput" type="text" placeholder="email" name="email" {...register('email')} />
                     <input className="signyInput" type="password" placeholder="Enter your password" name="password" {...register('password')} />
@@ -39,9 +56,9 @@ export default function LoginForm() {
                         <button className="ghost" id="signIn">Sign In</button>
                     </div>
                     <div className="overlay-panel overlay-right">
-                        <h1 classname="signInHeader">or</h1>
+                        <h1 className="signInHeader">or</h1>
                         <p className="signInP">If you haven't signed up yet, please click the button below.</p>
-                        <button className="ghost logButton" id="signUp">Sign Up</button>
+                        <a href="/signup"><button className="ghost logButton" id="signUp">Sign Up</button></a>
                     </div>
                 </div>
             </div>
@@ -49,6 +66,27 @@ export default function LoginForm() {
         </div>
     )
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // class LoginForm extends Component {
 
