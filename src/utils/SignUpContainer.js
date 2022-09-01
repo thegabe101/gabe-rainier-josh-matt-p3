@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import SignUpForm from "../views/Signup";
+import API from "../utils/API";
 const axios = require("axios");
 const FormValidators = require("./validate");
 const validateSignUpForm = FormValidators.validateSignUpForm;
 const zxcvbn = require("zxcvbn");
+const URL_PREFIX = "http://localhost:3001"
 
 class SignUpContainer extends Component {
     constructor(props) {
@@ -64,15 +66,18 @@ class SignUpContainer extends Component {
         }
     }
 
+
+
     submitSignup(user) {
-        var params = { username: user.usr, password: user.pw, email: user.email };
+        var params = { username: user.usr, email: user.email, password: user.pw };
         axios
-            .post("https://ouramazingserver.com/api/signup/submit", params)
+            .post(`${URL_PREFIX}/api/coaches`, params)
             .then(res => {
+                console.log(res)
                 if (res.data.success === true) {
                     localStorage.token = res.data.token;
                     localStorage.isAuthenticated = true;
-                    window.location.reload();
+                    window.location.reload()
                 } else {
                     this.setState({
                         errors: { message: res.data.message }
@@ -93,8 +98,8 @@ class SignUpContainer extends Component {
             });
             var user = {
                 usr: this.state.user.username,
-                pw: this.state.user.password,
-                email: this.state.user.email
+                email: this.state.user.email,
+                pw: this.state.user.password
             };
             this.submitSignup(user);
         } else {
