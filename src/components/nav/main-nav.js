@@ -5,7 +5,7 @@ const MainNav = () => {
 	return (
 		<div className='navbar-nav mr-auto'>
 			<NavLink
-				to='/'
+				to='/home'
 				exact
 				className='nav-link'
 				activeClassName='router-link-exact-active'

@@ -73,6 +73,10 @@ const SignUpForm = ({
           type="submit"
           label="submit"
         />
+        <input name="radAnswer" type="radio" className="superCoolStyle" label="check"></input>
+        <label for="client">I am a client.</label>
+        <input name="radAnswer" type="radio" className="superCoolStyle" label="check"></input>
+        <label for="client">I am a coach.</label>
       </form>
       <p>
         Aleady have an account? <br />
