@@ -12,10 +12,36 @@ import LoginForm from "./views/LoginForm";
 import SignUpContainer from "../src/utils/SignUpContainer";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import SignUpForm from './views/Signup.js';
+import loginLogic from "../src/components/loginLogic";
 
 
 
-const App = () => {
+function App() {
+
+  // const [user, setUser] = useState({
+  //   id: 0,
+  //   email: ''
+  // })
+
+  // const submitLoginHandle = (email, password) => {
+  //   API.login(email, password).then(res => {
+  //     if (!res.ok) {
+  //       setUser({ userId: 0, email: "" });
+  //       // setToken("")
+  //       return;
+  //     }
+  //     return res.json()
+  //   }).then(data => {
+  //     console.log(data)
+  //     setUser({
+  //       id: data.user.id,
+  //       email: data.user.email
+  //     })
+  //     // setToken(data.token)
+  //     // localStorage.setItem("token",data.token)
+  //   })
+  // }
+
   return (
     <Router>
       <div id="app" className="d-flex flex-column h-100">
@@ -24,7 +50,7 @@ const App = () => {
           <Switch>
             <Route path="/home" component={Home} />
             <Route path="/signup" component={SignUpContainer} />
-            <Route path="/login" component={LoginForm} />
+            {/* <Route path="/login" element={<loginLogic userId={user.id} handleLogin={submitLoginHandle} />} /> */}
             <Route path="/profile" component={Profile} />
             <Route path="/workouts" component={Workouts} />
             <Route path='/calendar' component={CalendarPage} />
