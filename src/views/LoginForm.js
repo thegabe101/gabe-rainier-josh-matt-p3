@@ -4,9 +4,7 @@ import { useForm } from "react-hook-form";
 import "../styles/LoginForm.css";
 
 
-
 export default function LoginForm() {
-
 
     const { register, handleSubmit, err } = useForm()
     const [user, setUser] = useState({
@@ -14,12 +12,10 @@ export default function LoginForm() {
         email: ''
     })
 
-
     const onSubmit = data => {
         console.log(data)
         API.login(data.email, data.password);
     }
-
 
     return (
         <div><div>
