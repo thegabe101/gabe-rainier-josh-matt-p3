@@ -12,7 +12,7 @@ import LoginForm from "./views/LoginForm";
 import SignUpContainer from "../src/utils/SignUpContainer";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import SignUpForm from './views/Signup.js';
-import loginLogic from "../src/components/loginLogic";
+
 
 
 
@@ -50,7 +50,7 @@ function App() {
           <Switch>
             <Route path="/home" component={Home} />
             <Route path="/signup" component={SignUpContainer} />
-            {/* <Route path="/login" element={<loginLogic userId={user.id} handleLogin={submitLoginHandle} />} /> */}
+            <Route path="/login" component={LoginForm} />
             <Route path="/profile" component={Profile} />
             <Route path="/workouts" component={Workouts} />
             <Route path='/calendar' component={CalendarPage} />

@@ -1,25 +1,36 @@
-// import React, { useState } from "react";
+import React, { Component, useState, useEffect } from "react";
+import API from "../utils/API";
+import { useForm } from "react-hook-form"
+
+export default function LoginForm() {
+    const { register, handleSubmit, err } = useForm()
+    const [user, setUser] = useState({
+        id: 0,
+        email: ''
+    })
 
 
-// export default function LoginForm(props) {
-//     const [email, setEmail] = useState("")
-//     const [password, setPassword] = useState("")
+    const onSubmit = data => {
+        console.log(data)
+        API.login(data.email, data.password)
+    }
 
-//     const submit = e => {
-//         e.preventDefault();
-//         props.handleSubmit(email, password);
-//     }
-//     return (
-//         <div className = "AuthForm">
-//         <header>{props.type}</header>
-//         <form onSubmit = {submit}>
-//             <input value={email} placeholder= "email" onChange={e=>setEmail(e.target.value)}/>
-//             <input value={password} type="password" onChange={e=>setPassword(e.target.value)}/>
-//             <button>{props.type}Login</button>
-//         </form>
-//     </div>
-//     )
-// }
+
+
+
+
+    return (
+        <div className="AuthForm">
+            <header>Login</header>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <input type="text" placeholder="email" name="email" {...register('email')} />
+                <input type="password" placeholder="Enter your password" name="password" {...register('password')} />
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    )
+}
+
 
 
 
@@ -30,7 +41,7 @@
         //         <p className="text-4xl pb-4 self-center">liftr</p>
         //         <p className="text-2xl self-center pb-4">Log in</p>
         //         <label htmlFor="login-email" className="pb-1">Email</label>
-        //         <input value={email} type="text" id="login-email" name="login-email" className="border rounded-md mb-3 focus:outline-[#ff828f]" onChange={e => setEmail(e.target.value)} />
+        //         <input value={email} type="text" id="login-email" name="login-email" className="border rounded-md mb-3 focus:outline-[#ff828f]"  />
         //         <label htmlFor="login-password" className="pb-1">Password</label>
         //         <input value={password} type="password" id="login-password" name="login-password" className="border rounded-md mb-3 focus:outline-[#ff828f]" autoComplete="off" onChange={e => setPassword(e.target.value)} />
         //         <section className="flex content-center justify-end">

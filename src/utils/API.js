@@ -1,21 +1,17 @@
 import axios from 'axios'
 
-const URL_PREFIX = 'http://localhost:3001'
+const URL_PREFIX = 'http://localhost:3001/'
 //COACH API REQ----------------------------------------------------------------
 
 const API = {
-	login: (email,password)=>{
-        return fetch(`${URL_PREFIX}/api/coaches/login`,{
-        method:"POST",
-        body:JSON.stringify({
-        	email,
-          	password
-        }),
-        headers:{
-            "Content-Type":"application/json"
-        }
-    })
-    },
+	login(email, password) {
+		axios.post(URL_PREFIX + 'api/coaches/login', {
+			email: email,
+			password: password
+		}).then((res) => {
+			console.log(res)
+		})
+	},
 	getCoaches() {
 		axios.get(URL_PREFIX + 'api/coaches').then((response) => {
 			console.log(response)
