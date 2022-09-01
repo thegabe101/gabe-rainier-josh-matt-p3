@@ -3,7 +3,7 @@ import lifter1 from "../images/lifter.png";
 import '../styles/Footer.css';
 
 const Footer = () => (
-  <footer className="bg-light p-3 text-center flex">
+  <footer className="bg-light p-3 text-center flex footy">
     <div />
     <img className="siteLogo" src={lifter1}></img>
     <p>

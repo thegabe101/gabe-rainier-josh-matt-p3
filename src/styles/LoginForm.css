@@ -13,17 +13,7 @@ body {
 	margin: -20px 0 50px;
 } */
 
-h1 {
-	font-weight: bold;
-	margin: 0;
-    color: whitesmoke;
-}
-
-h2 {
-	text-align: center;
-}
-
-p {
+.signInP {
 	font-size: 14px;
 	font-weight: 100;
 	line-height: 20px;
@@ -68,7 +58,7 @@ button.ghost {
 	border-color: #FFFFFF;
 }
 
-form {
+.signinForm {
 	background: -webkit-linear-gradient(to right, #141312, #601325);
 	background: linear-gradient(to right, #101010, #494343);
 	display: flex;
@@ -80,7 +70,13 @@ form {
 	text-align: center;
 }
 
-input {
+.signInHeader {
+    font-weight: bold;
+	margin: 0;
+    color: whitesmoke;
+}
+
+.signyInput {
 	background-color: #eee;
 	border: none;
 	padding: 12px 15px;
@@ -204,18 +200,5 @@ input {
 	transform: translateX(20%);
 }
 
-.social-container {
-	margin: 20px 0;
-}
 
-.social-container a {
-	border: 1px solid #DDDDDD;
-	border-radius: 50%;
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
-	margin: 0 5px;
-	height: 40px;
-	width: 40px;
-}
 
