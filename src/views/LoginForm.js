@@ -1,43 +1,77 @@
-// import React, { useState } from "react";
+import React, { Component, useState, useEffect } from "react";
+import API from "../utils/API";
+import { useForm } from "react-hook-form";
+import "../styles/LoginForm.css";
 
 
-// export default function LoginForm(props) {
-//     const [email, setEmail] = useState("")
-//     const [password, setPassword] = useState("")
 
-//     const submit = e => {
-//         e.preventDefault();
-//         props.handleSubmit(email, password);
+export default function LoginForm() {
+
+
+    const { register, handleSubmit, err } = useForm()
+    const [user, setUser] = useState({
+        id: 0,
+        email: ''
+    })
+
+
+    const onSubmit = data => {
+        console.log(data)
+        API.login(data.email, data.password);
+    }
+
+
+    return (
+        <div><div>
+            <div className="form-container sign-in-container">
+                <form className="signinForm" onSubmit={handleSubmit(onSubmit)} action="#">
+                    <h1 className="signIn">Welcome to liftr</h1>
+                    <h1 className="signIn">Sign in</h1>
+                    <input className="signyInput" type="text" placeholder="email" name="email" {...register('email')} />
+                    <input className="signyInput" type="password" placeholder="Enter your password" name="password" {...register('password')} />
+                    <a href="#" className="forgot">Forgot your password?</a>
+                    <button className="logButton">Sign In</button>
+                </form>
+            </div>
+            <div className="overlay-container">
+                <div className="overlay">
+                    <div className="overlay-panel overlay-left">
+                        <button className="ghost" id="signIn">Sign In</button>
+                    </div>
+                    <div className="overlay-panel overlay-right">
+                        <h1 classname="signInHeader">or</h1>
+                        <p className="signInP">If you haven't signed up yet, please click the button below.</p>
+                        <button className="ghost logButton" id="signUp">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    )
+}
+
+// class LoginForm extends Component {
+
+
+//     //     const { register, handleSubmit, err } = useForm()
+//     // const [user, setUser] = useState({
+//     //     id: 0,
+//     //     email: ''
+//     // })
+
+
+//     onSubmit(data) {
+//         data.preventDefault()
+//         console.log(data)
+//         API.login(data.email, data.password);
+//         this.props.history.push('/home');
 //     }
-//     return (
-//         <div className = "AuthForm">
-//         <header>{props.type}</header>
-//         <form onSubmit = {submit}>
-//             <input value={email} placeholder= "email" onChange={e=>setEmail(e.target.value)}/>
-//             <input value={password} type="password" onChange={e=>setPassword(e.target.value)}/>
-//             <button>{props.type}Login</button>
-//         </form>
-//     </div>
-//     )
+
+//     render() {
+//         return (
+//         )
+//     }
 // }
 
+// export default withRouter(LoginForm);
 
-
-
-        // <section className="loginPage flex justify-center h-screen p-5">
-        //     <header>{props.type}</header>
-        //     <form className="loginForm flex flex-col justify-center" id="login-page" onSubmit={submit}>
-        //         <p className="text-4xl pb-4 self-center">liftr</p>
-        //         <p className="text-2xl self-center pb-4">Log in</p>
-        //         <label htmlFor="login-email" className="pb-1">Email</label>
-        //         <input value={email} type="text" id="login-email" name="login-email" className="border rounded-md mb-3 focus:outline-[#ff828f]" onChange={e => setEmail(e.target.value)} />
-        //         <label htmlFor="login-password" className="pb-1">Password</label>
-        //         <input value={password} type="password" id="login-password" name="login-password" className="border rounded-md mb-3 focus:outline-[#ff828f]" autoComplete="off" onChange={e => setPassword(e.target.value)} />
-        //         <section className="flex content-center justify-end">
-        //             <label htmlFor="showPassword" className="text-slate-500 text-sm mx-2">Show Password</label>
-        //             <input className="float-right accent-[#ff828f]" type="checkbox" name="showPassword" onclick="showPw()" />
-        //         </section>
-        //         <button className="self-center w-1/2 loginBtn border rounded-md mt-3 text-white bg-[#ff4797] hover:bg-white hover:text-black hover:border-[#ff4797] hover:border-2" >{props.type}Login</button>
-        //         <p className="text-sm text-slate-500 self-center pt-1">Don't have an account with us? <a href="/signup" className="hover:text-[#4C243B]">Sign up here</a>.</p>
-        //     </form>
-        // </section>

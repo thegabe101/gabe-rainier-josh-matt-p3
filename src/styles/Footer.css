@@ -5,6 +5,9 @@
     align-items: center;
 }
 
+.footy {
+    position: relative;
+}
 
 .siteLogo {
     height: 50px;
