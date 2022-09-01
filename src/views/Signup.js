@@ -1,9 +1,15 @@
-import React from "react";
+import React, { Component, useState, useEffect } from "react";
 import FlatButton from "material-ui/FlatButton";
 import RaisedButton from "material-ui/RaisedButton";
 import TextField from "material-ui/TextField";
 import PasswordStr from "../utils/PasswordStr";
 import "../styles/Signup.css";
+import { useForm } from "react-hook-form";
+import axios from 'axios';
+import API from '../utils/API';
+import SignUpContainer from "../utils/SignUpContainer";
+
+const URL_PREFIX = 'http://localhost:3001';
 
 const SignUpForm = ({
   history,
@@ -15,8 +21,10 @@ const SignUpForm = ({
   btnTxt,
   type,
   pwMask,
+  toggleCoachState,
   onPwChange
 }) => {
+
   return (
     <div className="loginBox">
       <h1>Sign Up</h1>
@@ -73,10 +81,8 @@ const SignUpForm = ({
           type="submit"
           label="submit"
         />
-        <input name="radAnswer" type="radio" className="superCoolStyle" label="check"></input>
-        <label for="client">I am a client.</label>
-        <input name="radAnswer" type="radio" className="superCoolStyle" label="check"></input>
-        <label for="client">I am a coach.</label>
+        <button className="superCoolButton" type="button" onClick={toggleCoachState}  >I am a coach.</button>
+        <label for="coach">I am a coach.</label>
       </form>
       <p>
         Aleady have an account? <br />

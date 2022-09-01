@@ -5,7 +5,8 @@ const axios = require("axios");
 const FormValidators = require("./validate");
 const validateSignUpForm = FormValidators.validateSignUpForm;
 const zxcvbn = require("zxcvbn");
-const URL_PREFIX = "http://localhost:3001"
+const URL_PREFIX = "http://localhost:3001";
+
 
 class SignUpContainer extends Component {
     constructor(props) {
@@ -21,14 +22,17 @@ class SignUpContainer extends Component {
             },
             btnTxt: "show",
             type: "password",
-            score: "0"
+            score: "0",
+            radioButtonCoach: false,
         };
 
         this.pwMask = this.pwMask.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.submitSignup = this.submitSignup.bind(this);
+        this.submitSignupCoach = this.submitSignupCoach.bind(this);
+        this.submitSignupClient = this.submitSignupClient.bind(this);
         this.validateForm = this.validateForm.bind(this);
         this.pwHandleChange = this.pwHandleChange.bind(this);
+        this.toggleCoachState = this.toggleCoachState.bind(this);
     }
 
     handleChange(event) {
@@ -66,9 +70,14 @@ class SignUpContainer extends Component {
         }
     }
 
+    toggleCoachState(event) {
+        event.preventDefault()
+        this.setState({
+            radioButtonCoach: !this.state.radioButtonCoach
+        })
+    }
 
-
-    submitSignup(user) {
+    submitSignupCoach(user) {
         var params = { username: user.usr, email: user.email, password: user.pw };
         axios
             .post(`${URL_PREFIX}/api/coaches`, params)
@@ -89,25 +98,53 @@ class SignUpContainer extends Component {
             });
     }
 
+    submitSignupClient(user) {
+        var params = { username: user.usr, email: user.email, password: user.pw };
+        axios
+            .post(`${URL_PREFIX}/api/clients`, params)
+            .then(res => {
+                console.log(res)
+                if (res.data.success === true) {
+                    localStorage.token = res.data.token;
+                    localStorage.isAuthenticated = true;
+                    window.location.reload()
+                } else {
+                    this.setState({
+                        errors: { message: res.data.message }
+                    });
+                }
+            })
+            .catch(err => {
+                console.log("Sign up data submit error: ", err);
+            });
+    }
+
+
     validateForm(event) {
         event.preventDefault();
         var payload = validateSignUpForm(this.state.user);
+        console.log(this.state.radioButtonCoach);
         if (payload.success) {
             this.setState({
-                errors: {}
+                errors: {},
             });
             var user = {
                 usr: this.state.user.username,
                 email: this.state.user.email,
                 pw: this.state.user.password
             };
-            this.submitSignup(user);
-        } else {
-            const errors = payload.errors;
-            this.setState({
-                errors
-            });
+            console.log(this.state.radioButtonCoach);
+            if (this.state.radioButtonCoach == true) {
+                this.submitSignupCoach(user);
+            }
+            else this.submitSignupClient(user);
         }
+        // } else {
+        //     const errors = payload.errors;
+        //     this.setState({
+        //         errors
+        //     });
+        // }
     }
 
     pwMask(event) {
@@ -133,6 +170,7 @@ class SignUpContainer extends Component {
                     btnTxt={this.state.btnTxt}
                     type={this.state.type}
                     pwMask={this.pwMask}
+                    toggleCoachState={this.toggleCoachState}
                 />
             </div>
         );
