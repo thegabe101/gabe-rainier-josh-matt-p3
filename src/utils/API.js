@@ -1,38 +1,39 @@
 import axios from 'axios'
+import SelectField from 'material-ui/SelectField'
 
-const URL_PREFIX = 'http://localhost:3001/'
+const URL_PREFIX = 'https://lifter-backend-build.herokuapp.com/'
 //COACH API REQ----------------------------------------------------------------
-//TODO: Adding a conditional to determine which route to hit. 
+//TODO: Adding a conditional to determine which route to hit.
 const API = {
-	checkToken: token => {
+	checkToken: (token) => {
 		return fetch(`${URL_PREFIX}api/check-token`, {
 			headers: {
-				Authorization: `Bearer ${token}`
-			}
+				Authorization: `Bearer ${token}`,
+			},
 		})
 	},
 	loginCoach: (email, password) => {
 		return fetch(`${URL_PREFIX}api/coaches/login`, {
-			method: "POST",
+			method: 'POST',
 			body: JSON.stringify({
 				email,
-				password
+				password,
 			}),
 			headers: {
-				"Content-Type": "application/json"
-			}
+				'Content-Type': 'application/json',
+			},
 		})
 	},
 	loginClient: (email, password) => {
 		return fetch(`${URL_PREFIX}api/clients/login`, {
-			method: "POST",
+			method: 'POST',
 			body: JSON.stringify({
 				email,
-				password
+				password,
 			}),
 			headers: {
-				"Content-Type": "application/json"
-			}
+				'Content-Type': 'application/json',
+			},
 		})
 	},
 	getCoaches() {
@@ -50,7 +51,7 @@ const API = {
 			.post(URL_PREFIX + `api/coaches/`, {
 				username: username,
 				email: email,
-				password: password
+				password: password,
 				// coach_code: coach_code,
 			})
 			.then((response) => {
@@ -120,18 +121,31 @@ const API = {
 			console.log(response)
 		})
 	},
+	getExercisesDate() {
+		axios.get(URL_PREFIX + 'api/exercises').then((response) => {
+			let dates = []
+			for (let i = 0; i < response.data.length; i++) {
+				var formattedDate = response.data[i].updatedAt.slice(0, 10)
+				console.log(formattedDate)
+				dates.push(formattedDate)
+			}
+			console.log(dates)
+			return dates
+		})
+	},
 	getOneExercise(id) {
 		axios.get(URL_PREFIX + `api/exercises/${id}`).then((response) => {
 			console.log(response)
 		})
 	},
-	postExercise(exerciseName, sets, reps, weight) {
+	postExercise(exerciseName, sets, reps, weight, dateSelected) {
 		axios
 			.post(URL_PREFIX + `api/exercises/`, {
 				exerciseName: exerciseName,
 				sets: sets,
 				reps: reps,
 				weight: weight,
+				dateSelected: dateSelected,
 			})
 			.then((response) => {
 				console.log(response)
@@ -153,7 +167,7 @@ const API = {
 			.then((response) => {
 				console.log(response)
 			})
-	}
+	},
 }
 //---------------------------------------------------------------------------
 export default API

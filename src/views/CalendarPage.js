@@ -16,6 +16,9 @@ import 'react-big-calendar/lib/addons/dragAndDrop/styles.css'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import events from '../utils/events'
 import Popup from '../components/Popup'
+import API from '../utils/API'
+import axios from 'axios'
+import { getDate } from 'date-fns'
 
 const locales = {
 	'en-US': require('date-fns/locale/en-US'),
@@ -29,19 +32,60 @@ const localizer = dateFnsLocalizer({
 })
 
 export default function Selectable() {
+	// DO A GET ROUTE HERE AND SET IT AS EVENTS
+	function getDateData() {
+		axios
+			.get('https://lifter-backend-build.herokuapp.com/' + 'api/exercises')
+			.then((response) => {
+				for (let i = 0; i < response.data.length; i++) {
+					var title = response.data[i].exerciseName
+					var formattedDate = response.data[i].dateSelected.slice(0, 10)
+					let dateArray = formattedDate.split('-')
+					var year = dateArray[0]
+					var month = dateArray[1]
+					var day = dateArray[2]
+					console.log(formattedDate)
+				}
+			})
+	}
+
+	//string.slice(0.10)
 	const [myEvents, setEvents] = useState([])
+	const [Start, setStart] = useState('')
+	const [End, setEnd] = useState('')
+	const [Title, setTitle] = useState('')
+	const [Form, setForm] = useState({
+		title: '',
+		variations: '',
+		reps: 0,
+		sets: 0,
+		weight: 0,
+	})
+	const [buttonPopup, setButtonPopup] = useState(false)
 
 	const handleSelectSlot = useCallback(
 		({ start, end }) => {
-			//POST route here
-			const title = window.prompt('New Event name')
-			if (title) {
-				setEvents((prev) => [...prev, { start, end, title }])
-			}
+			// Shows Popup
+			setStart(start)
+			console.log(Start)
+			setEnd(end)
+			setButtonPopup(true)
 		},
 		[setEvents]
 	)
-
+	function handleFormSubmit(e) {
+		e.preventDefault()
+		setEvents((prev) => [...prev, { start: Start, end: End, title: Title }])
+		setButtonPopup(false)
+		//POST ROUTE HERE POST FORM
+		console.log('REal:' + Start)
+		API.postExercise(Form.title, Form.sets, Form.reps, Form.weight, Start)
+		console.log(Form)
+	}
+	function handleFormChange(e) {
+		setTitle(Form.title)
+		setForm({ ...Form, [e.target.name]: e.target.value })
+	}
 	const handleSelectEvent = useCallback(
 		//PUT Route is final
 		//GET route
@@ -56,7 +100,6 @@ export default function Selectable() {
 		}),
 		[]
 	)
-	const [buttonPopup, setButtonPopup] = useState(false)
 	return (
 		<Fragment>
 			<div className='height600'>
@@ -71,15 +114,47 @@ export default function Selectable() {
 					selectable
 					scrollToTime={scrollToTime}
 				/>
-				<button onClick={() => setButtonPopup(true)}>OpenPopup</button>
 			</div>
 			<div>
 				<Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
 					<h3>Popup</h3>
 					<p>THIS POPUP IS TRIGGERED BY THING</p>
-					<input type='text' placeholder='WOOP' />
-					<input type='text' placeholder='WOOP' />
-					<input type='text' placeholder='thats the sound of the police' />
+					<form className='submitExerciseFrom' onSubmit={handleFormSubmit}>
+						<input
+							type='text'
+							placeholder='Title'
+							name='title'
+							onChange={handleFormChange}
+						/>
+						<input
+							type='text'
+							placeholder='Variations'
+							name='variations'
+							onChange={handleFormChange}
+						></input>
+						<input
+							type='text'
+							placeholder='Sets'
+							name='sets'
+							onChange={handleFormChange}
+						></input>
+						<input
+							type='text'
+							placeholder='Reps'
+							name='reps'
+							onChange={handleFormChange}
+						></input>
+						<input
+							type='text'
+							placeholder='Weights'
+							name='weight'
+							onChange={handleFormChange}
+						></input>
+						<button>Submit</button>
+					</form>
+
+					{/* <input type='text' placeholder='WOOP' />
+					<input type='text' placeholder='thats the sound of the police' /> */}
 				</Popup>
 			</div>
 		</Fragment>
