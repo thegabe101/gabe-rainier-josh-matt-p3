@@ -11,6 +11,27 @@ export default function LoginForm() {
         id: 0,
         email: ''
     })
+    const [token, setToken] = useState("")
+
+    useEffect(() => {
+        const storedToken = localStorage.getItem("token");
+        API.checkToken(storedToken).then(res => {
+            if (!res.ok) {
+                console.log("invalid token!")
+                localStorage.removeItem("token")
+            }
+            else {
+                console.log("valid token")
+                res.json().then(data => {
+                    setToken(storedToken)
+                    setUser({
+                        id: data.id,
+                        email: data.email
+                    })
+                })
+            }
+        })
+    }, [])
 
     const [radioValues, setRadioValues] = useState({
         radAnswer: '',
@@ -26,10 +47,48 @@ export default function LoginForm() {
         console.log(data)
         console.log(radioValues)
         if (radioValues.radAnswer === "coach") {
-            API.loginCoach(data.email, data.password);
-        } else API.loginClient(data.email, data.password);
+            API.loginCoach(data.email, data.password).then(res => {
+                if (!res.ok) {
+                    setUser({ userId: 0, email: "" });
+                    setToken("")
+                    return;
+                } console.log(res.json)
+                return res.json()
+            }).then(data => {
+                console.log(data)
+                setUser({
+                    id: data.user.id,
+                    email: data.user.email
+                })
+                setToken(data.token)
+                localStorage.setItem("token", data.token)
+            }).catch((err) => {
+                console.log({ msg: "nope", err: (err) })
+            })
+        }
+        else if (radioValues.radAnswer === "client") {
+            console.log("we made it")
+            API.loginClient(data.email, data.password).then(res => {
+                if (!res.ok) {
+                    setUser({ userId: 0, email: "" });
+                    setToken("")
+                    return;
+                } console.log(res.json)
+                return res.json()
+            }).then(data => {
+                console.log(data)
+                setUser({
+                    id: data.user.id,
+                    email: data.user.email
+                })
+                setToken(data.token)
+                localStorage.setItem("token", data.token)
+            })
+            // .catch((err) => {
+            //     console.log({ msg: "nope", err: (err) })
+            // })
+        }
     }
-
 
 
     return (

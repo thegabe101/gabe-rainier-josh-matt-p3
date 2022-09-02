@@ -1,14 +1,21 @@
 .heroBody {
-    background-image: url('https://marathonhandbook.com/wp-content/uploads/2021/04/2-1-1024x644.jpg');
+    background-image: url('https://www.elitefts.com/media/catalog/category/Category_Banner_weights.jpg');
     background-repeat: no-repeat;
     object-fit: cover;
     color: white;
     background-attachment: fixed;
     background-size: 100%;
-    background-color: rgba(203, 30, 17, 0.551); /* Tint color */
+    background-color: rgba(40, 32, 32, 0.441); /* Tint color */
     background-blend-mode: multiply;
-    height: 35vh;
+    height: 10vh;
     width: 100%;
+}
+
+.liftr {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 2.3%;
 }
 
 .siteLogo {
@@ -26,4 +33,12 @@
 
 .lead {
     text-align: center;
+}
+
+@media only screen and (max-width: 700px) {
+	.rosterBox {
+		display: column;
+		display: flex;
+		word-wrap: wrap;
+	}
 }

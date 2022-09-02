@@ -4,20 +4,35 @@ const URL_PREFIX = 'http://localhost:3001/'
 //COACH API REQ----------------------------------------------------------------
 //TODO: Adding a conditional to determine which route to hit. 
 const API = {
-	loginCoach(email, password) {
-		axios.post(URL_PREFIX + 'api/coaches/login', {
-			email: email,
-			password: password
-		}).then((res) => {
-			console.log(res)
+	checkToken: token => {
+		return fetch(`${URL_PREFIX}api/check-token`, {
+			headers: {
+				Authorization: `Bearer ${token}`
+			}
 		})
 	},
-	loginClient(email, password) {
-		axios.post(URL_PREFIX + 'api/clients/login', {
-			email: email,
-			password: password
-		}).then((res) => {
-			console.log(res)
+	loginCoach: (email, password) => {
+		return fetch(`${URL_PREFIX}api/coaches/login`, {
+			method: "POST",
+			body: JSON.stringify({
+				email,
+				password
+			}),
+			headers: {
+				"Content-Type": "application/json"
+			}
+		})
+	},
+	loginClient: (email, password) => {
+		return fetch(`${URL_PREFIX}api/clients/login`, {
+			method: "POST",
+			body: JSON.stringify({
+				email,
+				password
+			}),
+			headers: {
+				"Content-Type": "application/json"
+			}
 		})
 	},
 	getCoaches() {
