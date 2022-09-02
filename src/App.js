@@ -40,7 +40,7 @@ function App() {
 
 	return (
 		<Router>
-			<div id='app' className='d-flex flex-column h-100'>
+			<div id='app' className='d-flex flex-column h-100 color superApp'>
 				<NavBar />
 				<div className='container flex-grow-1'>
 					<Switch>
