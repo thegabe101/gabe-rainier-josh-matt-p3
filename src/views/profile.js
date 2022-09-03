@@ -4,7 +4,6 @@ import axios from 'axios';
 
 const Profile = () => {
 
-	const URL_PREFIX = "http://localhost:3001";
 	return (
 		<div className='divBody'>
 			<div className='row'>

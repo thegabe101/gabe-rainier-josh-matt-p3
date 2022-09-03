@@ -98,11 +98,9 @@ export default function LoginForm() {
             <div className="form-container sign-in-container">
                 <form className="signinForm" onSubmit={handleSubmit(onSubmit)} action="#">
                     <h1 className="signIn">Welcome to liftr</h1>
-                    <div onChange={setRadAnswer}>
-                        <input name="radAnswer" type="radio" className="superCoolStyle" label="check" id="checkClient" value="client"></input>
-                        <label for="client">I am a client.</label>
-                        <input name="radAnswer" type="radio" className="superCoolStyle" label="check" id="checkCoach" value="coach"></input>
-                        <label for="coach">I am a coach.</label>
+                    <div className="radioBody" onChange={setRadAnswer}>
+                        <input type="radio" name="radAnswer" value="client" data-icon='' />
+                        <input type="radio" name="radAnswer" value="coach" data-icon='' />
                     </div>
                     <h1 className="signIn">Sign in</h1>
                     <input className="signyInput" type="text" placeholder="email" name="email" {...register('email')} />
@@ -132,7 +130,12 @@ export default function LoginForm() {
 
 
 
-
+{/* <div onChange={setRadAnswer}>
+<input name="radAnswer" type="radio" className="superCoolStyle" label="check" id="checkClient" value="client"></input>
+<label for="client">I am a client.</label>
+<input name="radAnswer" type="radio" className="superCoolStyle" label="check" id="checkCoach" value="coach"></input>
+<label for="coach">I am a coach.</label>
+</div> */}
 
 
 
