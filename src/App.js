@@ -13,7 +13,7 @@ import SignUpContainer from '../src/utils/SignUpContainer'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import SignUpForm from './views/Signup.js'
 import ProtectedRoute from './utils/ProtectedRoute.js'
-
+import Roster from './views/Roster.js'
 
 function App() {
 	// const [user, setUser] = useState({
@@ -42,7 +42,6 @@ function App() {
 	// 	})
 	// }, [])
 
-
 	return (
 		<Routes>
 			<div id='app' className='d-flex flex-column h-100 color superApp'>
@@ -51,10 +50,31 @@ function App() {
 					<Switch>
 						<Route exact path='/signup' component={SignUpContainer} />
 						<Route exact path='/login' component={LoginForm} />
-						<ProtectedRoute exact path="/home" component={Home} ></ProtectedRoute>
-						<ProtectedRoute exact path="/profile" component={Profile} ></ProtectedRoute>
-						<ProtectedRoute exact path='/workouts' component={Workouts} ></ProtectedRoute>
-						<ProtectedRoute exact path='/calendar' component={CalendarPage} ></ProtectedRoute>
+						<ProtectedRoute
+							exact
+							path='/home'
+							component={Home}
+						></ProtectedRoute>
+						<ProtectedRoute
+							exact
+							path='/profile'
+							component={Profile}
+						></ProtectedRoute>
+						<ProtectedRoute
+							exact
+							path='/workouts'
+							component={Workouts}
+						></ProtectedRoute>
+						<ProtectedRoute
+							exact
+							path='/calendar'
+							component={CalendarPage}
+						></ProtectedRoute>
+						<ProtectedRoute
+							exact
+							path='/roster'
+							component={Roster}
+						></ProtectedRoute>
 					</Switch>
 				</div>
 				<Footer />

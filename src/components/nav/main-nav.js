@@ -36,7 +36,14 @@ const MainNav = () => {
 			>
 				Calendar
 			</NavLink>
-
+			<NavLink
+				to='/roster'
+				exact
+				className='nav-link'
+				activeClassName='router-link-exact-active'
+			>
+				Roster
+			</NavLink>
 		</div>
 	)
 }
