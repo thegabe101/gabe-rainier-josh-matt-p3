@@ -18,7 +18,7 @@ export default function LoginForm() {
         API.checkToken(storedToken).then(res => {
             if (!res.ok) {
                 console.log("invalid token!")
-                localStorage.removeItem("token")
+                // localStorage.removeItem("token")
             }
             else {
                 console.log("valid token")
@@ -53,6 +53,7 @@ export default function LoginForm() {
                     setToken("")
                     return;
                 } console.log(res.json)
+                window.location = "/home";
                 return res.json()
             }).then(data => {
                 console.log(data)
@@ -74,6 +75,7 @@ export default function LoginForm() {
                     setToken("")
                     return;
                 } console.log(res.json)
+                window.location = "/home";
                 return res.json()
             }).then(data => {
                 console.log(data)
