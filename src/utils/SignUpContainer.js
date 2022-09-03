@@ -5,7 +5,7 @@ const axios = require("axios");
 const FormValidators = require("./validate");
 const validateSignUpForm = FormValidators.validateSignUpForm;
 const zxcvbn = require("zxcvbn");
-const URL_PREFIX = "http://lifter-backend-build.herokuapp.com/";
+const URL_PREFIX = "http://localhost:3001/" || "http://lifter-backend-build.herokuapp.com/";
 
 
 class SignUpContainer extends Component {
@@ -76,7 +76,7 @@ class SignUpContainer extends Component {
             radioButtonCoach: !this.state.radioButtonCoach
         })
     }
-//changed line 97 took away a back slash
+    //changed line 97 took away a back slash
     submitSignupCoach(user) {
         var params = { username: user.usr, email: user.email, password: user.pw };
         axios
@@ -136,8 +136,12 @@ class SignUpContainer extends Component {
             console.log(this.state.radioButtonCoach);
             if (this.state.radioButtonCoach == true) {
                 this.submitSignupCoach(user);
+                console.log(user)
+                window.location = "/login";
             }
             else this.submitSignupClient(user);
+            console.log(user)
+            window.location = "/login";
         }
         // } else {
         //     const errors = payload.errors;
