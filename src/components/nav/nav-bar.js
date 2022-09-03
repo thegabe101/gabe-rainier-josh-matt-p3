@@ -44,7 +44,6 @@ function NavBar(props) {
                 </svg>
               </div>
             </div>
-
           </div>
         </div>
       </nav>

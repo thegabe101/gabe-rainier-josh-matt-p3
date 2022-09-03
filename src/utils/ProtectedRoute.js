@@ -1,9 +1,9 @@
-import { React, Component } from "react";
+import React from "react";
 import { Redirect, Route } from "react-router-dom";
 import Home from "../views/home";
 
 
-function ProtectedRoute({ Component: Component, ...restOfProps }) {
+function ProtectedRoute({ component: Component, ...restOfProps }) {
     const isAuthenticated = localStorage.getItem("token");
     console.log("this", isAuthenticated);
 
@@ -11,21 +11,12 @@ function ProtectedRoute({ Component: Component, ...restOfProps }) {
     return (
         <Route
             {...restOfProps}
-            render={(props) => {
-                console.log(props)
+            render={(props) =>
                 isAuthenticated ? <Component {...props.location.pathname} /> : <Redirect to="/login" />
-                console.log(Component)
-            }
             }
         />
     );
 }
 
-// isAuthenticated ? <Component {...props} /> : <Redirect to="/login"
-// return (
-//     <Route exact path="/">
-//         {isAuthenticated ? <Redirect to="/home" /> : <Redirect to="/login" />}
-//     </Route>
-// )
 
 export default ProtectedRoute;

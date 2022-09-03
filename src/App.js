@@ -49,7 +49,7 @@ function App() {
 				<NavBar />
 				<div className='container flex-grow-1'>
 					<Switch>
-						<Route path='/signup' component={SignUpContainer} />
+						<Route exact path='/signup' component={SignUpContainer} />
 						<Route exact path='/login' component={LoginForm} />
 						<ProtectedRoute exact path="/home" component={Home} ></ProtectedRoute>
 						<ProtectedRoute exact path="/profile" component={Profile} ></ProtectedRoute>
