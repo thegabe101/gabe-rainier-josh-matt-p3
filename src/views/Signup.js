@@ -82,7 +82,7 @@ const SignUpForm = ({
           label="submit"
         />
         <button className="superCoolButton" type="button" onClick={toggleCoachState}  >I am a coach.</button>
-        <label for="coach">I am a coach.</label>
+        <label for="coach"></label>
       </form>
       <p>
         Aleady have an account? <br />

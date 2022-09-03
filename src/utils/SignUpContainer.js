@@ -75,8 +75,10 @@ class SignUpContainer extends Component {
         this.setState({
             radioButtonCoach: !this.state.radioButtonCoach
         })
+        console.log(this.state.radioButtonCoach)
     }
-    //changed line 97 took away a back slash
+
+
     submitSignupCoach(user) {
         var params = { username: user.usr, email: user.email, password: user.pw };
         axios
