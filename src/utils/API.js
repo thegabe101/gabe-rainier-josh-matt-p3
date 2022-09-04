@@ -62,12 +62,17 @@ const API = {
 			console.log(res)
 		})
 	},
-	putCoaches(id, username, email, coach_code) {
+	putCoaches(id, username, email, profileImage, firstName, lastName, phoneNumber, country, city, status) {
 		axios
 			.put(URL_PREFIX + `api/coaches/${id}`, {
+				firstName: firstName,
+				lastName: lastName,
 				username: username,
-				email: email,
-				coach_code: coach_code,
+				phoneNumber: phoneNumber,
+				profileImage: profileImage,
+				country: country,
+				city: city,
+				status: status
 			})
 			.then((response) => {
 				console.log(response)
