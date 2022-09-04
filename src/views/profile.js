@@ -3,10 +3,13 @@ import '../styles/Profile.css'
 import API from '../utils/API';
 import therock from '../images/therock.jpg'
 import axios from 'axios';
+import { Image } from "cloudinary-react";
 
 const URL_PREFIX = 'http://localhost:3001/' || 'http://lifter-backend-build.herokuapp.com/'
 
 const Profile = () => {
+
+	const [imageSelected, setImageSelected] = useState("");
 
 	const [profile, setProfile] = useState({
 		firstName: "",
@@ -62,21 +65,33 @@ const Profile = () => {
 		setProfile({ ...profile, [e.target.name]: e.target.value })
 	}
 
+	const uploadImage = () => {
+		// console.log(files[0]);
+		const formData = new FormData();
+		formData.append("file", imageSelected);
+		formData.append("upload_preset", "pyqqyzxb");
+		axios.post("https://api.cloudinary.com/v1_1/ddkr1ny4l/image/upload", formData).then((response) => {
+			console.log(response);
+		})
+	}
+
 
 	return (
 		<div className='divBody'>
 			<div className='row'>
 				<div className='col-md-3 border-right'>
 					<div className='d-flex flex-column align-items-center text-center p-3 py-5'>
-						<img
-							onChange={handleFormChange}
+						<input
+							type="file"
+							onChange={(event) => { setImageSelected(event.target.files[0]); }}
 							alt='Profile'
-							className='rounded-circle mt-5'
-							width='150px'
+						// className='rounded-circle mt-5'
+						// width='150px'
 						/>
+						<button onClick={uploadImage}>Upload Profile Picture</button>
 						<span className='font-weight-bold'></span>
 						<span className='text-black-50'></span>
-						<span> </span>
+						<Image className='rounded-circle mt-5' width='150px' cloudName="ddkr1ny4l" publicId="fl6z6yatkt92kml7hszb" />
 					</div>
 				</div>
 

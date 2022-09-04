@@ -154,7 +154,7 @@ const ExerciseReference = () => {
     console.log(selectedType);
 
     return (
-        <div className="wrap">
+        <div className="container wrap mb-4">
             <Dropdown title="Select exercise type" exercises={exercises} />
             {Type === 'Compound' && <Compound />}
             {Type === 'Core' && <Core />}

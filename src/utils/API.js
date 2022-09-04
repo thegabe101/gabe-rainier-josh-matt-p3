@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const URL_PREFIX = 'http://lifter-backend-build.herokuapp.com/'
+const URL_PREFIX = "http://localhost:3001/" || 'http://lifter-backend-build.herokuapp.com/'
 //COACH API REQ----------------------------------------------------------------
 //TODO: Adding a conditional to determine which route to hit.
 const API = {
@@ -176,6 +176,9 @@ const API = {
 				console.log(response)
 			})
 	},
+	// grabProfPic() {
+	// 	axios.post("https://api.cloudinary.com/v1_1/ddkr1ny4l/image/upload")
+	// }
 }
 //---------------------------------------------------------------------------
 export default API
