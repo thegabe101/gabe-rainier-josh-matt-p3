@@ -71,7 +71,6 @@ class SignUpContainer extends Component {
     }
 
     toggleCoachState(event) {
-        event.preventDefault()
         this.setState({
             radioButtonCoach: !this.state.radioButtonCoach
         })

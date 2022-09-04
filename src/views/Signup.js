@@ -25,6 +25,23 @@ const SignUpForm = ({
   onPwChange
 }) => {
 
+  const [buttonText, setButtonText] = useState('I am a Coach')
+
+  function handleOnClick() {
+    toggleCoachState()
+    handleButtonChange()
+  }
+  // Added
+  function handleButtonChange() {
+    if (buttonText === "I am a Coach") {
+      setButtonText('I am a Client')
+    } else {
+      setButtonText('I am a Coach')
+    }
+
+  }
+
+
   return (
     <div className="loginBox">
       <h1>Sign Up</h1>
@@ -81,7 +98,7 @@ const SignUpForm = ({
           type="submit"
           label="submit"
         />
-        <button className="superCoolButton" type="button" onClick={toggleCoachState}  >I am a coach.</button>
+        <button className="superCoolButton" type="button" onClick={handleOnClick}>{buttonText}</button>
         <label for="coach"></label>
       </form>
       <p>
