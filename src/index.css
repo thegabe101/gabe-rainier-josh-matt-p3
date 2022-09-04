@@ -46,9 +46,9 @@ code {
   right: 0;
 }
 
-.result-block-container .result-block {
+/* .result-block-container .result-block {
   opacity: 1;
-}
+} */
 
 .loading {
   display: flex;

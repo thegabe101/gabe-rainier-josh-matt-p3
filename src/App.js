@@ -46,7 +46,7 @@ function App() {
 		<Routes>
 			<div id='app' className='d-flex flex-column h-100 color superApp'>
 				<NavBar />
-				<div className='container flex-grow-1'>
+				<div className='flex-grow-1'>
 					<Switch>
 						<Route exact path='/signup' component={SignUpContainer} />
 						<Route exact path='/login' component={LoginForm} />
