@@ -24,7 +24,22 @@ const SignUpForm = ({
   toggleCoachState,
   onPwChange
 }) => {
+  const [buttonText,setButtonText] = useState('I am a Coach')
 
+  // RD added function -----------------------------
+  function handleOnClick() {
+    toggleCoachState()
+    handleButtonChange()
+  }
+  // Added
+  function handleButtonChange() {
+    if (buttonText === "I am a Coach") {
+      setButtonText('I am a Client')
+    } else {
+      setButtonText('I am a Coach')
+    }
+    
+  }
   return (
     <div className="loginBox">
       <h1>Sign Up</h1>
@@ -81,7 +96,7 @@ const SignUpForm = ({
           type="submit"
           label="submit"
         />
-        <button className="superCoolButton" type="button" onClick={toggleCoachState}  >I am a coach.</button>
+        <button className="superCoolButton" type="button" onClick={handleOnClick}>{buttonText}</button>
         <label for="coach"></label>
       </form>
       <p>
@@ -93,3 +108,5 @@ const SignUpForm = ({
 };
 
 export default SignUpForm;
+
+// 9/4/22 RD- MHH added change to the button "supercoolbutton" change onClick function. Seems to work
