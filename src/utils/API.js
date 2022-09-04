@@ -62,12 +62,18 @@ const API = {
 			console.log(res)
 		})
 	},
-	putCoaches(id, username, email, coach_code) {
+
+	putCoaches(id, firstName, lastName, userName, phoneNumber, profileImage, country, city, status) {
 		axios
 			.put(URL_PREFIX + `api/coaches/${id}`, {
-				username: username,
-				email: email,
-				coach_code: coach_code,
+				firstName: firstName,
+				lastName: lastName,
+				username: userName,
+				phoneNumber: phoneNumber,
+				profileImage: profileImage,
+				country: country,
+				city: city,
+				status: status
 			})
 			.then((response) => {
 				console.log(response)
@@ -101,11 +107,26 @@ const API = {
 			console.log(res)
 		})
 	},
-	putClients(id, username, email) {
+	putClients(id, firstName, lastName, userName, phoneNumber, profileImage, country, city, status) {
 		axios
-			.put(URL_PREFIX + `api/clients/${id}`, {
-				username: username,
-				email: email,
+			.put(URL_PREFIX + `api/coaches/${id}`, {
+				firstName: firstName,
+				lastName: lastName,
+				username: userName,
+				phoneNumber: phoneNumber,
+				profileImage: profileImage,
+				country: country,
+				city: city,
+				status: status
+			})
+			.then((response) => {
+				console.log(response)
+			})
+	},
+	assignClients(username, coach_id) {
+		axios
+			.put(URL_PREFIX + `api/clients/${username}`, {
+				coach_id: coach_id
 			})
 			.then((response) => {
 				console.log(response)

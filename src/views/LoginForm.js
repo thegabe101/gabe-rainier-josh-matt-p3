@@ -2,6 +2,7 @@ import React, { Component, useState, useEffect } from "react";
 import API from "../utils/API";
 import { useForm } from "react-hook-form";
 import "../styles/LoginForm.css";
+import { id } from "date-fns/locale";
 
 
 
@@ -57,6 +58,7 @@ export default function LoginForm() {
                 return res.json()
             }).then(data => {
                 console.log(data)
+                localStorage.setItem("id", data.user.id)
                 setUser({
                     id: data.user.id,
                     email: data.user.email
@@ -79,6 +81,7 @@ export default function LoginForm() {
                 return res.json()
             }).then(data => {
                 console.log(data)
+                localStorage.setItem("id", data.user.id)
                 setUser({
                     id: data.user.id,
                     email: data.user.email
