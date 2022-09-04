@@ -7,9 +7,6 @@ import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import '../styles/Roster.css'
 
-
-
-
 const Roster = () => {
     return (
         <Card sx={{ maxWidth: 345 }}>
@@ -36,6 +33,5 @@ const Roster = () => {
         </Card>
     )
 }
-
 
 export default Roster

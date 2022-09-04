@@ -24,7 +24,7 @@ const SignUpForm = ({
   toggleCoachState,
   onPwChange
 }) => {
-  const [buttonText,setButtonText] = useState('I am a Coach')
+  const [buttonText, setButtonText] = useState('I am a Coach')
 
   // RD added function -----------------------------
 
@@ -39,7 +39,7 @@ const SignUpForm = ({
     } else {
       setButtonText('I am a Coach')
     }
-    
+
   }
 
   return (
