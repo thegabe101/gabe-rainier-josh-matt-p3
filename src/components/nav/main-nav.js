@@ -37,12 +37,12 @@ const MainNav = ({ isCoach }) => {
 			>
 				Calendar
 			</NavLink>
-			{isCoach && <NavLink
+			<NavLink
 				to='/roster'
 				exact
 				className='nav-link'
 				activeClassName='router-link-exact-active'
-			>Roster</NavLink>}
+			>Roster</NavLink>
 		</div>
 	)
 }
@@ -51,7 +51,12 @@ const MainNav = ({ isCoach }) => {
 export default MainNav
 
 
-
+// {isCoach && <NavLink
+// 	to='/roster'
+// 	exact
+// 	className='nav-link'
+// 	activeClassName='router-link-exact-active'
+// >Roster</NavLink>}
 
 
 

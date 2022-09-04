@@ -22,8 +22,6 @@ function Dropdown({ title, exercises, multiSelect = false }) {
     }
 
 
-
-
     // function isExerciseInSelection(exercise) {
     //     if (selection.some(current => current.id === exercise.id)) {
     //         return true;

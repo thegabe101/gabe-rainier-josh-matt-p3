@@ -6,8 +6,14 @@ import CardMedia from '@material-ui/core/CardMedia'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import '../styles/Roster.css'
+import Modal from "../utils/Modal";
+
 
 export default function Roster() {
+
+
+    const [modalOpen, setModalOpen] = useState(false);
+
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
@@ -87,13 +93,16 @@ export default function Roster() {
                             name="search-form"
                             id="search-form"
                             className="search-input"
-                            placeholder="Search for..."
+                            placeholder="Search my roster..."
                             value={q}
                             onChange={(e) => setQ(e.target.value)}
                         />
                         <span className="sr-only">Search for lifter here</span>
                     </label>
-
+                    <button onClick={() => {
+                        setModalOpen(true);
+                    }} class="addClientButton" role="button">Add to my roster</button>
+                    {modalOpen && <Modal setOpenModal={setModalOpen} />}
                 </div>
                 <ul className="card-grid">
                     {search(data).map((item) => (
@@ -122,5 +131,8 @@ export default function Roster() {
         );
     }
 }
+
+
+
 
 
