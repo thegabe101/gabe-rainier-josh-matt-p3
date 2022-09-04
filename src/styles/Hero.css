@@ -1,21 +1,24 @@
 .heroBody {
-    background-image: url('https://www.elitefts.com/media/catalog/category/Category_Banner_weights.jpg');
+    background-image: url('https://www.yourhealth.net.au/wp-content/uploads/2017/09/athlete-getting-ready-for-weight-lifting-training.jpg');
     background-repeat: no-repeat;
-    object-fit: cover;
+    object-fit:cover;
     color: white;
-    background-attachment: fixed;
     background-size: 100%;
     background-color: rgba(40, 32, 32, 0.441); /* Tint color */
-    background-blend-mode: multiply;
-    height: 10vh;
-    width: 100%;
+    /* background-blend-mode: multiply; */
+    height: 100%;
+    width: 100vw;
+}
+
+.title {
+    font-size: 70px;
 }
 
 .liftr {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding-top: 2.3%;
+    padding-top: 10%;
 }
 
 .siteLogo {
@@ -23,17 +26,11 @@
 }
 
 .background-tint {
-    background-color: rgba(200,100,0,.5); /* Tint color */
+    background-color: rgba(10, 8, 7, 0.4); /* Tint color */
     background-blend-mode: multiply;
   }
 
-.title {
-    text-align: center;
-}
 
-.lead {
-    text-align: center;
-}
 
 @media only screen and (max-width: 700px) {
 	.rosterBox {
