@@ -11,12 +11,13 @@ const API = {
 			},
 		})
 	},
-	loginCoach: (email, password) => {
+	loginCoach: (email, password, isCoach) => {
 		return fetch(`${URL_PREFIX}api/coaches/login`, {
 			method: 'POST',
 			body: JSON.stringify({
 				email,
 				password,
+				isCoach
 			}),
 			headers: {
 				'Content-Type': 'application/json',
