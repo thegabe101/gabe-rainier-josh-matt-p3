@@ -24,8 +24,9 @@ const SignUpForm = ({
   toggleCoachState,
   onPwChange
 }) => {
+  const [buttonText,setButtonText] = useState('I am a Coach')
 
-  const [buttonText, setButtonText] = useState('I am a Coach')
+  // RD added function -----------------------------
 
   function handleOnClick() {
     toggleCoachState()
@@ -38,9 +39,8 @@ const SignUpForm = ({
     } else {
       setButtonText('I am a Coach')
     }
-
+    
   }
-
 
   return (
     <div className="loginBox">
@@ -110,3 +110,5 @@ const SignUpForm = ({
 };
 
 export default SignUpForm;
+
+// 9/4/22 RD- MHH added change to the button "supercoolbutton" change onClick function. Seems to work
