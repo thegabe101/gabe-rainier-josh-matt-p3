@@ -27,6 +27,7 @@ const SignUpForm = ({
   const [buttonText,setButtonText] = useState('I am a Coach')
 
   // RD added function -----------------------------
+
   function handleOnClick() {
     toggleCoachState()
     handleButtonChange()
@@ -40,6 +41,7 @@ const SignUpForm = ({
     }
     
   }
+
   return (
     <div className="loginBox">
       <h1>Sign Up</h1>

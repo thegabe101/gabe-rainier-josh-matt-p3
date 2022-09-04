@@ -48,7 +48,7 @@ export default function LoginForm() {
         console.log(data)
         console.log(radioValues)
         if (radioValues.radAnswer === "coach") {
-            API.loginCoach(data.email, data.password).then(res => {
+            API.loginCoach(data.email, data.password, data.isCoach).then(res => {
                 if (!res.ok) {
                     setUser({ userId: 0, email: "" });
                     setToken("")
@@ -58,10 +58,12 @@ export default function LoginForm() {
                 return res.json()
             }).then(data => {
                 console.log(data)
+                localStorage.setItem("isCoach", data.user.isCoach)
                 localStorage.setItem("id", data.user.id)
                 setUser({
                     id: data.user.id,
-                    email: data.user.email
+                    email: data.user.email,
+                    isCoach: data.user.isCoach
                 })
                 setToken(data.token)
                 localStorage.setItem("token", data.token)
@@ -71,7 +73,7 @@ export default function LoginForm() {
         }
         else if (radioValues.radAnswer === "client") {
             console.log("we made it")
-            API.loginClient(data.email, data.password).then(res => {
+            API.loginClient(data.email, data.password, data.isCoach).then(res => {
                 if (!res.ok) {
                     setUser({ userId: 0, email: "" });
                     setToken("")
@@ -81,10 +83,12 @@ export default function LoginForm() {
                 return res.json()
             }).then(data => {
                 console.log(data)
+                localStorage.setItem("isCoach", data.user.isCoach)
                 localStorage.setItem("id", data.user.id)
                 setUser({
                     id: data.user.id,
-                    email: data.user.email
+                    email: data.user.email,
+                    isCoach: data.user.isCoach
                 })
                 setToken(data.token)
                 localStorage.setItem("token", data.token)
