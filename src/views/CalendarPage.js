@@ -40,58 +40,64 @@ const localizer = dateFnsLocalizer({
 export default function Selectable() {
 	// DO A GET ROUTE HERE AND SET IT AS EVENTS
 
-	// let promise = function getDateData(_callback) {
-	// 	let data = []
-	// 	return new Promise((resolve, reject) => {
-	// 		// setTimeout(() => {
-	// 		// 	if (data) {
-	// 		// 		resolve(data)
-	// 		// 	} else {
-	// 		// 		reject('Rejected')
-	// 		// 	}
-	// 		// })
-	// 		axios
-	// 			.get('https://lifter-backend-build.herokuapp.com/' + 'api/exercises')
-	// 			.then((response) => {
-	// 				for (let i = 0; i < response.data.length; i++) {
-	// 					var title = response.data[i].exerciseName
-	// 					var formattedDate = response.data[i].dateSelected.slice(0, 10)
-	// 					let dateArray = formattedDate.split('-')
-	// 					var year = dateArray[0]
-	// 					var month = dateArray[1].replace('0', '')
-	// 					var day = dateArray[2]
-	// 					var obj = {}
-	// 					obj['id'] = i + 1
-	// 					obj['title'] = title
-	// 					obj['start'] = new Date(year, month, day)
-	// 					obj['end'] = new Date(year, month, day)
-	// 					data.push(obj)
-	// 					console.log(data)
-	// 					//set events here
-	// 					setTimeout(() => {
-	// 						if (data) {
-	// 							resolve(data)
-	// 						} else {
-	// 							reject('Rejected')
-	// 						}
-	// 					}, 2000)
-	// 				}
-	// 			})
-	// 	})
-	// }
-	// async function setCalendar() {
-	// 	return promise()
-	// 		.then((res) => {
-	// 			console.log(`The function received with value ${res}`)
+	let promise = function getDateData(_callback) {
+		let data = []
+		return new Promise((resolve, reject) => {
+			// setTimeout(() => {
+			// 	if (data) {
+			// 		resolve(data)
+			// 	} else {
+			// 		reject('Rejected')
+			// 	}
+			// })
+			axios
+				.get('https://lifter-backend-build.herokuapp.com/' + 'api/exercises')
+				.then((response) => {
+					for (let i = 0; i < response.data.length; i++) {
+						var title = response.data[i].exerciseName
+						var formattedDate = response.data[i].dateSelected.slice(0, 10)
+						let dateArray = formattedDate.split('-')
+						var year = dateArray[0]
+						var month = dateArray[1].replace('0', '')
+						var day = dateArray[2]
+						var obj = {}
+						obj['id'] = i + 1
+						obj['title'] = title
+						obj['start'] = new Date(year, month, day)
+						obj['end'] = new Date(year, month, day)
+						data.push(obj)
+						console.log(data)
+						console.log(events)
+						//set events here
+						setTimeout(() => {
+							if (data) {
+								resolve(data)
+								return data
+							} else {
+								reject('Rejected')
+							}
+						}, 2000)
+					}
+				})
+		})
+	}
+	console.log(setCalendar())
+	async function setCalendar() {
+		
+		return promise()
+			.then((res) => {
+				console.log(`The function received with value ${res}`)
+				console.log(res)
 
-	// 			return res
-	// 		})
-	// 		.catch((error) => {
-	// 			console.log(`Handling error as we received ${error}`)
-	// 		})
-	// }
-	// setCalendar()
-	const [myEvents, setEvents] = useState([])
+				return res
+			})
+			.catch((error) => {
+				console.log(`Handling error as we received ${error}`)
+			})
+	}
+	
+	setCalendar()
+	const [myEvents, setEvents] = useState(events)
 	const [Start, setStart] = useState('')
 	const [End, setEnd] = useState('')
 	const [Title, setTitle] = useState('')
@@ -147,6 +153,7 @@ export default function Selectable() {
 		e.preventDefault()
 		setEvents((prev) => [...prev, { start: Start, end: End, title: Title }])
 		setButtonPopup(false)
+		//POST ROUTE HERE POST FORM
 		console.log('REal:' + Start)
 		API.postExercise(Form.title, Form.sets, Form.reps, Form.weight, Start)
 		console.log(Form)
@@ -186,8 +193,8 @@ export default function Selectable() {
 			</div>
 			<div>
 				<Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
-					<h3>Assign</h3>
-					<p>Enter new Exercise</p>
+					<h3>Popup</h3>
+					<p>THIS POPUP IS TRIGGERED BY THING</p>
 					<form className='submitExerciseFrom' onSubmit={handleFormSubmit}>
 						<input
 							type='text'
