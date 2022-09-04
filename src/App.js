@@ -16,31 +16,8 @@ import ProtectedRoute from './utils/ProtectedRoute.js'
 import Roster from './views/Roster.js'
 
 function App() {
-	// const [user, setUser] = useState({
-	// 	id: 0,
-	// 	email: ''
-	// })
-	// const [token, setToken] = useState("")
 
-	// useEffect(() => {
-	// 	const storedToken = localStorage.getItem("token");
-	// 	API.checkToken(storedToken).then(res => {
-	// 		if (!res.ok) {
-	// 			console.log("invalid token!")
-	// 			// localStorage.removeItem("token")
-	// 		}
-	// 		else {
-	// 			console.log("valid token")
-	// 			res.json().then(data => {
-	// 				setToken(storedToken)
-	// 				setUser({
-	// 					id: data.id,
-	// 					email: data.email
-	// 				})
-	// 			})
-	// 		}
-	// 	})
-	// }, [])
+
 
 	return (
 		<Routes>

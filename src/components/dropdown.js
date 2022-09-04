@@ -9,7 +9,7 @@ import { FaDoorClosed } from 'react-icons/fa';
 const exerciseTypes = ['Compound', 'Upper Body', 'Chest', 'Arms', 'Back', 'Legs', 'Core',]
 
 function Dropdown({ title, exercises, multiSelect = false }) {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
     const [selection, setSelection] = useState(exerciseTypes);
     const toggle = () => setOpen(!open);
     Dropdown.handleClickOutside = () => setOpen(false);
@@ -20,8 +20,6 @@ function Dropdown({ title, exercises, multiSelect = false }) {
         window.location.reload()
         console.log(exerciseType);
     }
-
-
 
 
     // function isExerciseInSelection(exercise) {
