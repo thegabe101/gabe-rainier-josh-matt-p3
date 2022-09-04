@@ -176,6 +176,9 @@ const API = {
 				console.log(response)
 			})
 	},
+	// grabProfPic() {
+	// 	axios.post("https://api.cloudinary.com/v1_1/ddkr1ny4l/image/upload")
+	// }
 }
 //---------------------------------------------------------------------------
 export default API
