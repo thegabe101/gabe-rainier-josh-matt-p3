@@ -11,7 +11,7 @@ export default function Modal({ setOpenModal }) {
 
     useEffect(() => {
         fetch(
-            "http://localhost:3001/api/clients"
+            "http://localhost:3001/api/clients/search/1"
         )
             .then((res) => res.json())
             .then(

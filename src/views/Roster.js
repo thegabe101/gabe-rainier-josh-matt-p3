@@ -23,7 +23,7 @@ export default function Roster() {
 
     useEffect(() => {
         fetch(
-            "http://localhost:3001/api/clients"
+            `http://localhost:3001/api/clients/search/${localStorage.getItem("id")}`
         )
             .then((res) => res.json())
             .then(
