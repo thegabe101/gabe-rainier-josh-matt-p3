@@ -12,7 +12,7 @@ export default function Compound() {
           <h1>Bench Press</h1>
           <h2 className="animate-text">The staple chest excercise!</h2>
           <p className="animate-text">The bench press is the most well known chest excercise. It's one of the three compound movements in lifting.</p>
-          <a className="animate-text">Learn more: https://www.youtube.com/watch?v=GkA-maBl-vU</a>
+          <a href='https://www.youtube.com/watch?v=GkA-maBl-vU' className="animate-text">Learn more here</a>
           <div className="dots">
             <span></span>
             <span></span>
@@ -28,7 +28,7 @@ export default function Compound() {
           <h1>Squat</h1>
           <h2 className="animate-text">Stereotypically neglected by men.</h2>
           <p className="animate-text">The squat, another of the three compound movements, is one of the most important to have in your workout regiment. Along with the obvious benefits to your leg muscles, your core also works a lot to stabilize during this lift.</p>
-          <a className="animate-text">Learn more: https://www.youtube.com/watch?v=UpsOJCh0p-o</a>
+          <a href='https://www.youtube.com/watch?v=UpsOJCh0p-o' className="animate-text">Learn more here</a>
           <div className="dots">
             <span></span>
             <span></span>
@@ -43,7 +43,7 @@ export default function Compound() {
           <h1>Deadlift</h1>
           <h2 className="animate-text">Is sumo deadlift a real deadlift?</h2>
           <p className="animate-text">The most divisive compound lift, deadlift may seem intimidating, but with proper form and technique, you're not any more likely to be injured doing a deadlift, and it still has tremendous benefits!</p>
-          <a className="animate-text">Learn more: https://www.youtube.com/watch?v=714rtVpWXsw</a>
+          <a href='https://www.youtube.com/watch?v=714rtVpWXsw' className="animate-text">Learn more here</a>
           <div className="dots">
             <span></span>
             <span></span>
