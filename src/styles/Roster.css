@@ -95,6 +95,7 @@
  position: relative;
  box-shadow: 0 0 50px rgba(0, 0, 0, 0.315);
  border-radius: 20px;
+ 
 }
 
  .roster__info {
@@ -125,6 +126,7 @@
    object-position: center;
    object-fit: cover;
    margin-right: 10px;
+   
   }
   p b {
    font-style: italic;

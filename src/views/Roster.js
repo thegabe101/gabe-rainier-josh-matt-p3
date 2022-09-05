@@ -71,13 +71,7 @@ export default function Roster() {
     if (error) {
         return (
             <p>
-                {error.message}, if you get this error, the free API I used
-                might have stopped working, but I created a simple example that
-                demonstrate how this works,{" "}
-                <a href="https://codepen.io/Spruce_khalifa/pen/mdXEVKq">
-                    {" "}
-                    check it out{" "}
-                </a>{" "}
+                {error.message}
             </p>
         );
     } else if (!isLoaded) {
