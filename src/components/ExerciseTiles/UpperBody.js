@@ -93,9 +93,6 @@ export default function UpperBody() {
           </div>
         </div>
       </div>
-
-
-
     </div>
   )
 }

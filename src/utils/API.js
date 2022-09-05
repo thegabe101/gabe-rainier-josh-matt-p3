@@ -64,17 +64,17 @@ const API = {
 		})
 	},
 
-	putCoaches(id, firstName, lastName, userName, phoneNumber, profileImage, country, city, status) {
+	putCoaches(id, firstName, lastName, userName, phoneNumber, country, city, status, publicId) {
 		axios
 			.put(URL_PREFIX + `api/coaches/${id}`, {
 				firstName: firstName,
 				lastName: lastName,
 				username: userName,
 				phoneNumber: phoneNumber,
-				profileImage: profileImage,
 				country: country,
 				city: city,
-				status: status
+				status: status,
+				publicId: publicId,
 			})
 			.then((response) => {
 				console.log(response)
@@ -108,17 +108,17 @@ const API = {
 			console.log(res)
 		})
 	},
-	putClients(id, firstName, lastName, userName, phoneNumber, profileImage, country, city, status) {
+	putClients(id, firstName, lastName, userName, phoneNumber, country, city, status, publicId) {
 		axios
 			.put(URL_PREFIX + `api/coaches/${id}`, {
 				firstName: firstName,
 				lastName: lastName,
 				username: userName,
 				phoneNumber: phoneNumber,
-				profileImage: profileImage,
 				country: country,
 				city: city,
-				status: status
+				status: status,
+				publicId: publicId,
 			})
 			.then((response) => {
 				console.log(response)
