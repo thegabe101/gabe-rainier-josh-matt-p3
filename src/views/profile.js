@@ -28,33 +28,63 @@ const Profile = () => {
 	})
 
 	useEffect(() => {
-		axios.get(URL_PREFIX + `api/coaches/${localStorage.getItem('id')}`)
-			.then((response) => {
-				console.log(response)
-				//set responses as profile texts
-				const firstName = response.data.firstName
-				const lastName = response.data.lastName
-				const userName = response.data.userName
-				const phoneNumber = response.data.phoneNumber
-				const publicId = response.data.publicId
-				const country = response.data.country
-				const city = response.data.city
-				const status = response.data.status
-				const profileT = {
-					firstName: firstName,
-					lastName: lastName,
-					userName: userName,
-					phoneNumber: phoneNumber,
-					country: country,
-					city: city,
-					status: status,
-					publicId: publicId
-				}
-				localStorage.setItem("publicId", publicId)
-				console.log(localStorage.getItem("publicId"))
-				setProfile(profileT)
-				console.log(profile)
-			})
+		if (localStorage.getItem('isCoach')) {
+			axios.get(URL_PREFIX + `api/coaches/${localStorage.getItem('id')}`)
+				.then((response) => {
+					console.log(response)
+					//set responses as profile texts
+					const firstName = response.data.firstName
+					const lastName = response.data.lastName
+					const userName = response.data.userName
+					const phoneNumber = response.data.phoneNumber
+					const publicId = response.data.publicId
+					const country = response.data.country
+					const city = response.data.city
+					const status = response.data.status
+					const profileT = {
+						firstName: firstName,
+						lastName: lastName,
+						userName: userName,
+						phoneNumber: phoneNumber,
+						country: country,
+						city: city,
+						status: status,
+						publicId: publicId
+					}
+					localStorage.setItem("publicId", publicId)
+					console.log(localStorage.getItem("publicId"))
+					setProfile(profileT)
+					console.log(profile)
+				})
+		} else {
+			axios.get(URL_PREFIX + `api/clients/${localStorage.getItem('id')}`)
+				.then((response) => {
+					console.log(response)
+					//set responses as profile texts
+					const firstName = response.data.firstName
+					const lastName = response.data.lastName
+					const userName = response.data.userName
+					const phoneNumber = response.data.phoneNumber
+					const publicId = response.data.publicId
+					const country = response.data.country
+					const city = response.data.city
+					const status = response.data.status
+					const profileT = {
+						firstName: firstName,
+						lastName: lastName,
+						userName: userName,
+						phoneNumber: phoneNumber,
+						country: country,
+						city: city,
+						status: status,
+						publicId: publicId
+					}
+					localStorage.setItem("publicId", publicId)
+					console.log(localStorage.getItem("publicId"))
+					setProfile(profileT)
+					console.log(profile)
+				})
+		}
 	}, [])
 
 	useEffect(() => {
@@ -102,6 +132,7 @@ const Profile = () => {
 				formData
 			)
 			.then((response) => {
+				localStorage.setItem("publicId", response.data.public_id)
 				console.log(response)
 				setPublicId(response.data.public_id)
 			})
