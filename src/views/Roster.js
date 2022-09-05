@@ -61,13 +61,7 @@ export default function App() {
     if (error) {
         return (
             <p>
-                {error.message}, if you get this error, the free API I used
-                might have stopped working, but I created a simple example that
-                demonstrate how this works,{" "}
-                <a href="https://codepen.io/Spruce_khalifa/pen/mdXEVKq">
-                    {" "}
-                    check it out{" "}
-                </a>{" "}
+                {error.message}
             </p>
         );
     } else if (!isLoaded) {
@@ -88,6 +82,7 @@ export default function App() {
                         />
                         <span className="sr-only">Search for lifter here</span>
                     </label>
+
 
                 </div>
                 <ul className="card-grid">
