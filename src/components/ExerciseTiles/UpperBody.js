@@ -15,7 +15,7 @@ export default function UpperBody() {
           <h1>Shoulder press</h1>
           <h2 className="animate-text">Grow boulder shoulders!</h2>
           <p className="animate-text">The shoulder press is a great movement for building overhead strength, and targetting the shoulder muscles. Translates well to bench press strength as well!</p>
-          <a className="animate-text">Learn more: https://www.youtube.com/watch?v=qEwKCR5JCog</a>
+          <a href="https://www.youtube.com/watch?v=qEwKCR5JCog" className="animate-text">Learn more here</a>
           <div className="dots">
             <span></span>
             <span></span>
@@ -29,7 +29,7 @@ export default function UpperBody() {
           <h1>Dumbbell Press</h1>
           <h2 className="animate-text">Old school chest blaster.</h2>
           <p className="animate-text">The dumbbell press and it's many variations are essential accessories in hitting the different regions of the chest, w/ the flat, incline, and decline variations.</p>
-          <a className="animate-text">Learn more: https://www.youtube.com/watch?v=Y_7aHqXeCfQ</a>
+          <a href="https://www.youtube.com/watch?v=Y_7aHqXeCfQ" className="animate-text">Learn more here</a>
           <div className="dots">
             <span></span>
             <span></span>
@@ -43,7 +43,7 @@ export default function UpperBody() {
           <h1>Skullcrushers</h1>
           <h2 className="animate-text">Not as scary as it sounds.</h2>
           <p className="animate-text">Skullcrushers are a classic accessory that are great for gaining tricep strength and size.</p>
-          <a className="animate-text">Learn more: https://www.youtube.com/watch?v=d_KZxkY_0cM</a>
+          <a href="https://www.youtube.com/watch?v=d_KZxkY_0cM" className="animate-text">Learn more here</a>
           <div className="dots">
             <span></span>
             <span></span>
@@ -57,7 +57,7 @@ export default function UpperBody() {
           <h1>Barbell Row</h1>
           <h2 className="animate-text">A classic for growing back thickness!</h2>
           <p className="animate-text">One of the most well known lifting excercises around, the barbell row is a simple exercise which also comes with several variations, that is very effective for increasing the size and strength of your back.</p>
-          <a className="animate-text">Learn more: https://www.youtube.com/watch?v=axoeDmW0oAY</a>
+          <a href="https://www.youtube.com/watch?v=axoeDmW0oAY" className="animate-text">Learn more here</a>
           <div className="dots">
             <span></span>
             <span></span>
@@ -71,7 +71,7 @@ export default function UpperBody() {
           <h1>Dips</h1>
           <h2 className="animate-text">Great without weight!</h2>
           <p className="animate-text">Dips are a great excercise that can be done with or without weight, to target the chest and shoulders. Extremely beneficial for those who train olympic weightlifting.</p>
-          <a className="animate-text">Learn more: https://www.youtube.com/watch?v=yN6Q1UI_xkE</a>
+          <a href="https://www.youtube.com/watch?v=yN6Q1UI_xkE" className="animate-text">Learn more here</a>
           <div className="dots">
             <span></span>
             <span></span>
@@ -85,7 +85,7 @@ export default function UpperBody() {
           <h1>Lateral Raise</h1>
           <h2 className="animate-text">Shoulder blaster!</h2>
           <p className="animate-text">A great shoulder accessory for targeting the side delts, and growing those boulder shoulders.</p>
-          <a className="animate-text">Learn more: https://www.youtube.com/watch?v=v_ZkxWzYnMc</a>
+          <a href="https://www.youtube.com/watch?v=v_ZkxWzYnMc" className="animate-text">Learn more here</a>
           <div className="dots">
             <span></span>
             <span></span>
@@ -93,9 +93,6 @@ export default function UpperBody() {
           </div>
         </div>
       </div>
-
-
-
     </div>
   )
 }
