@@ -13,29 +13,30 @@ const URL_PREFIX =
 const Profile = () => {
 	const [imageSelected, setImageSelected] = useState('')
 
-	const [publicId, setPublicId] = useState('krp7b71h4ectxfzoedhr')
+	const [publicId, setPublicId] = useState(localStorage.getItem('publicId'));
 
 	const [profile, setProfile] = useState({
 		firstName: '',
 		lastName: '',
 		userName: '',
 		phoneNumber: '',
-		profileImage: '',
 		country: '',
 		city: '',
 		status: '',
+		publicId: '',
 	})
 
 	useEffect(() => {
 		axios
 			.get(URL_PREFIX + `api/coaches/${localStorage.getItem('id')}`)
 			.then((response) => {
+				console.log(response)
 				//set responses as profile texts
 				const firstName = response.data.firstName
 				const lastName = response.data.lastName
 				const userName = response.data.userName
 				const phoneNumber = response.data.phoneNumber
-				const profileImage = response.data.profileImage
+				const publicId = response.data.publicId
 				const country = response.data.country
 				const city = response.data.city
 				const status = response.data.status
@@ -44,24 +45,21 @@ const Profile = () => {
 					lastName: lastName,
 					userName: userName,
 					phoneNumber: phoneNumber,
-					profileImage: profileImage,
 					country: country,
 					city: city,
 					status: status,
+					publicId: publicId
 				}
+				localStorage.setItem("publicId", publicId)
+				console.log(localStorage.getItem("publicId"))
 				setProfile(profileT)
 				console.log(profile)
 			})
 	}, [])
+
 	useEffect(() => {
 		console.log(publicId)
 		changeImage()
-	}, [publicId])
-
-	function handleFormSubmit(e) {
-		e.preventDefault()
-		console.log('submitting form')
-		uploadImage()
 		API.putCoaches(
 			//add profile image
 			localStorage.getItem('id'),
@@ -69,11 +67,17 @@ const Profile = () => {
 			profile.lastName,
 			profile.userName,
 			profile.phoneNumber,
-			publicId,
 			profile.country,
 			profile.city,
-			profile.status
+			profile.status,
+			publicId
 		)
+	}, [publicId])
+
+	function handleFormSubmit(e) {
+		e.preventDefault()
+		console.log('submitting form')
+		uploadImage()
 	}
 
 	function handleFormChange(e) {
@@ -85,6 +89,7 @@ const Profile = () => {
 		console.log(imageId)
 		// return imageId
 	}
+
 	const uploadImage = async () => {
 		// console.log(files[0]);
 		const formData = new FormData()
