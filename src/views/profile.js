@@ -11,6 +11,7 @@ const URL_PREFIX =
 	'http://localhost:3001/' || 'http://lifter-backend-build.herokuapp.com/'
 
 const Profile = () => {
+
 	const [imageSelected, setImageSelected] = useState('')
 
 	const [publicId, setPublicId] = useState(localStorage.getItem('publicId'));
@@ -27,8 +28,7 @@ const Profile = () => {
 	})
 
 	useEffect(() => {
-		axios
-			.get(URL_PREFIX + `api/coaches/${localStorage.getItem('id')}`)
+		axios.get(URL_PREFIX + `api/coaches/${localStorage.getItem('id')}`)
 			.then((response) => {
 				console.log(response)
 				//set responses as profile texts
@@ -73,6 +73,7 @@ const Profile = () => {
 			publicId
 		)
 	}, [publicId])
+
 
 	function handleFormSubmit(e) {
 		e.preventDefault()
@@ -121,7 +122,7 @@ const Profile = () => {
 						<span className='font-weight-bold'></span>
 						<span className='text-black-50'></span>
 						<Image
-							className='rounded-circle mt-5'
+							className='superCoolProfilePicture'
 							width='150px'
 							cloudName={cloudNameGuy}
 							publicId={publicId}
