@@ -11,6 +11,16 @@ const Profile = () => {
 
 	const [imageSelected, setImageSelected] = useState("");
 
+	// constructor() {
+	// 	super();
+
+	// 	this.publicId = {
+	// 	  jsonReturnedValue: null
+	// 	}
+	//   }
+
+	// const [publicId, setPublicId] = useState("");
+
 	const [profile, setProfile] = useState({
 		firstName: "",
 		lastName: "",
@@ -56,8 +66,14 @@ const Profile = () => {
 	function handleFormSubmit(e) {
 		e.preventDefault()
 		console.log('submitting form')
-		console.log(profile)
-		API.putCoaches(localStorage.getItem("id"), profile.firstName, profile.lastName, profile.userName, profile.phoneNumber, profile.profileImage, profile.country, profile.city, profile.status)
+		// console.log(profile)
+		// const formData = new FormData();
+		// formData.append("file", imageSelected);
+		// formData.append("upload_preset", "pyqqyzxb");
+		// axios.post("https://api.cloudinary.com/v1_1/ddkr1ny4l/image/upload", formData).then((response) => {
+		// 	console.log(response);
+		// })
+		API.putCoaches(localStorage.getItem("id"), profile.firstName, profile.lastName, profile.userName, profile.phoneNumber, profile.publicId, profile.country, profile.city, profile.status)
 	}
 
 
@@ -72,6 +88,9 @@ const Profile = () => {
 		formData.append("upload_preset", "pyqqyzxb");
 		axios.post("https://api.cloudinary.com/v1_1/ddkr1ny4l/image/upload", formData).then((response) => {
 			console.log(response);
+			// setPublicId(response.data.public_id)
+			// setPublicId(this.response.data.public_id);
+			console.log(response.data.public_id);
 		})
 	}
 
@@ -91,7 +110,7 @@ const Profile = () => {
 						<button onClick={uploadImage}>Upload Profile Picture</button>
 						<span className='font-weight-bold'></span>
 						<span className='text-black-50'></span>
-						<Image className='rounded-circle mt-5' width='150px' cloudName="ddkr1ny4l" publicId="fl6z6yatkt92kml7hszb" />
+						<Image className='rounded-circle mt-5' width='150px' cloudName="ddkr1ny4l" publicId="etcinvfhabblkw1m3wvb" />
 					</div>
 				</div>
 
