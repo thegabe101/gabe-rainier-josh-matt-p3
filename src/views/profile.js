@@ -20,7 +20,6 @@ const Profile = () => {
 		lastName: '',
 		userName: '',
 		phoneNumber: '',
-		profileImage: '',
 		country: '',
 		city: '',
 		status: '',
@@ -35,7 +34,7 @@ const Profile = () => {
 				const lastName = response.data.lastName
 				const userName = response.data.userName
 				const phoneNumber = response.data.phoneNumber
-				const profileImage = response.data.profileImage
+				const publicId = response.data.publicId
 				const country = response.data.country
 				const city = response.data.city
 				const status = response.data.status
@@ -44,7 +43,7 @@ const Profile = () => {
 					lastName: lastName,
 					userName: userName,
 					phoneNumber: phoneNumber,
-					profileImage: profileImage,
+					publicId: publicId,
 					country: country,
 					city: city,
 					status: status,
@@ -53,6 +52,7 @@ const Profile = () => {
 				console.log(profile)
 			})
 	}, [])
+
 	useEffect(() => {
 		console.log(publicId)
 		changeImage()
@@ -116,7 +116,7 @@ const Profile = () => {
 						<span className='font-weight-bold'></span>
 						<span className='text-black-50'></span>
 						<Image
-							className='rounded-circle mt-5'
+							className='superCoolProfileImage'
 							width='150px'
 							cloudName={cloudNameGuy}
 							publicId={publicId}

@@ -12,7 +12,7 @@ export default function Compound() {
           <h1>Bench Press</h1>
           <h2 className="animate-text">The staple chest excercise!</h2>
           <p className="animate-text">The bench press is the most well known chest excercise. It's one of the three compound movements in lifting.</p>
-          <a className="animate-text">Learn more: https://www.youtube.com/watch?v=GkA-maBl-vU</a>
+          <a href="https://www.youtube.com/watch?v=GkA-maBl-vU" className="animate-text">Learn more: https://www.youtube.com/watch?v=GkA-maBl-vU</a>
           <div className="dots">
             <span></span>
             <span></span>

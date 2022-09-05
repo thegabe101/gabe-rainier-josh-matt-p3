@@ -64,14 +64,14 @@ const API = {
 		})
 	},
 
-	putCoaches(id, firstName, lastName, userName, phoneNumber, profileImage, country, city, status) {
+	putCoaches(id, firstName, lastName, userName, phoneNumber, publicId, country, city, status) {
 		axios
 			.put(URL_PREFIX + `api/coaches/${id}`, {
 				firstName: firstName,
 				lastName: lastName,
 				username: userName,
 				phoneNumber: phoneNumber,
-				profileImage: profileImage,
+				publicId: publicId,
 				country: country,
 				city: city,
 				status: status
@@ -108,14 +108,14 @@ const API = {
 			console.log(res)
 		})
 	},
-	putClients(id, firstName, lastName, userName, phoneNumber, profileImage, country, city, status) {
+	putClients(id, firstName, lastName, userName, phoneNumber, publicId, country, city, status) {
 		axios
 			.put(URL_PREFIX + `api/coaches/${id}`, {
 				firstName: firstName,
 				lastName: lastName,
 				username: userName,
 				phoneNumber: phoneNumber,
-				profileImage: profileImage,
+				publicId: publicId,
 				country: country,
 				city: city,
 				status: status
@@ -177,9 +177,6 @@ const API = {
 				console.log(response)
 			})
 	},
-	// grabProfPic() {
-	// 	axios.post("https://api.cloudinary.com/v1_1/ddkr1ny4l/image/upload")
-	// }
 }
 //---------------------------------------------------------------------------
 export default API

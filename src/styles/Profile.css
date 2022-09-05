@@ -21,6 +21,15 @@
 	background: white;
 }
 
+.chooseFile {
+	margin-top: 10%;
+}
+
+.superCoolProfileImage {
+	height: 350px;
+	width:350px;
+}
+
 .form-control:focus {
 	box-shadow: none;
 	border-color: #ba68c8;
@@ -64,9 +73,10 @@
 }
 
 @media only screen and (max-width: 700px) {
-	.divBody .profileInfo {
+	.superCoolProfileImage .divBody .profileInfo {
 		display: column;
 		display: flex;
 		word-wrap: wrap;
+		flex-shrink: 50%;
 	}
 }
