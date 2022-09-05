@@ -38,63 +38,8 @@ const localizer = dateFnsLocalizer({
 })
 
 export default function Selectable() {
-	// DO A GET ROUTE HERE AND SET IT AS EVENTS
-
-	// let promise = function getDateData(_callback) {
-	// 	let data = []
-	// 	return new Promise((resolve, reject) => {
-	// 		// setTimeout(() => {
-	// 		// 	if (data) {
-	// 		// 		resolve(data)
-	// 		// 	} else {
-	// 		// 		reject('Rejected')
-	// 		// 	}
-	// 		// })
-	// 		axios
-	// 			.get('https://lifter-backend-build.herokuapp.com/' + 'api/exercises')
-	// 			.then((response) => {
-	// 				for (let i = 0; i < response.data.length; i++) {
-	// 					var title = response.data[i].exerciseName
-	// 					var formattedDate = response.data[i].dateSelected.slice(0, 10)
-	// 					let dateArray = formattedDate.split('-')
-	// 					var year = dateArray[0]
-	// 					var month = dateArray[1].replace('0', '')
-	// 					var day = dateArray[2]
-	// 					var obj = {}
-	// 					obj['id'] = i + 1
-	// 					obj['title'] = title
-	// 					obj['start'] = new Date(year, month, day)
-	// 					obj['end'] = new Date(year, month, day)
-	// 					data.push(obj)
-	// 					console.log(data)
-	// 					//set events here
-	// 					setTimeout(() => {
-	// 						if (data) {
-	// 							resolve(data)
-	// 						} else {
-	// 							reject('Rejected')
-	// 						}
-	// 					}, 2000)
-	// 				}
-	// 			})
-	// 	})
-	// }
-	// async function setCalendar() {
-	// 	return promise()
-	// 		.then((res) => {
-	// 			console.log(`The function received with value ${res}`)
-
-	// 			return res
-	// 		})
-	// 		.catch((error) => {
-	// 			console.log(`Handling error as we received ${error}`)
-	// 		})
-	// }
-	// setCalendar()
-	const [myEvents, setEvents] = useState([])
-	const [Start, setStart] = useState('')
-	const [End, setEnd] = useState('')
-	const [Title, setTitle] = useState('')
+	const [myEvents, setEvents] = useState({ title: '', start: '', end: '' })
+	const [allEvents, setAllEvents] = useState([])
 	const [Form, setForm] = useState({
 		title: '',
 		variations: '',
@@ -103,57 +48,57 @@ export default function Selectable() {
 		weight: 0,
 	})
 	const [buttonPopup, setButtonPopup] = useState(false)
+	useEffect(() => {
+		axios
+			.get('https://lifter-backend-build.herokuapp.com/' + 'api/exercises')
+			.then((response) => {
+				console.log(response.data)
+				let dates = response.data
+				let seed = []
 
-	// useEffect(() => {
-	// 	axios
-	// 		.get('https://lifter-backend-build.herokuapp.com/' + 'api/exercises')
-	// 		.then((response) => {
-	// 			for (let i = 0; i < response.data.length; i++) {
-	// 				var title = response.data[i].exerciseName
-	// 				var formattedDate = response.data[i].dateSelected.slice(0, 10)
-	// 				let dateArray = formattedDate.split('-')
-	// 				var year = dateArray[0]
-	// 				var month = dateArray[1].replace('0', '')
-	// 				var day = dateArray[2]
-	// 				var obj = {}
-	// 				obj['id'] = i + 1
-	// 				obj['title'] = title
-	// 				obj['start'] = new Date(year, month, day)
-	// 				obj['end'] = new Date(year, month, day)
-	// 				// data.push(obj)
-	// 				console.log(data)
-	// 				//set events here
-	// 				setTimeout(() => {
-	// 					if (data) {
-	// 						resolve(data)
-	// 					} else {
-	// 						reject('Rejected')
-	// 					}
-	// 				}, 2000)
-	// 			}
-	// 		})
-	// })
+				for (let i = 0; i < dates.length; i++) {
+					let obj = {}
+					obj['title'] = dates[i].exerciseName
+					obj['start'] = dates[i].dateSelected
+					obj['end'] = dates[i].dateSelected
+					seed.push(obj)
+				}
+				console.log(seed)
+				setAllEvents(seed)
+			})
+			.catch((e) => {
+				console.log(e)
+			})
+		console.log(allEvents)
+	}, [])
+	useEffect(() => {
+		console.log(allEvents)
+	}, [allEvents])
 	const handleSelectSlot = useCallback(
-		({ start, end }) => {
+		({ start }) => {
 			// Shows Popup
-			setStart(start)
-			console.log(Start)
-			setEnd(end)
+			setEvents({ ...myEvents, start: start, end: start })
 			setButtonPopup(true)
 		},
 		[setEvents]
 	)
 	function handleFormSubmit(e) {
 		e.preventDefault()
-		setEvents((prev) => [...prev, { start: Start, end: End, title: Title }])
+		setAllEvents((prev) => [...prev, myEvents])
 		setButtonPopup(false)
-		console.log('REal:' + Start)
-		API.postExercise(Form.title, Form.sets, Form.reps, Form.weight, Start)
+		console.log(myEvents)
+		API.postExercise(
+			Form.title,
+			Form.sets,
+			Form.reps,
+			Form.weight,
+			myEvents.start
+		)
 		console.log(Form)
 	}
 	function handleFormChange(e) {
-		setTitle(Form.title)
 		setForm({ ...Form, [e.target.name]: e.target.value })
+		setEvents({ ...myEvents, title: Form.title })
 	}
 	const handleSelectEvent = useCallback(
 		//PUT Route is final
@@ -175,7 +120,7 @@ export default function Selectable() {
 				<Calendar
 					defaultDate={defaultDate}
 					defaultView={Views.MONTH}
-					events={myEvents}
+					events={allEvents}
 					localizer={localizer}
 					style={{ height: 900, width: '95%' }}
 					onSelectEvent={handleSelectEvent}
@@ -233,55 +178,3 @@ export default function Selectable() {
 Selectable.propTypes = {
 	localizer: PropTypes.instanceOf(DateLocalizer),
 }
-
-// class CalendarPage extends Component {
-// 	state = {
-// 		events: [
-// 			{
-// 				start: moment().toDate(),
-// 				end: moment().add(1, 'days').toDate(),
-// 				title: 'Some title',
-// 			},
-// 		],
-// 	}
-
-// 	onEventResize = (data) => {
-// 		const { start, end } = data
-
-// 		this.setState((state) => {
-// 			state.events[0].start = start
-// 			state.events[0].end = end
-// 			return { events: [...state.events] }
-// 		})
-// 	}
-
-// 	onEventDrop = (data) => {
-// 		const { start, end } = data
-
-// 		this.setState((state) => {
-// 			state.events[0].start = start
-// 			state.events[0].end = end
-// 			return { events: [...state.events] }
-// 		})
-// 		console.log(data)
-// 	}
-
-// 	render() {
-// 		return (
-// 			<div className='App'>
-// 				<DnDCalendar
-// 					defaultDate={moment().toDate()}
-// 					defaultView='month'
-// 					events={this.state.events}
-// 					localizer={localizer}
-// 					onEventDrop={this.onEventDrop}
-// 					onEventResize={this.onEventResize}
-// 					resizable
-// 					style={{ height: '100vh' }}
-// 				/>
-// 			</div>
-// 		)
-// 	}
-// }
-
-// export default CalendarPage

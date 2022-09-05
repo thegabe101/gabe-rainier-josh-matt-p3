@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const URL_PREFIX = "http://localhost:3001/" || 'http://lifter-backend-build.herokuapp.com/'
+const URL_PREFIX = 'http://lifter-backend-build.herokuapp.com/'
 //COACH API REQ----------------------------------------------------------------
 //TODO: Adding a conditional to determine which route to hit.
 const API = {
@@ -17,7 +17,7 @@ const API = {
 			body: JSON.stringify({
 				email,
 				password,
-				isCoach
+				isCoach,
 			}),
 			headers: {
 				'Content-Type': 'application/json',
@@ -64,7 +64,17 @@ const API = {
 		})
 	},
 
-	putCoaches(id, firstName, lastName, userName, phoneNumber, country, city, status, publicId) {
+	putCoaches(
+		id,
+		firstName,
+		lastName,
+		userName,
+		phoneNumber,
+		country,
+		city,
+		status,
+		publicId
+	) {
 		axios
 			.put(URL_PREFIX + `api/coaches/${id}`, {
 				firstName: firstName,
@@ -108,7 +118,17 @@ const API = {
 			console.log(res)
 		})
 	},
-	putClients(id, firstName, lastName, userName, phoneNumber, country, city, status, publicId) {
+	putClients(
+		id,
+		firstName,
+		lastName,
+		userName,
+		phoneNumber,
+		country,
+		city,
+		status,
+		publicId
+	) {
 		axios
 			.put(URL_PREFIX + `api/coaches/${id}`, {
 				firstName: firstName,
@@ -127,7 +147,7 @@ const API = {
 	assignClients(username, coach_id) {
 		axios
 			.put(URL_PREFIX + `api/clients/${username}`, {
-				coach_id: coach_id
+				coach_id: coach_id,
 			})
 			.then((response) => {
 				console.log(response)
