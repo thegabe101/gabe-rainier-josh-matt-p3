@@ -39,14 +39,13 @@ const localizer = dateFnsLocalizer({
 })
 
 export default function Selectable() {
-	//GMS this is the onlclick function that sets modal to open 
+	//GMS this is the onlclick function that sets modal to open
 	//onClick={() => {setModalOpen(true);}}
 
 	//GMS this should be placed with the cell target so that it sets the modal state to open on click, which will open calModal
-	//{modalOpen && <Modal setOpenModal={setModalOpen} />} 
+	//{modalOpen && <Modal setOpenModal={setModalOpen} />}
 
-
-	//GMS modal state for calModal, default closed 
+	//GMS modal state for calModal, default closed
 	// const [modalOpen, setModalOpen] = useState(false);
 	const [myEvents, setEvents] = useState({ title: '', start: '', end: '' })
 	const [allEvents, setAllEvents] = useState([])
@@ -60,12 +59,15 @@ export default function Selectable() {
 	const [buttonPopup, setButtonPopup] = useState(false)
 	useEffect(() => {
 		axios
-			.get('https://lifter-backend-build.herokuapp.com/' + 'api/exercises')
+			.get(
+				'https://lifter-backend-build.herokuapp.com/' +
+					'api/exercises/search/' +
+					localStorage.getItem('id')
+			)
 			.then((response) => {
 				console.log(response.data)
 				let dates = response.data
 				let seed = []
-
 				for (let i = 0; i < dates.length; i++) {
 					let obj = {}
 					obj['title'] = dates[i].exerciseName
@@ -97,12 +99,14 @@ export default function Selectable() {
 		setAllEvents((prev) => [...prev, myEvents])
 		setButtonPopup(false)
 		console.log(myEvents)
+		const clientId = localStorage.getItem('id')
 		API.postExercise(
 			Form.title,
 			Form.sets,
 			Form.reps,
 			Form.weight,
-			myEvents.start
+			myEvents.start,
+			clientId
 		)
 		console.log(Form)
 	}
