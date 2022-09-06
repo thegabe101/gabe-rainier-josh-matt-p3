@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const URL_PREFIX = 'http://localhost:3001/' || 'http://lifter-backend-build.herokuapp.com/'
+// const URL_PREFIX = 'http://localhost:3001/' || 'http://lifter-backend-build.herokuapp.com/'
+const URL_PREFIX = 'http://lifter-backend-build.herokuapp.com/'
 //COACH API REQ----------------------------------------------------------------
 //TODO: Adding a conditional to determine which route to hit.
 const API = {
@@ -167,7 +168,7 @@ const API = {
 			console.log(response)
 		})
 	},
-	postExercise(exerciseName, sets, reps, weight, date) {
+	postExercise(exerciseName, sets, reps, weight, date, clientId) {
 		axios
 			.post(URL_PREFIX + `api/exercises/`, {
 				exerciseName: exerciseName,
@@ -175,6 +176,7 @@ const API = {
 				reps: reps,
 				weight: weight,
 				dateSelected: date,
+				client_id: clientId,
 			})
 			.then((response) => {
 				console.log(response)
