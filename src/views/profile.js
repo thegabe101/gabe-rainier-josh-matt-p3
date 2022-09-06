@@ -3,18 +3,19 @@ import '../styles/Profile.css'
 import API from '../utils/API'
 import axios from 'axios'
 import { Image } from 'cloudinary-react'
+import { get } from 'react-hook-form'
 
 const cloudNameGuy = 'ddkr1ny4l'
 const presetName = 'pyqqyzxb'
 
 const URL_PREFIX =
-	'http://localhost:3001/' || 'http://lifter-backend-build.herokuapp.com/'
+	'http://lifter-backend-build.herokuapp.com/'
 
 const Profile = () => {
 
 	const [imageSelected, setImageSelected] = useState('')
 
-	const [publicId, setPublicId] = useState(localStorage.getItem('publicId'));
+	const [publicId, setPublicId] = useState("");
 
 	const [profile, setProfile] = useState({
 		firstName: '',
@@ -24,102 +25,104 @@ const Profile = () => {
 		country: '',
 		city: '',
 		status: '',
-		publicId: '',
+		public_id: '',
 	})
 
 	useEffect(() => {
-		if (localStorage.getItem('isCoach')) {
+		console.log('use effect is on')
+		// getData();
+		const isACoach = localStorage.getItem("isCoach")
+		console.log(isACoach);
+		if (isACoach == "true") {
+			console.log('we is a coach')
 			axios.get(URL_PREFIX + `api/coaches/${localStorage.getItem('id')}`)
 				.then((response) => {
-					console.log(response)
-					//set responses as profile texts
-					const firstName = response.data.firstName
-					const lastName = response.data.lastName
-					const userName = response.data.userName
-					const phoneNumber = response.data.phoneNumber
-					const publicId = response.data.publicId
-					const country = response.data.country
-					const city = response.data.city
-					const status = response.data.status
+					setPublicId(response.data.publicId)
 					const profileT = {
-						firstName: firstName,
-						lastName: lastName,
-						userName: userName,
-						phoneNumber: phoneNumber,
-						country: country,
-						city: city,
-						status: status,
-						publicId: publicId
+						firstName: response.data.firstName,
+						lastName: response.data.lastName,
+						userName: response.data.username,
+						phoneNumber: response.data.phoneNumber,
+						country: response.data.country,
+						city: response.data.city,
+						status: response.data.status,
+						public_id: response.data.publicId
 					}
-					localStorage.setItem("publicId", publicId)
-					console.log(localStorage.getItem("publicId"))
+					// localStorage.setItem("publicId", publicId)
+					// console.log(localStorage.getItem(publicId))
 					setProfile(profileT)
-					console.log(profile)
 				})
 		} else {
+			console.log('we is a client')
 			axios.get(URL_PREFIX + `api/clients/${localStorage.getItem('id')}`)
 				.then((response) => {
-					console.log(response)
-					//set responses as profile texts
-					const firstName = response.data.firstName
-					const lastName = response.data.lastName
-					const userName = response.data.userName
-					const phoneNumber = response.data.phoneNumber
-					const publicId = response.data.publicId
-					const country = response.data.country
-					const city = response.data.city
-					const status = response.data.status
+					setPublicId(response.data.publicId)
+					console.log(response.data.username)
 					const profileT = {
-						firstName: firstName,
-						lastName: lastName,
-						userName: userName,
-						phoneNumber: phoneNumber,
-						country: country,
-						city: city,
-						status: status,
-						publicId: publicId
+						firstName: response.data.firstName,
+						lastName: response.data.lastName,
+						userName: response.data.username,
+						phoneNumber: response.data.phoneNumber,
+						country: response.data.country,
+						city: response.data.city,
+						status: response.data.status,
+						public_id: response.data.publicId
 					}
-					localStorage.setItem("publicId", publicId)
-					console.log(localStorage.getItem("publicId"))
+					// localStorage.setItem("publicId", publicId)
+					// console.log(localStorage.getItem("publicId"))
 					setProfile(profileT)
-					console.log(profile)
 				})
 		}
 	}, [])
-
-	useEffect(() => {
-		console.log(publicId)
-		changeImage()
-		API.putCoaches(
-			//add profile image
-			localStorage.getItem('id'),
-			profile.firstName,
-			profile.lastName,
-			profile.userName,
-			profile.phoneNumber,
-			profile.country,
-			profile.city,
-			profile.status,
-			publicId
-		)
-	}, [publicId])
 
 
 	function handleFormSubmit(e) {
 		e.preventDefault()
 		console.log('submitting form')
 		uploadImage()
+		// getData();
+		console.log(profile.public_id)
+		const isACoach = localStorage.getItem("isCoach")
+		if (isACoach == "true") {
+			console.log("performing coach update")
+			API.putCoaches(
+				//add profile image
+				localStorage.getItem('id'),
+				profile.firstName,
+				profile.lastName,
+				profile.userName,
+				profile.phoneNumber,
+				profile.country,
+				profile.city,
+				profile.status,
+				localStorage.getItem('publicId')
+			)
+		} else {
+			console.log("performing client update")
+			API.putClients(
+				//add profile image
+				localStorage.getItem('id'),
+				profile.firstName,
+				profile.lastName,
+				profile.userName,
+				profile.phoneNumber,
+				profile.country,
+				profile.city,
+				profile.status,
+				localStorage.getItem('publicId')
+			)
+		}
 	}
 
 	function handleFormChange(e) {
 		setProfile({ ...profile, [e.target.name]: e.target.value })
 	}
 
-	const changeImage = () => {
-		const imageId = JSON.stringify(publicId)
-		console.log(imageId)
-		// return imageId
-	}
+	// const changeImage = () => {
+	// 	const imageId = JSON.stringify(publicId)
+	// 	console.log(imageId)
+	// 	// return imageId
+	// }
 
 	const uploadImage = async () => {
 		// console.log(files[0]);
@@ -134,7 +137,7 @@ const Profile = () => {
 			.then((response) => {
 				localStorage.setItem("publicId", response.data.public_id)
 				console.log(response)
-				setPublicId(response.data.public_id)
+				setProfile({ ...profile, public_id: response.data.public_id })
 			})
 	}
 
@@ -176,6 +179,7 @@ const Profile = () => {
 									className='form-control'
 									placeholder='First Name'
 									onChange={handleFormChange}
+									value={profile.firstName}
 								/>
 							</div>
 							<div className='col-md-6'>
@@ -186,6 +190,7 @@ const Profile = () => {
 									className='form-control'
 									placeholder='Surname'
 									onChange={handleFormChange}
+									value={profile.lastName}
 								/>
 							</div>
 							<div className='row mt-3'>
@@ -197,6 +202,7 @@ const Profile = () => {
 										className='form-control'
 										placeholder='Username'
 										onChange={handleFormChange}
+										value={profile.userName}
 									/>
 								</div>
 								<div className='col-md-12'>
@@ -207,6 +213,7 @@ const Profile = () => {
 										className='form-control'
 										placeholder='Enter Phone Number'
 										onChange={handleFormChange}
+										value={profile.phoneNumber}
 									/>
 								</div>
 							</div>
@@ -219,6 +226,7 @@ const Profile = () => {
 										className='form-control'
 										placeholder='Country'
 										onChange={handleFormChange}
+										value={profile.country}
 									/>
 								</div>
 								<div className='col-md-12'>
@@ -229,6 +237,7 @@ const Profile = () => {
 										className='form-control'
 										placeholder='State'
 										onChange={handleFormChange}
+										value={profile.city}
 									/>
 								</div>
 								<div className='mt-5 text-center'>
@@ -261,6 +270,7 @@ const Profile = () => {
 								className='form-control'
 								placeholder='Status'
 								onChange={handleFormChange}
+								value={profile.status}
 							/>
 						</div>
 						<br />

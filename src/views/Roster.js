@@ -26,7 +26,7 @@ export default function Roster() {
             //GMS first url is just if you want to populate the roster with all clients in the database
             //GMS seconds URL should populate roster primary with only those belonging to coachid, which will by default be liftrbot 
             // `http://localhost:3001/api/clients`
-            `http://localhost:3001/api/clients/search/${localStorage.getItem("id")}`
+            `http://lifter-backend-build.herokuapp.com/api/clients/search/${localStorage.getItem("id")}`
         )
             .then((res) => res.json())
             .then(

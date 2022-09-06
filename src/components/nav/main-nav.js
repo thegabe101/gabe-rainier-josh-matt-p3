@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import { useEffect, useState } from "react"
 import React from 'react'
+import "../../styles/Mainnav.css";
 
 
 const MainNav = () => {
@@ -53,6 +54,9 @@ const MainNav = () => {
 					className='nav-link'
 					activeClassName='router-link-exact-active'
 				>Roster</NavLink>
+				<div class="container">
+					<div className="btn"><a href="#"></a>liftr Coach</div>
+				</div>
 			</div>
 		)
 	} else {
