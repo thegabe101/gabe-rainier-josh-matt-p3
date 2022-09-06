@@ -64,7 +64,7 @@ export default function Modal({ setOpenModal }) {
         console.log(username)
         const coachId = localStorage.getItem('id')
         console.log('selected a Client')
-        axios.put(URL_PREFIX + `api/clients/${username}`, {
+        axios.put(URL_PREFIX + `api/clients/roster/${username}`, {
             coach_id: coachId
         }).then((res) => {
             console.log(res)
