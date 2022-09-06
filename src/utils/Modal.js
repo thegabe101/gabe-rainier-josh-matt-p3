@@ -1,5 +1,6 @@
 import React, { Component, useState, useEffect } from "react";
 import "../styles/Modal.css";
+import { MdPersonAddAlt1 } from 'react-icons/md';
 
 export default function Modal({ setOpenModal }) {
     const [error, setError] = useState(null);
@@ -69,35 +70,18 @@ export default function Modal({ setOpenModal }) {
         return (
             <div className="modalBackground">
                 <div className="modalContainer">
-                    <label htmlFor="search-form">
-                        <input
-                            type="search"
-                            name="search-form"
-                            id="search-form"
-                            className="search-input"
-                            placeholder="Search for lifters..."
-                            value={q}
-                            onChange={(e) => setQ(e.target.value)}
-                        />
-                    </label>
-
-                    <ul className="modalWrapper">
-                        {search(data).map((item) => (
-                            <li className="clientInfo">
-                                <div className="img-wrapper">
-                                    <img className="rosImg" src="https://www.clipartmax.com/png/middle/352-3529412_png-free-download-weight-lift-clipart-weightlifting-png.png" />
-                                </div>
-                                <div>
-                                    <h2>{item.username}</h2>
-                                    <p>
-                                        {item.email}
-                                    </p>
-                                </div>
-                            </li>
-                        ))}
-                    </ul >
-
-                    <div className="footer">
+                    <div className="search-input">
+                        <label htmlFor="search-form">
+                            <input
+                                type="search"
+                                name="search-form"
+                                id="search-form"
+                                className="search-input"
+                                placeholder="Search for lifters..."
+                                value={q}
+                                onChange={(e) => setQ(e.target.value)}
+                            />
+                        </label>
                         <button
                             onClick={() => {
                                 setOpenModal(false);
@@ -106,7 +90,24 @@ export default function Modal({ setOpenModal }) {
                         >
                             Cancel
                         </button>
-                        <button>Add liftr</button>
+                    </div>
+                    <div className="cardMargin">
+                        <ul className="row">
+                            {search(data).map((item) => (
+                                <li className="col-sm-3 addCards">
+                                    {/* <div className="col">
+                                    <img className="col-sm" src="https://www.clipartmax.com/png/middle/352-3529412_png-free-download-weight-lift-clipart-weightlifting-png.png" />
+                                </div> */}
+                                    <div>
+                                        <h2>{item.username}</h2>
+                                        <p>
+                                            {item.email}
+                                            <button><MdPersonAddAlt1 /> Add to Roster</button>
+                                        </p>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul >
                     </div>
                 </div >
             </div >

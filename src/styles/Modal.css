@@ -18,25 +18,38 @@
     height: 100%;
     margin-bottom: 24px;
     display: flex;
-    align-items: center;
+    flex-direction: row;
     padding: 0 8px;
-    font-size: 12px;
-    background: #050505;
+    font-size: 14px;
     color: white;
-    height: 40px;
-    /* opacity: 0; */
+    height: 65px;
+    justify-content: space-between;
     }
 
-    
-    .clientInfo {
+    .inlineSearch {
+      display: flex;
+      flex-direction: row;
+    }
+
+    /* .clientInfo {
       box-shadow: inset 2px 1px 8px #ccc;
       padding: 18px;
       width: 125px;
       margin: 2rem auto;
       border-radius: 20px;
       font-size: 16px;
-    }
+    } */
     
+.addCards {
+  padding: 1%;
+  border: #050505 2px solid;
+  border-radius: 10px;
+}
+
+  .cardMargin {
+    margin-top: 2%;
+  }
+
     .rosImg {
       height: fit-content;
       width: 100%;
@@ -55,17 +68,20 @@
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding: 25px;
+    display: grid;
+    grid-template-rows: 60px 60px 60px 60px;
   }
 
   .modalWrapper {
     display: flex;
     flex-direction: row;
-  }
+    flex-wrap: wrap;
+  } 
   
   .modalContainer .title {
     display: inline-block;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 5px;
   }
   
   .titleCloseBtn {
@@ -76,39 +92,26 @@
   .titleCloseBtn button {
     background-color: transparent;
     border: none;
-    font-size: 25px;
+    font-size: 15px;
     cursor: pointer;
   }
   
   .modalContainer .body {
-    flex: 50%;
-    display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
   }
   
   .modalContainer .footer {
-    flex: 20%;
-    display: flex;
     justify-content: center;
     align-items: center;
   }
-  
-  /* .modalContainer .footer button {
-    width: 150px;
-    height: 45px;
-    margin: 10px;
-    border: none;
-    background-color: rgb(22, 18, 17);
-    color: white;
-    border-radius: 8px;
-    font-size: 20px;
-    cursor: pointer;
-  } */
+
   
   #cancelBtn {
     background-color: crimson;
-  }
+    width: fit-content;
+    color: white;
+  } 
 
   
