@@ -15,7 +15,7 @@ const Profile = () => {
 
 	const [imageSelected, setImageSelected] = useState('')
 
-	const [publicId, setPublicId] = useState(localStorage.getItem('publicId'));
+	const [publicId, setPublicId] = useState("");
 
 	const [profile, setProfile] = useState({
 		firstName: '',
@@ -25,60 +25,51 @@ const Profile = () => {
 		country: '',
 		city: '',
 		status: '',
-		publicId: '',
+		public_id: '',
 	})
 
-	const [coachy, setCoachy] = useState("");
-
-	const getData = async () => {
-		try {
-			const value = await localStorage.getItem("isCoach");
-			console.log(value);
-			if (value !== null) {
-				setCoachy(value);
-			}
-		} catch (e) {
-		}
-	};
-
 	useEffect(() => {
-		getData();
-		if (coachy == "true") {
+		console.log('use effect is on')
+		// getData();
+		const isACoach = localStorage.getItem("isCoach")
+		console.log(isACoach);
+		if (isACoach == "true") {
+			console.log('we is a coach')
 			axios.get(URL_PREFIX + `api/coaches/${localStorage.getItem('id')}`)
 				.then((response) => {
-					console.log(response)
-					console.log(response.data.firstName)
+					setPublicId(response.data.publicId)
 					const profileT = {
 						firstName: response.data.firstName,
 						lastName: response.data.lastName,
-						userName: response.data.userName,
+						userName: response.data.username,
 						phoneNumber: response.data.phoneNumber,
 						country: response.data.country,
 						city: response.data.city,
 						status: response.data.status,
-						publicId: response.data.publicId
+						public_id: response.data.publicId
 					}
-					localStorage.setItem("publicId", publicId)
-					console.log(localStorage.getItem(publicId))
+					// localStorage.setItem("publicId", publicId)
+					// console.log(localStorage.getItem(publicId))
 					setProfile(profileT)
 				})
-		} else if (coachy == "false") {
+		} else {
+			console.log('we is a client')
 			axios.get(URL_PREFIX + `api/clients/${localStorage.getItem('id')}`)
 				.then((response) => {
-					console.log(response);
-					console.log(response.data.phoneNumber);
+					setPublicId(response.data.publicId)
+					console.log(response.data.username)
 					const profileT = {
 						firstName: response.data.firstName,
 						lastName: response.data.lastName,
-						userName: response.data.userName,
+						userName: response.data.username,
 						phoneNumber: response.data.phoneNumber,
 						country: response.data.country,
 						city: response.data.city,
 						status: response.data.status,
-						publicId: response.data.publicId
+						public_id: response.data.publicId
 					}
-					localStorage.setItem("publicId", publicId)
-					console.log(localStorage.getItem("publicId"))
+					// localStorage.setItem("publicId", publicId)
+					// console.log(localStorage.getItem("publicId"))
 					setProfile(profileT)
 				})
 		}
@@ -89,8 +80,10 @@ const Profile = () => {
 		e.preventDefault()
 		console.log('submitting form')
 		uploadImage()
-		getData();
-		if (coachy == "true") {
+		// getData();
+		console.log(profile.public_id)
+		const isACoach = localStorage.getItem("isCoach")
+		if (isACoach == "true") {
 			console.log("performing coach update")
 			API.putCoaches(
 				//add profile image
@@ -102,7 +95,7 @@ const Profile = () => {
 				profile.country,
 				profile.city,
 				profile.status,
-				publicId
+				localStorage.getItem('publicId')
 			)
 		} else {
 			console.log("performing client update")
@@ -116,7 +109,7 @@ const Profile = () => {
 				profile.country,
 				profile.city,
 				profile.status,
-				publicId
+				localStorage.getItem('publicId')
 			)
 		}
 	}
@@ -144,7 +137,7 @@ const Profile = () => {
 			.then((response) => {
 				localStorage.setItem("publicId", response.data.public_id)
 				console.log(response)
-				setPublicId(response.data.public_id)
+				setProfile({ ...profile, public_id: response.data.public_id })
 			})
 	}
 
