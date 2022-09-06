@@ -143,6 +143,7 @@ const Profile = () => {
 			<div className='row'>
 				<div className='col-md-3 border-right'>
 					<div className='d-flex flex-column align-items-center text-center p-3 py-5'>
+						<span className='font-weight-bold profilePic'>Upload a Profile Picture</span>
 						<input
 							type='file'
 							onChange={(event) => {
@@ -150,7 +151,6 @@ const Profile = () => {
 							}}
 							alt='Profile'
 						/>
-						<span className='font-weight-bold'></span>
 						<span className='text-black-50'></span>
 						<Image
 							className='superCoolProfilePicture'
