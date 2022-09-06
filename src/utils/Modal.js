@@ -1,6 +1,7 @@
 import React, { Component, useState, useEffect } from "react";
 import "../styles/Modal.css";
 import { MdPersonAddAlt1 } from 'react-icons/md';
+import axios from "axios";
 
 export default function Modal({ setOpenModal }) {
     const [error, setError] = useState(null);
@@ -9,6 +10,7 @@ export default function Modal({ setOpenModal }) {
     const [q, setQ] = useState("");
     const [searchParam] = useState(["username"]);
     const [filterParam, setFilterParam] = useState(["All"]);
+    const URL_PREFIX = 'http://localhost:3001/' || 'http://lifter-backend-build.herokuapp.com/'
 
     useEffect(() => {
         fetch(
@@ -56,6 +58,21 @@ export default function Modal({ setOpenModal }) {
             }
         });
     }
+    function handleSelectedClient(e) {
+        e.preventDefault()
+        const username = e.target.id
+        console.log(username)
+        const coachId = localStorage.getItem('id')
+        console.log('selected a Client')
+        axios.put(URL_PREFIX + `api/clients/${username}`, {
+            coach_id: coachId
+        }).then((res) => {
+            console.log(res)
+        })
+
+
+        setOpenModal(false)
+    }
 
     if (error) {
         return (
@@ -102,7 +119,7 @@ export default function Modal({ setOpenModal }) {
                                         <h2>{item.username}</h2>
                                         <p>
                                             {item.email}
-                                            <button><MdPersonAddAlt1 /> Add to Roster</button>
+                                            <button id ={item.username} onClick={handleSelectedClient}><MdPersonAddAlt1 /> Add to Roster</button>
                                         </p>
                                     </div>
                                 </li>
