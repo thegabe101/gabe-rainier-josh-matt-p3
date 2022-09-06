@@ -9,7 +9,7 @@ import axios from 'axios';
 import API from '../utils/API';
 import SignUpContainer from "../utils/SignUpContainer";
 
-const URL_PREFIX = 'http://localhost:3001';
+const URL_PREFIX = 'http://lifter-backend-build.herokuapp.com/';
 
 const SignUpForm = ({
   history,
