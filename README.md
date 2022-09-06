@@ -50,7 +50,7 @@ Coach App is designed to make finding, scheduling, and following through on work
 This app is composed of several packages and technologies:
 
 -   [Sequelize](https://sequelize.org/)
--
+-   [Cloudinary](https://cloudinary.com/)
 -   [DotENV](https://www.npmjs.com/package/dotenv)
 -   [Express](https://www.npmjs.com/package/express)
 -   [MySQL2](https://www.npmjs.com/package/mysql2)

@@ -10,11 +10,13 @@ export default function Modal({ setOpenModal }) {
     const [q, setQ] = useState("");
     const [searchParam] = useState(["username"]);
     const [filterParam, setFilterParam] = useState(["All"]);
-    const URL_PREFIX = 'http://lifter-backend-build.herokuapp.com/'
+    // const URL_PREFIX = 'http://lifter-backend-build.herokuapp.com/'
+    const URL_PREFIX = 'http://localhost:3001/' || 'http://lifter-backend-build.herokuapp.com/'
 
     useEffect(() => {
         fetch(
-            "http://lifter-backend-build.herokuapp.com/api/clients/search/1"
+            'http://localhost:3001/api/clients/search/1'
+            // "http://lifter-backend-build.herokuapp.com/api/clients/search/1"
         )
             .then((res) => res.json())
             .then(
@@ -68,9 +70,8 @@ export default function Modal({ setOpenModal }) {
             coach_id: coachId
         }).then((res) => {
             console.log(res)
+            window.location.reload()
         })
-
-
         setOpenModal(false)
     }
 
@@ -112,9 +113,6 @@ export default function Modal({ setOpenModal }) {
                         <ul className="row">
                             {search(data).map((item) => (
                                 <li className="col-sm-3 addCards">
-                                    {/* <div className="col">
-                                    <img className="col-sm" src="https://www.clipartmax.com/png/middle/352-3529412_png-free-download-weight-lift-clipart-weightlifting-png.png" />
-                                </div> */}
                                     <div>
                                         <h2>{item.username}</h2>
                                         <p>

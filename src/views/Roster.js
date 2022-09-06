@@ -6,11 +6,15 @@ import CardMedia from '@material-ui/core/CardMedia'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import '../styles/Roster.css'
+import axios from "axios";
+import { IoPersonRemove } from 'react-icons/io5'
+import { IoCalendar } from 'react-icons/io5'
 import Modal from "../utils/Modal";
 
 
 export default function Roster() {
 
+    const URL_PREFIX = "http://localhost:3001/" || "http://lifter-backend-build.herokuapp.com/";
 
     const [modalOpen, setModalOpen] = useState(false);
 
@@ -25,8 +29,8 @@ export default function Roster() {
         fetch(
             //GMS first url is just if you want to populate the roster with all clients in the database
             //GMS seconds URL should populate roster primary with only those belonging to coachid, which will by default be liftrbot 
-            // `http://localhost:3001/api/clients`
-            `http://lifter-backend-build.herokuapp.com/api/clients/search/${localStorage.getItem("id")}`
+            `http://localhost:3001/api/clients/search/${localStorage.getItem("id")}`
+            // `http://lifter-backend-build.herokuapp.com/api/clients/search/${localStorage.getItem("id")}`
         )
             .then((res) => res.json())
             .then(
@@ -53,9 +57,19 @@ export default function Roster() {
         //Redirect to calendar
     }
 
-
-
-
+    function handleSelectedClientDelete(e) {
+        e.preventDefault()
+        const username = e.target.id
+        console.log(username)
+        const coachId = localStorage.getItem('id')
+        console.log('selected a Client')
+        axios.put(URL_PREFIX + `api/clients/roster/${username}`, {
+            coach_id: 1
+        }).then((res) => {
+            console.log(res)
+            window.location.reload()
+        })
+    }
 
 
     function search(items) {
@@ -127,7 +141,8 @@ export default function Roster() {
                                             <li>
                                                 Email:{" "}
                                                 <span>{item.email}</span>
-                                                <button id={item.id} onClick={handleToCalendar}>Go To Calendar</button>
+                                                <button id={item.id} onClick={handleToCalendar}><IoCalendar />Go To Calendar</button>
+                                                <button id={item.username} onClick={handleSelectedClientDelete}><IoPersonRemove /> Remove from Roster</button>
                                             </li>
                                         </ol>
                                     </div>
