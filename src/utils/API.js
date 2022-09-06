@@ -130,7 +130,7 @@ const API = {
 		publicId
 	) {
 		axios
-			.put(URL_PREFIX + `api/coaches/${id}`, {
+			.put(URL_PREFIX + `api/clients/${id}`, {
 				firstName: firstName,
 				lastName: lastName,
 				username: userName,

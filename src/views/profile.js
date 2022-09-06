@@ -3,6 +3,7 @@ import '../styles/Profile.css'
 import API from '../utils/API'
 import axios from 'axios'
 import { Image } from 'cloudinary-react'
+import { get } from 'react-hook-form'
 
 const cloudNameGuy = 'ddkr1ny4l'
 const presetName = 'pyqqyzxb'
@@ -27,99 +28,108 @@ const Profile = () => {
 		publicId: '',
 	})
 
+	const [coachy, setCoachy] = useState("");
+
+	const getData = async () => {
+		try {
+			const value = await localStorage.getItem("isCoach");
+			console.log(value);
+			if (value !== null) {
+				setCoachy(value);
+			}
+		} catch (e) {
+		}
+	};
+
 	useEffect(() => {
-		if (localStorage.getItem('isCoach')) {
+		getData();
+		if (coachy == "true") {
 			axios.get(URL_PREFIX + `api/coaches/${localStorage.getItem('id')}`)
 				.then((response) => {
 					console.log(response)
-					//set responses as profile texts
-					const firstName = response.data.firstName
-					const lastName = response.data.lastName
-					const userName = response.data.userName
-					const phoneNumber = response.data.phoneNumber
-					const publicId = response.data.publicId
-					const country = response.data.country
-					const city = response.data.city
-					const status = response.data.status
+					console.log(response.data.firstName)
 					const profileT = {
-						firstName: firstName,
-						lastName: lastName,
-						userName: userName,
-						phoneNumber: phoneNumber,
-						country: country,
-						city: city,
-						status: status,
-						publicId: publicId
+						firstName: response.data.firstName,
+						lastName: response.data.lastName,
+						userName: response.data.userName,
+						phoneNumber: response.data.phoneNumber,
+						country: response.data.country,
+						city: response.data.city,
+						status: response.data.status,
+						publicId: response.data.publicId
 					}
 					localStorage.setItem("publicId", publicId)
-					console.log(localStorage.getItem("publicId"))
+					console.log(localStorage.getItem(publicId))
 					setProfile(profileT)
-					console.log(profile)
 				})
-		} else {
+		} else if (coachy == "false") {
 			axios.get(URL_PREFIX + `api/clients/${localStorage.getItem('id')}`)
 				.then((response) => {
-					console.log(response)
-					//set responses as profile texts
-					const firstName = response.data.firstName
-					const lastName = response.data.lastName
-					const userName = response.data.userName
-					const phoneNumber = response.data.phoneNumber
-					const publicId = response.data.publicId
-					const country = response.data.country
-					const city = response.data.city
-					const status = response.data.status
+					console.log(response);
+					console.log(response.data.phoneNumber);
 					const profileT = {
-						firstName: firstName,
-						lastName: lastName,
-						userName: userName,
-						phoneNumber: phoneNumber,
-						country: country,
-						city: city,
-						status: status,
-						publicId: publicId
+						firstName: response.data.firstName,
+						lastName: response.data.lastName,
+						userName: response.data.userName,
+						phoneNumber: response.data.phoneNumber,
+						country: response.data.country,
+						city: response.data.city,
+						status: response.data.status,
+						publicId: response.data.publicId
 					}
 					localStorage.setItem("publicId", publicId)
 					console.log(localStorage.getItem("publicId"))
 					setProfile(profileT)
-					console.log(profile)
 				})
 		}
 	}, [])
-
-	useEffect(() => {
-		console.log(publicId)
-		changeImage()
-		API.putCoaches(
-			//add profile image
-			localStorage.getItem('id'),
-			profile.firstName,
-			profile.lastName,
-			profile.userName,
-			profile.phoneNumber,
-			profile.country,
-			profile.city,
-			profile.status,
-			publicId
-		)
-	}, [publicId])
 
 
 	function handleFormSubmit(e) {
 		e.preventDefault()
 		console.log('submitting form')
 		uploadImage()
+		getData();
+		if (coachy == "true") {
+			console.log("performing coach update")
+			API.putCoaches(
+				//add profile image
+				localStorage.getItem('id'),
+				profile.firstName,
+				profile.lastName,
+				profile.userName,
+				profile.phoneNumber,
+				profile.country,
+				profile.city,
+				profile.status,
+				publicId
+			)
+		} else {
+			console.log("performing client update")
+			API.putClients(
+				//add profile image
+				localStorage.getItem('id'),
+				profile.firstName,
+				profile.lastName,
+				profile.userName,
+				profile.phoneNumber,
+				profile.country,
+				profile.city,
+				profile.status,
+				publicId
+			)
+		}
 	}
 
 	function handleFormChange(e) {
 		setProfile({ ...profile, [e.target.name]: e.target.value })
 	}
 
-	const changeImage = () => {
-		const imageId = JSON.stringify(publicId)
-		console.log(imageId)
-		// return imageId
-	}
+	// const changeImage = () => {
+	// 	const imageId = JSON.stringify(publicId)
+	// 	console.log(imageId)
+	// 	// return imageId
+	// }
 
 	const uploadImage = async () => {
 		// console.log(files[0]);
@@ -176,6 +186,7 @@ const Profile = () => {
 									className='form-control'
 									placeholder='First Name'
 									onChange={handleFormChange}
+									value={profile.firstName}
 								/>
 							</div>
 							<div className='col-md-6'>
@@ -186,6 +197,7 @@ const Profile = () => {
 									className='form-control'
 									placeholder='Surname'
 									onChange={handleFormChange}
+									value={profile.lastName}
 								/>
 							</div>
 							<div className='row mt-3'>
@@ -197,6 +209,7 @@ const Profile = () => {
 										className='form-control'
 										placeholder='Username'
 										onChange={handleFormChange}
+										value={profile.userName}
 									/>
 								</div>
 								<div className='col-md-12'>
@@ -207,6 +220,7 @@ const Profile = () => {
 										className='form-control'
 										placeholder='Enter Phone Number'
 										onChange={handleFormChange}
+										value={profile.phoneNumber}
 									/>
 								</div>
 							</div>
@@ -219,6 +233,7 @@ const Profile = () => {
 										className='form-control'
 										placeholder='Country'
 										onChange={handleFormChange}
+										value={profile.country}
 									/>
 								</div>
 								<div className='col-md-12'>
@@ -229,6 +244,7 @@ const Profile = () => {
 										className='form-control'
 										placeholder='State'
 										onChange={handleFormChange}
+										value={profile.city}
 									/>
 								</div>
 								<div className='mt-5 text-center'>
@@ -261,6 +277,7 @@ const Profile = () => {
 								className='form-control'
 								placeholder='Status'
 								onChange={handleFormChange}
+								value={profile.status}
 							/>
 						</div>
 						<br />
