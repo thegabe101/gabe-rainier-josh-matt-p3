@@ -25,6 +25,7 @@ import Popup from '../components/Popup'
 import API from '../utils/API'
 import axios from 'axios'
 import { getDate } from 'date-fns'
+import calModal from '../utils/calModal'
 
 const locales = {
 	'en-US': require('date-fns/locale/en-US'),
@@ -38,6 +39,15 @@ const localizer = dateFnsLocalizer({
 })
 
 export default function Selectable() {
+	//GMS this is the onlclick function that sets modal to open 
+	//onClick={() => {setModalOpen(true);}}
+
+	//GMS this should be placed with the cell target so that it sets the modal state to open on click, which will open calModal
+	//{modalOpen && <Modal setOpenModal={setModalOpen} />} 
+
+
+	//GMS modal state for calModal, default closed 
+	// const [modalOpen, setModalOpen] = useState(false);
 	const [myEvents, setEvents] = useState({ title: '', start: '', end: '' })
 	const [allEvents, setAllEvents] = useState([])
 	const [Form, setForm] = useState({
