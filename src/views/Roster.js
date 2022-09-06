@@ -47,6 +47,17 @@ export default function Roster() {
     console.log(Object)
 
 
+    function handleToCalendar(e) {
+        e.preventDefault()
+        localStorage.setItem('clientId', e.target.id)
+        //Redirect to calendar
+    }
+
+
+
+
+
+
     function search(items) {
         return items.filter((item) => {
             if (item.username == filterParam) {
@@ -116,6 +127,7 @@ export default function Roster() {
                                             <li>
                                                 Email:{" "}
                                                 <span>{item.email}</span>
+                                                <button id={item.id} onClick={handleToCalendar}>Go To Calendar</button>
                                             </li>
                                         </ol>
                                     </div>
@@ -129,6 +141,9 @@ export default function Roster() {
     }
 }
 
+
+//WHEN clients card button is pressed
+//SET local storage client id to the clients id that you selected 
 
 
 
