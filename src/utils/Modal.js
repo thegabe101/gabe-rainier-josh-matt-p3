@@ -76,34 +76,26 @@ export default function Modal({ setOpenModal }) {
                             id="search-form"
                             className="search-input"
                             placeholder="Search for lifters..."
-                        // value={q}
-                        // onChange={(e) => setQ(e.target.value)}
+                            value={q}
+                            onChange={(e) => setQ(e.target.value)}
                         />
                     </label>
 
-                    <ul className="card-grid">
+                    <ul className="modalWrapper">
                         {search(data).map((item) => (
-                            <li>
-                                <article className="rosterBody" key={item.id}>
-                                    <div className="rosterBody">
-                                        <img className="rosterBox"
-                                            src="https://assets.vogue.com/photos/59132f18dc6868483f55b55a/master/w_2560%2Cc_limit/00-lede-the-rock.jpg"
-                                            alt={item.username}
-                                        />
-                                        <div className="card-content">
-                                            <h2 className="card-name">{item.username}</h2>
-                                            <ol className="card-list">
-                                                <li>
-                                                    Email:{" "}
-                                                    <span>{item.email}</span>
-                                                </li>
-                                            </ol>
-                                        </div>
-                                    </div>
-                                </article>
+                            <li className="clientInfo">
+                                <div className="img-wrapper">
+                                    <img className="rosImg" src="https://www.clipartmax.com/png/middle/352-3529412_png-free-download-weight-lift-clipart-weightlifting-png.png" />
+                                </div>
+                                <div>
+                                    <h2>{item.username}</h2>
+                                    <p>
+                                        {item.email}
+                                    </p>
+                                </div>
                             </li>
                         ))}
-                    </ul>
+                    </ul >
 
                     <div className="footer">
                         <button
@@ -116,8 +108,28 @@ export default function Modal({ setOpenModal }) {
                         </button>
                         <button>Add liftr</button>
                     </div>
-                </div>
-            </div>
+                </div >
+            </div >
         );
     }
 }
+
+                            // <li>
+                            //     <article className="rosterBody" key={item.id}>
+                            //         <div className="rosterBody">
+                            //             <img className="rosterBox"
+                            //                 src="https://assets.vogue.com/photos/59132f18dc6868483f55b55a/master/w_2560%2Cc_limit/00-lede-the-rock.jpg"
+                            //                 alt={item.username}
+                            //             />
+                            //             <div className="card-content">
+                            //                 <h2 className="card-name">{item.username}</h2>
+                            //                 <ol className="card-list">
+                            //                     <li>
+                            //                         Email:{" "}
+                            //                         <span>{item.email}</span>
+                            //                     </li>
+                            //                 </ol>
+                            //             </div>
+                            //         </div>
+                            //     </article>
+                            // </li>

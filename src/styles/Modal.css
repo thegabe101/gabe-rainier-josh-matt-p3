@@ -27,17 +27,39 @@
     /* opacity: 0; */
     }
 
+    
+    .clientInfo {
+      box-shadow: inset 2px 1px 8px #ccc;
+      padding: 18px;
+      width: 125px;
+      margin: 2rem auto;
+      border-radius: 20px;
+      font-size: 16px;
+    }
+    
+    .rosImg {
+      height: fit-content;
+      width: 100%;
+      filter: drop-shadow(-1px -2px 2px black);
+    }
+    
+    .notes {
+      text-align: center;
+    }
+
   .modalContainer {
     margin-top: 5%;
-    width: 30%;
-    height: 30%;
+    width: 85%;
+    height: 85%;
     border-radius: 12px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    display: flex;
-    flex-direction: column;
     padding: 25px;
+  }
 
+  .modalWrapper {
+    display: flex;
+    flex-direction: row;
   }
   
   .modalContainer .title {
@@ -63,7 +85,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.7rem;
     text-align: center;
   }
   
@@ -74,7 +95,7 @@
     align-items: center;
   }
   
-  .modalContainer .footer button {
+  /* .modalContainer .footer button {
     width: 150px;
     height: 45px;
     margin: 10px;
@@ -84,8 +105,10 @@
     border-radius: 8px;
     font-size: 20px;
     cursor: pointer;
-  }
+  } */
   
   #cancelBtn {
     background-color: crimson;
   }
+
+  
