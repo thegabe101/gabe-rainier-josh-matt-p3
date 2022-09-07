@@ -4,8 +4,7 @@
     object-fit:cover;
     color: white;
     background-size: 100%;
-    background-color: rgba(40, 32, 32, 0.441); /* Tint color */
-    /* background-blend-mode: multiply; */
+    background-color: rgba(40, 32, 32, 0.441); 
     height: 100%;
     width: 100vw;
 }
@@ -18,7 +17,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding-top: 10%;
+    padding-top: 15%;
 }
 
 .siteLogo {
@@ -26,7 +25,7 @@
 }
 
 .background-tint {
-    background-color: rgba(10, 8, 7, 0.4); /* Tint color */
+    background-color: rgba(10, 8, 7, 0.4); 
     background-blend-mode: multiply;
   }
 
@@ -38,4 +37,30 @@
 		display: flex;
 		word-wrap: wrap;
 	}
+}
+
+@media only screen and (max-width: 1000px) {
+	.heroBody .background-tint {
+	flex-shrink: 20%;
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	.heroBody {
+	height: 0px;
+    width: 0px;
+	}
+}
+
+@media only screen and (max-width: 1000px) {
+	/* .flex-grow-1 {
+	display: none;
+	} */
+    .footer {
+        height: 80vh;
+    }
+    a nav .navbar {
+        justify-content: center;
+        align-items: center ;
+    }
 }

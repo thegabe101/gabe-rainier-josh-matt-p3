@@ -31,7 +31,7 @@
 	font-weight: 400;
 	line-height: 10px;
 	margin: 0 5px 10px 0;
-	overflow: visible;
+	overflow:hidden;
 	padding: 12px 40px;
 	text-align: center;
 	text-transform: none;
@@ -83,10 +83,11 @@
  display: flex;
  justify-content: center;
  align-items: center;
- min-height: 30vh;
+ min-height: fit-content;
  line-height: 1.4;
  border-radius: 20px;
  margin: 2%;
+ min-width: fit-content;
 }
 
 .rosterBox {
@@ -126,7 +127,7 @@
 img {
    width: 60px;
    height: 60px;
-   border-radius: 50%;
+   /* border-radius: 50%; */
    object-position: center;
    object-fit: cover;
    margin-right: 10px;
@@ -137,8 +138,18 @@ p b {
    font-style: italic;
   }
 
-  @media (min-width: 768px) {
-	.button-50 {
-	  padding: 12px 50px;
+  
+  @media only screen and (max-width: 700px) {
+	.search-form{width: fit-content;}
+
+	.search-input{width: fit-content;}
+
+	.short-text { display: none; }
+
+	.search-wrapper {
+		width: 100%;
+	}
+	.addClientButton {
+		width: fit-content;
 	}
   }

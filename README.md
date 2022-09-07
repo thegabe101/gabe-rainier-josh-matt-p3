@@ -1,8 +1,8 @@
-# Coach App
+# liftr
 
 ## description
 
-Coach App is designed to make finding, scheduling, and following through on workouts with your coach easier- and things easier for the coach.
+liftr is designed to make finding, scheduling, and following through on workouts with your coach easier- and things easier for the coach. With liftr, you can find your entire workout schedule- as assigned by your coach- all in one place. As a coach, you can easily navigate your trainees schedules and assign them detailed exercises set to be done on specific dates.
 
 ## table-of-contents
 
@@ -56,17 +56,21 @@ This app is composed of several packages and technologies:
 -   [MySQL2](https://www.npmjs.com/package/mysql2)
 -   [Heroku](https://heroku.com/)
 -   [Connect Session Sequelize](https://www.npmjs.com/package/connect-session-sequelize)
--   [Netlify]
--   [React]
--   [Axios]
--   [bcrypt]
+-   [Netlify](https://www.netlify.com/?utm_source=google&utm_medium=paid_search&utm_campaign=12755510784&adgroup=118788138897&utm_term=netlify&utm_content=aud-1291860397602:kwd-371509120223&creative=514583565825&device=c&matchtype=e&location=9033326)
+-   [React](https://reactjs.org/)
+-   [Axios](https://axios-http.com/docs/intro)
+-   [bcrypt](https://www.npmjs.com/package/bcrypt)
 -   [Express Session](https://www.npmjs.com/package/express-session)
+-   [Express JWT](https://www.npmjs.com/package/express-jwt)
+-   [Moment](https://momentjs.com/)
+-   [React Icons](https://react-icons.github.io/react-icons/)
+-   [Material UI](https://mui.com/)
 
-It also involved the usage of the app, [Insomnia](https://insomnia.rest/), which is used outside of the users code editing software as a standalone application.
+Building liftr also involved the use of the app [Insomnia](https://insomnia.rest/), which is used outside of the users code editing software as a standalone application, in addition to [MySQLWorkbench](https://www.mysql.com/products/workbench/).
 
 ## usage
 
-This web application is designed with both athletes and trainers alike in mind.
+This web application is designed with both athletes and trainers alike in mind; thus, there are two different login routes that clients and coaches may log in via.
 
 ## reflections
 
@@ -118,6 +122,7 @@ Shout out to our hardworking team, which stayed on the grind to confront, fear, 
 
 And shout out to our friends, TAs, and tutors who lended a hand,
 
+-   Pedro from PedroTech
 -   Mathias Darr
 -   Jacob Carver
 

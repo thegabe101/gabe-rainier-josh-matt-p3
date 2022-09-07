@@ -1,6 +1,5 @@
-import HomeContent from "./home/home-content.js";
 import Footer from "./footer";
 import Hero from "./home/hero.js";
 import NavBar from "./nav/nav-bar.js";
 
-export { HomeContent, Footer, Hero, NavBar };
+export { Footer, Hero, NavBar };

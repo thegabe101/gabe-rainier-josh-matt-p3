@@ -53,8 +53,17 @@
 .superCoolProfilePicture {
 	width: 200px;
 	height: 200px;
+	/* margin-top: 10%; */
+	box-shadow: 3px 3px 3px 3px grey;
+	border-radius: 20%;
+}
+
+.superCoolProfilePictureProf {
+	width: 200px;
+	height: 200px;
 	margin-top: 10%;
-	box-shadow: 5px 5px 5px 5px grey;
+	box-shadow: 3px 3px 3px 3px grey;
+	border-radius: 50%;
 }
 
 @media only screen and (max-width: 700px) {

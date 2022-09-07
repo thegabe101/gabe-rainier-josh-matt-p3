@@ -7,15 +7,15 @@ import { get } from 'react-hook-form'
 
 const cloudNameGuy = 'ddkr1ny4l'
 const presetName = 'pyqqyzxb'
-const URL_PREFIX = "http://localhost:3001/" || "http://lifter-backend-build.herokuapp.com/";
-// const URL_PREFIX = 'http://lifter-backend-build.herokuapp.com/'
+// const URL_PREFIX = "http://localhost:3001/" || "http://lifter-backend-build.herokuapp.com/";
+const URL_PREFIX = 'http://lifter-backend-build.herokuapp.com/'
 
 const Profile = () => {
 
 	// const [imageSelected, setImageSelected] = useState(localStorage.getItem('publicId'))
 	const [imageSelected, setImageSelected] = useState("");
 
-	const [publicId, setPublicId] = useState("");
+	const [publicId, setPublicId] = useState(localStorage.getItem("publicId"));
 
 	const [profile, setProfile] = useState({
 		firstName: '',
@@ -101,6 +101,7 @@ const Profile = () => {
 				profile.country,
 				profile.city,
 				profile.status,
+				// profile.public_id
 				localStorage.getItem('publicId')
 			)
 		} else {
@@ -115,22 +116,17 @@ const Profile = () => {
 				profile.country,
 				profile.city,
 				profile.status,
+				// profile.public_id
 				localStorage.getItem('publicId')
 			)
 		}
-		console.log('got here')
+		// console.log('got here')
 		// window.location.reload()
 	}
 
 	function handleFormChange(e) {
 		setProfile({ ...profile, [e.target.name]: e.target.value })
 	}
-
-	// const changeImage = () => {
-	// 	const imageId = JSON.stringify(publicId)
-	// 	console.log(imageId)
-	// 	// return imageId
-	// }
 
 	async function uploadImage() {
 		// console.log(files[0]);
@@ -168,7 +164,7 @@ const Profile = () => {
 							cloudName={cloudNameGuy}
 							publicId={publicId}
 							width='150px'
-							className='superCoolProfilePicture'
+							className='superCoolProfilePictureProf'
 						/>
 					</div>
 				</div>

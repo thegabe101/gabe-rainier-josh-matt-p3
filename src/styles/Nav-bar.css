@@ -18,6 +18,7 @@
    letter-spacing: 1px;
    border: 3px solid #333;
    transition: all .35s;
+   border-radius: 15px;
  }
  
  .icon{
@@ -31,16 +32,7 @@
    z-index: -1;
    transition: all .35s;
  }
- 
- .icon svg{
-   width: 30px;
-   position: absolute;
-   top: calc(50% - 15px);
-   left: calc(50% - 15px);
-   transform: rotate(-45deg);
-   fill: #2ecc71;
-   transition: all .35s;
- }
+
  
  .logoutButton:hover{
    width: 200px;
@@ -53,3 +45,14 @@
    border: 3px solid #cf1f0f;
    right: -25%;
  }
+
+
+ @media only screen and (max-width: 768px) {
+  .headerLogo {
+    display: none;
+  }
+  .container a .logoutButton {
+    justify-content: center;
+    align-items: center;
+  }
+}
