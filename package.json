@@ -1,6 +1,5 @@
 {
   "name": "auth0-react-sample",
-  "homepage": "http://localhost:3000/home",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
