@@ -9,6 +9,7 @@
 .rIcons {
   justify-content: space-around;
   align-items: space-around;
+  padding: 5px;
 }
 
 .btn {

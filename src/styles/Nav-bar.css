@@ -31,16 +31,7 @@
    z-index: -1;
    transition: all .35s;
  }
- 
- .icon svg{
-   width: 30px;
-   position: absolute;
-   top: calc(50% - 15px);
-   left: calc(50% - 15px);
-   transform: rotate(-45deg);
-   fill: #2ecc71;
-   transition: all .35s;
- }
+
  
  .logoutButton:hover{
    width: 200px;
