@@ -181,6 +181,7 @@ export default function Selectable() {
 		setEvents({ ...myEvents, title: Form.title })
 	}
 
+
 	const handleSelectEvent = () => {
 		console.log("modal open")
 		setModalOpen(true);
@@ -201,6 +202,28 @@ export default function Selectable() {
 			})
 		}
 	}
+
+
+	// const handleSelectEvent = () => {
+	// 	console.log("modal open")
+	// 	setModalOpen(true);
+	// 	if (coachy == 'false') {
+	// 		axios.get('http://localhost:3001/' + `api/exercises/${localStorage.getItem('id')}`).then((response) => {
+	// 			console.log(response.data)
+	// 			const r = response.data
+	// 			setSelectedExercise({ title: r.exerciseName, variations: r.variations, reps: r.reps, sets: r.sets, weight: r.weight })
+	// 			//All you have to do is show modal here
+
+	// 		})
+	// 	} else {
+	// 		axios.get('http://localhost:3001/' + `api/exercises/${localStorage.getItem('id')}`).then((response) => {
+	// 			console.log(response.data)
+	// 			const r = response.data
+	// 			setSelectedExercise({ title: r.exerciseName, variations: r.variations, reps: r.reps, sets: r.sets, weight: r.weight })
+	// 			//and here
+	// 		})
+	// 	}
+	// }
 	useEffect(() => {
 		console.log(selectedExercise)
 		//render all the divs here
@@ -222,7 +245,7 @@ export default function Selectable() {
 					defaultView={Views.MONTH}
 					events={allEvents}
 					localizer={localizer}
-					style={{ height: 900, width: '95%' }}
+					style={{ height: 900, width: '100%' }}
 					onSelectEvent={handleSelectEvent}
 					onSelectSlot={handleSelectSlot}
 					selectable

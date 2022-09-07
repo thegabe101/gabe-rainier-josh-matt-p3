@@ -144,8 +144,8 @@ export default function Roster() {
                                             <li>
                                                 Email:{" "}
                                                 <span>{item.email}</span>
-                                                <button id={item.id} onClick={handleToCalendar}><IoCalendar />Go To Calendar</button>
-                                                <button id={item.username} onClick={handleSelectedClientDelete}><IoPersonRemove /> Remove from Roster</button>
+                                                <button id={item.id} onClick={handleToCalendar}><IoCalendar />Schedule</button>
+                                                <button id={item.username} onClick={handleSelectedClientDelete}><IoPersonRemove /> Remove</button>
                                             </li>
                                         </ol>
                                     </div>
