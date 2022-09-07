@@ -25,11 +25,12 @@ import Popup from '../components/Popup'
 import API from '../utils/API'
 import axios from 'axios'
 import { getDate } from 'date-fns'
-import calModal from '../utils/calModal'
+
 
 const locales = {
 	'en-US': require('date-fns/locale/en-US'),
 }
+
 const localizer = dateFnsLocalizer({
 	format,
 	parse,
@@ -39,14 +40,36 @@ const localizer = dateFnsLocalizer({
 })
 
 export default function Selectable() {
-	//GMS this is the onlclick function that sets modal to open
-	//onClick={() => {setModalOpen(true);}}
+	// GMS this is the onlclick function that sets modal to open
+	// onClick={() => {setModalOpen(true);}}
 
-	//GMS this should be placed with the cell target so that it sets the modal state to open on click, which will open calModal
-	//{modalOpen && <Modal setOpenModal={setModalOpen} />}
+	// GMS this should be placed with the cell target so that it sets the modal state to open on click, which will open calModal
+	// {modalOpen && <Modal setOpenModal={setModalOpen} />}
 
-	//GMS modal state for calModal, default closed
-	// const [modalOpen, setModalOpen] = useState(false);
+	// GMS modal state for calModal, default closed
+
+
+	const [coachy, setCoachy] = useState("");
+	const [selectedExercise, setSelectedExercise] = useState({
+		title: '',
+		variations: '',
+		reps: 0,
+		sets: 0,
+		weight: 0,
+	})
+
+	const getData = async () => {
+		try {
+			const value = await localStorage.getItem("isCoach");
+			console.log(value);
+			if (value !== null) {
+				setCoachy(value);
+			}
+		} catch (e) {
+		}
+	};
+
+
 	const [myEvents, setEvents] = useState({ title: '', start: '', end: '' })
 	const [allEvents, setAllEvents] = useState([])
 	const [Form, setForm] = useState({
@@ -57,36 +80,72 @@ export default function Selectable() {
 		weight: 0,
 	})
 	const [buttonPopup, setButtonPopup] = useState(false)
+	const [modalOpen, setModalOpen] = useState(false);
 	useEffect(() => {
-		axios
-			.get(
-				'http://localhost:3001/'
-				// 'https://lifter-backend-build.herokuapp.com/' 
-				+ 'api/exercises/search/' +
-				localStorage.getItem('id')
-			)
-			.then((response) => {
-				console.log(response.data)
-				let dates = response.data
-				let seed = []
-				for (let i = 0; i < dates.length; i++) {
-					let obj = {}
-					obj['title'] = dates[i].exerciseName
-					obj['start'] = dates[i].dateSelected
-					obj['end'] = dates[i].dateSelected
-					seed.push(obj)
-				}
-				console.log(seed)
-				setAllEvents(seed)
-			})
-			.catch((e) => {
-				console.log(e)
-			})
+		getData();
+		if (coachy == "true") {
+			axios
+				.get(
+					'http://localhost:3001/'
+					// 'https://lifter-backend-build.herokuapp.com/' 
+					+ 'api/exercises/search/' +
+					localStorage.getItem('id')
+				)
+				.then((response) => {
+					console.log(response.data)
+					let dates = response.data
+					let seed = []
+					for (let i = 0; i < dates.length; i++) {
+						let obj = {}
+						obj['title'] = dates[i].exerciseName
+						obj['start'] = dates[i].dateSelected
+						obj['end'] = dates[i].dateSelected
+						seed.push(obj)
+					}
+					console.log(seed)
+					setAllEvents(seed)
+				})
+				.catch((e) => {
+					console.log(e)
+				})
+		} else {
+			console.log("logged in as coach")
+			axios
+				.get(
+					'http://localhost:3001/'
+					// 'https://lifter-backend-build.herokuapp.com/' 
+					+ 'api/exercises/search/' +
+					localStorage.getItem('clientId')
+				)
+				.then((response) => {
+					console.log(response.data)
+					let dates = response.data
+					let seed = []
+					for (let i = 0; i < dates.length; i++) {
+						let obj = {}
+						obj['title'] = dates[i].exerciseName
+						obj['start'] = dates[i].dateSelected
+						obj['end'] = dates[i].dateSelected
+						seed.push(obj)
+					}
+					console.log(seed)
+					setAllEvents(seed)
+				})
+				.catch((e) => {
+					console.log(e)
+				})
+		}
 		console.log(allEvents)
 	}, [])
+
+
+
 	useEffect(() => {
 		console.log(allEvents)
 	}, [allEvents])
+
+
+
 	const handleSelectSlot = useCallback(
 		({ start }) => {
 			// Shows Popup
@@ -100,7 +159,13 @@ export default function Selectable() {
 		setAllEvents((prev) => [...prev, myEvents])
 		setButtonPopup(false)
 		console.log(myEvents)
-		const clientId = localStorage.getItem('id')
+		let clientId = ''
+		if (coachy == 'false') {
+			clientId = localStorage.getItem('id')
+		} else {
+			clientId = localStorage.getItem('clientId')
+		}
+
 		API.postExercise(
 			Form.title,
 			Form.sets,
@@ -115,12 +180,32 @@ export default function Selectable() {
 		setForm({ ...Form, [e.target.name]: e.target.value })
 		setEvents({ ...myEvents, title: Form.title })
 	}
-	const handleSelectEvent = useCallback(
-		//PUT Route is final
-		//GET route
-		(event) => window.alert(event.title),
-		[]
-	)
+
+	const handleSelectEvent = () => {
+		console.log("modal open")
+		setModalOpen(true);
+		if (coachy == 'false') {
+			axios.get('http://localhost:3001/' + `api/exercises/${localStorage.getItem('id')}`).then((response) => {
+				console.log(response.data)
+				const r = response.data
+				setSelectedExercise({ title: r.exerciseName, variations: r.variations, reps: r.reps, sets: r.sets, weight: r.weight })
+				//All you have to do is show modal here
+
+			})
+		} else {
+			axios.get('http://localhost:3001/' + `api/exercises/${localStorage.getItem('id')}`).then((response) => {
+				console.log(response.data)
+				const r = response.data
+				setSelectedExercise({ title: r.exerciseName, variations: r.variations, reps: r.reps, sets: r.sets, weight: r.weight })
+				//and here
+			})
+		}
+	}
+	useEffect(() => {
+		console.log(selectedExercise)
+		//render all the divs here
+	}, [selectedExercise])
+
 
 	const { defaultDate, scrollToTime } = useMemo(
 		() => ({
@@ -184,6 +269,16 @@ export default function Selectable() {
 
 					{/* <input type='text' placeholder='WOOP' />
 					<input type='text' placeholder='thats the sound of the police' /> */}
+				</Popup>
+			</div>
+			<div>
+				<Popup trigger={modalOpen} setTrigger={setModalOpen}>
+					<div>
+						<h1>Exercise name:{selectedExercise.title}</h1>
+						<h2>Target Reps: {selectedExercise.reps}</h2>
+						<h2>Target Sets: {selectedExercise.sets}</h2>
+						<h2>Weight: {selectedExercise.weight} Pounds</h2>
+					</div>
 				</Popup>
 			</div>
 		</Fragment>

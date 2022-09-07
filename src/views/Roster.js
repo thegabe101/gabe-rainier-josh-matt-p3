@@ -10,6 +10,8 @@ import axios from "axios";
 import { IoPersonRemove } from 'react-icons/io5'
 import { IoCalendar } from 'react-icons/io5'
 import Modal from "../utils/Modal";
+import { Redirect } from "react-router-dom";
+
 
 
 export default function Roster() {
@@ -54,6 +56,7 @@ export default function Roster() {
     function handleToCalendar(e) {
         e.preventDefault()
         localStorage.setItem('clientId', e.target.id)
+        window.location = "/calendar";
         //Redirect to calendar
     }
 
@@ -123,7 +126,7 @@ export default function Roster() {
                     </label>
                     <button onClick={() => {
                         setModalOpen(true);
-                    }} class="addClientButton" role="button">Add to my roster</button>
+                    }} className="addClientButton" role="button">Add to my roster</button>
                     {modalOpen && <Modal setOpenModal={setModalOpen} />}
                 </div>
                 <ul className="card-grid">
