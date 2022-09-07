@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/liftr/static/css/main.33068bf5.chunk.css",
-    "main.js": "/liftr/static/js/main.6f722d42.chunk.js",
-    "main.js.map": "/liftr/static/js/main.6f722d42.chunk.js.map",
+    "main.js": "/liftr/static/js/main.b79dd867.chunk.js",
+    "main.js.map": "/liftr/static/js/main.b79dd867.chunk.js.map",
     "runtime-main.js": "/liftr/static/js/runtime-main.39d6d385.js",
     "runtime-main.js.map": "/liftr/static/js/runtime-main.39d6d385.js.map",
     "static/css/2.0efa6c9f.chunk.css": "/liftr/static/css/2.0efa6c9f.chunk.css",
-    "static/js/2.6da140f7.chunk.js": "/liftr/static/js/2.6da140f7.chunk.js",
-    "static/js/2.6da140f7.chunk.js.map": "/liftr/static/js/2.6da140f7.chunk.js.map",
+    "static/js/2.82319447.chunk.js": "/liftr/static/js/2.82319447.chunk.js",
+    "static/js/2.82319447.chunk.js.map": "/liftr/static/js/2.82319447.chunk.js.map",
     "index.html": "/liftr/index.html",
     "static/css/2.0efa6c9f.chunk.css.map": "/liftr/static/css/2.0efa6c9f.chunk.css.map",
     "static/css/main.33068bf5.chunk.css.map": "/liftr/static/css/main.33068bf5.chunk.css.map",
-    "static/js/2.6da140f7.chunk.js.LICENSE.txt": "/liftr/static/js/2.6da140f7.chunk.js.LICENSE.txt",
+    "static/js/2.82319447.chunk.js.LICENSE.txt": "/liftr/static/js/2.82319447.chunk.js.LICENSE.txt",
     "static/media/Lateral-Raise.10a58f89.gif": "/liftr/static/media/Lateral-Raise.10a58f89.gif",
     "static/media/backextensions.1f2e786f.gif": "/liftr/static/media/backextensions.1f2e786f.gif",
     "static/media/barbellrow.c769198d.gif": "/liftr/static/media/barbellrow.c769198d.gif",
@@ -41,8 +41,8 @@
   "entrypoints": [
     "static/js/runtime-main.39d6d385.js",
     "static/css/2.0efa6c9f.chunk.css",
-    "static/js/2.6da140f7.chunk.js",
+    "static/js/2.82319447.chunk.js",
     "static/css/main.33068bf5.chunk.css",
-    "static/js/main.6f722d42.chunk.js"
+    "static/js/main.b79dd867.chunk.js"
   ]
 }
