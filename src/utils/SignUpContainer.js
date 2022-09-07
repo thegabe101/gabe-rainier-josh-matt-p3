@@ -6,7 +6,7 @@ const FormValidators = require('./validate')
 const validateSignUpForm = FormValidators.validateSignUpForm
 const zxcvbn = require('zxcvbn')
 // const URL_PREFIX = "http://localhost:3001/" || "http://lifter-backend-build.herokuapp.com/";
-const URL_PREFIX = 'https://lifter-backend-build.herokuapp.com/'
+const URL_PREFIX = `/api/`
 
 class SignUpContainer extends Component {
 	constructor(props) {

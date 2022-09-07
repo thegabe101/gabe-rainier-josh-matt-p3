@@ -80,8 +80,8 @@ export default function Selectable() {
 			axios
 				.get(
 					// 'http://localhost:3001/'
-					'https://lifter-backend-build.herokuapp.com/'
-					+ 'api/exercises/search/' +
+					`/api/`
+					+ `api/exercises/search/` +
 					localStorage.getItem('id')
 				)
 				.then((response) => {
@@ -106,8 +106,8 @@ export default function Selectable() {
 			axios
 				.get(
 					// 'http://localhost:3001/'
-					'https://lifter-backend-build.herokuapp.com/'
-					+ 'api/exercises/search/' +
+					`/api/`
+					+ `api/exercises/search/` +
 					localStorage.getItem('clientId')
 				)
 				.then((response) => {
