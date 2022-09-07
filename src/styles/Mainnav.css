@@ -1,36 +1,23 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
 
 * {
   margin:0;
   padding: 0;
-  box-sizing: border-box;
   font-family: 'Roboto Mono', monospace;
 }
 
-body {
-  width:100%;
-  position: relative;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background: #000;
-  min-height:100vh;
-}
-.container
-{
-  width:600px;
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:space-around;
-}
-.container .btn {
-  position:relative;
-  width: 155px;
-  height: 55px;
-  margin:20px;
+.rIcons {
+  justify-content: space-around;
+  align-items: space-around;
 }
 
-.container .btn a
+.btn {
+  position:relative;
+  width: 155px;
+  margin:0;
+}
+
+.btn a
 {
   position:absolute;
   top:0;
@@ -45,7 +32,7 @@ body {
   border-top: 1px solid rgba(255,255,255,0.1);
   border-bottom:1px solid rgba(255,255,255,0.1);
   border-radius: 30px;
-  color: #fff;
+  color: rgb(0, 0, 0);
   z-index: 1;
   font-size: 400;
   font-weight: 300;
@@ -54,7 +41,6 @@ body {
   overflow: hidden;
   transition: 0.5s;
   backdrop-filter: blur(15px);
-  
 }
 
 .container .btn:hover a
@@ -80,6 +66,7 @@ body {
 {
   transform: skewX(45deg) translateX(200%);
 }
+
 .container .btn::before
 {
   content: '';
@@ -105,7 +92,7 @@ body {
 
 .container .btn::after
 {
-  content: '';
+  content: 'Welcome';
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -114,7 +101,7 @@ body {
   height:10px;
   background: #f00;
   border-radius: 10px;
-  transition: 0.5s;
+  transition: 0.1s;
   transition-delay: 0s;
 }
 .container .btn:hover::after
@@ -123,35 +110,18 @@ body {
   height: 50%;
   width: 80%;
   border-radius: 30px;
-  transition-delay: 0.5s;
+  transition-delay: 0.1s;
 }
 
 .container .btn:nth-child(1)::before,
 .container .btn:nth-child(1)::after
 {
-  background: #ff1f71;
-  box-shadow: 0 0 5px #ff1f71,
-  0 0 15px #ff1f71,
-  0 0 30px #ff1f71,
-  0 0 60px #ff1f71;
+  background: #131212c7;
+  box-shadow: 0 0 5px #131212c7,
+  0 0 15px #6e0f17,
+  0 0 30px #6e0f17,
+  0 0 60px #6e0f17;
 }
 
-.container .btn:nth-child(2)::before,
-.container .btn:nth-child(2)::after
-{
-  background: #2bd2ff;
-  box-shadow: 0 0 5px #2bd2ff,
-  0 0 15px #2bd2ff,
-  0 0 30px #2bd2ff,
-  0 0 60px #2bd2ff;
-}
+/*----------------------------------------------------------------------------------------------------------------------*/
 
-.container .btn:nth-child(3)::before,
-.container .btn:nth-child(3)::after
-{
-  background: #1eff45;
-  box-shadow: 0 0 5px #1eff45,
-  0 0 15px #1eff45,
-  0 0 30px #1eff45,
-  0 0 60px #1eff45;
-} */
