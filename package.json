@@ -1,5 +1,6 @@
 {
   "name": "auth0-react-sample",
+  "homepage": "http://thegabe101.github.io/liftr/",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
@@ -13,6 +14,7 @@
     "date-fns": "^2.29.2",
     "express": "^4.18.1",
     "express-jwt": "^7.7.5",
+    "gh-pages": "^4.0.0",
     "jwks-rsa": "^2.1.4",
     "material-ui": "^0.20.2",
     "moment": "2.26.0",
@@ -34,7 +36,9 @@
     "zxcvbn": "^4.4.2"
   },
   "scripts": {
-    "start": "cross-env port=3000 react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
