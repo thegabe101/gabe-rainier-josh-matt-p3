@@ -8,7 +8,7 @@ import { get } from 'react-hook-form'
 const cloudNameGuy = 'ddkr1ny4l'
 const presetName = 'pyqqyzxb'
 // const URL_PREFIX = "http://localhost:3001/" || "http://lifter-backend-build.herokuapp.com/";
-const URL_PREFIX = `/api/`
+const URL_PREFIX = 'https://lifter-backend-build.herokuapp.com/'
 
 const Profile = () => {
 
