@@ -10,13 +10,13 @@ export default function Modal({ setOpenModal }) {
     const [q, setQ] = useState("");
     const [searchParam] = useState(["username"]);
     const [filterParam, setFilterParam] = useState(["All"]);
-    const URL_PREFIX = `/api/`
+    const URL_PREFIX = 'https://lifter-backend-build.herokuapp.com/'
     // const URL_PREFIX = 'http://localhost:3001/' || 'http://lifter-backend-build.herokuapp.com/'
 
     useEffect(() => {
         fetch(
-            // 'http://localhost:3001/api/clients/search/1'
-            `/api/api/clients/search/1`
+            // 'http://:3001/api/clients/search/1'
+            `https://lifter-backend-build.herokuapp.com/api/clients/search/1`
         )
             .then((res) => res.json())
             .then(
