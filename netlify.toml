@@ -2,4 +2,3 @@
   from = "/*"
   to = "/"
   status = 200
-  /api/* = https://lifter-backend-build.herokuapp.com/:splat 200
