@@ -107,16 +107,15 @@ export default function LoginForm() {
                     <h1 className="signIn">Welcome to liftr</h1>
                     <div onChange={setRadAnswer} className="coolStyleOuter">
                         <div className="glowingText">
-                            <input name="radAnswer" type="radio"  label="check" id="checkClient" value="client"></input>
+                            <input name="radAnswer" type="radio" label="check" id="checkClient" value="client"></input>
                             <label for="client" className="entry">I am a client.</label>
-                            <input name="radAnswer" type="radio"  label="check" id="checkCoach" value="coach"></input>
+                            <input name="radAnswer" type="radio" label="check" id="checkCoach" value="coach"></input>
                             <label for="coach" className="entry">I am a coach.</label>
                         </div>
                     </div>
                     <h1 className="signIn">Sign in</h1>
                     <input className="signyInput" type="text" placeholder="email" name="email" {...register('email')} />
                     <input className="signyInput" type="password" placeholder="Enter your password" name="password" {...register('password')} />
-                    <a href="#" className="forgot">Forgot your password?</a>
                     <button className="logButton">Sign In</button>
                 </form>
             </div>

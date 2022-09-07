@@ -10,13 +10,22 @@ import axios from "axios";
 import { IoPersonRemove } from 'react-icons/io5'
 import { IoCalendar } from 'react-icons/io5'
 import Modal from "../utils/Modal";
+import { Image } from 'cloudinary-react'
 import { Redirect } from "react-router-dom";
 
 
 
 export default function Roster() {
 
-    const URL_PREFIX = "http://localhost:3001/" || "http://lifter-backend-build.herokuapp.com/";
+    const [publicId, setPublicId] = useState("");
+
+    const cloudNameGuy = 'ddkr1ny4l'
+
+    const presetName = 'pyqqyzxb'
+
+    // const URL_PREFIX = "http://localhost:3001/" || "http://lifter-backend-build.herokuapp.com/";
+
+    const URL_PREFIX = "http://lifter-backend-build.herokuapp.com/";
 
     const [modalOpen, setModalOpen] = useState(false);
 
@@ -31,12 +40,13 @@ export default function Roster() {
         fetch(
             //GMS first url is just if you want to populate the roster with all clients in the database
             //GMS seconds URL should populate roster primary with only those belonging to coachid, which will by default be liftrbot 
-            `http://localhost:3001/api/clients/search/${localStorage.getItem("id")}`
-            // `http://lifter-backend-build.herokuapp.com/api/clients/search/${localStorage.getItem("id")}`
+            // `http://localhost:3001/api/clients/search/${localStorage.getItem("id")}`
+            `http://lifter-backend-build.herokuapp.com/api/clients/search/${localStorage.getItem("id")}`
         )
             .then((res) => res.json())
             .then(
                 (result) => {
+                    console.log(result)
                     setIsLoaded(true);
                     setItems(result);
                 },
@@ -134,10 +144,16 @@ export default function Roster() {
                         <li>
                             <article className="rosterBody" key={item.id}>
                                 <div className="rosterBody">
-                                    <img className="rosterBox"
-                                        src="https://assets.vogue.com/photos/59132f18dc6868483f55b55a/master/w_2560%2Cc_limit/00-lede-the-rock.jpg"
-                                        alt={item.username}
+                                    <Image
+                                        cloudName={cloudNameGuy}
+                                        publicId={item.publicId}
+                                        width='150px'
+                                        className='superCoolProfilePicture'
                                     />
+                                    {/* <img className="rosterBox"
+                                        src={"https://assets.vogue.com/photos/59132f18dc6868483f55b55a/master/w_2560%2Cc_limit/00-lede-the-rock.jpg"}
+                                        alt={item.username}
+                                    /> */}
                                     <div className="card-content">
                                         <h2 className="card-name">{item.username}</h2>
                                         <ol className="card-list">

@@ -18,6 +18,7 @@
    letter-spacing: 1px;
    border: 3px solid #333;
    transition: all .35s;
+   border-radius: 15px;
  }
  
  .icon{
@@ -44,3 +45,14 @@
    border: 3px solid #cf1f0f;
    right: -25%;
  }
+
+
+ @media only screen and (max-width: 768px) {
+  .headerLogo {
+    display: none;
+  }
+  .container a .logoutButton {
+    justify-content: center;
+    align-items: center;
+  }
+}

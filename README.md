@@ -122,6 +122,7 @@ Shout out to our hardworking team, which stayed on the grind to confront, fear, 
 
 And shout out to our friends, TAs, and tutors who lended a hand,
 
+-   Pedro from PedroTech
 -   Mathias Darr
 -   Jacob Carver
 
