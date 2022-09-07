@@ -1,0 +1,82 @@
+
+
+[
+    {
+        "name": "Bench Press"
+    },
+    {
+        "name": "Squat"
+    },
+    {
+        "name": "Deadlift"
+    },
+    {
+        "name": "Shoulder Press"
+    },
+    {
+        "name": "Dumbbell Press"
+    },
+    {
+        "name": "Chest Flies"
+    },
+    {
+        "name": "Tricep Extensions"
+    },
+    {
+        "name": "Skullcrushers"
+    },
+    {
+        "name": "Bicep Curl"
+    },
+    {
+        "name": "Barbell Row"
+    },
+    {
+        "name": "Dumbbell Row"
+    },
+    {
+        "name": "Lat Pulldown"
+    },
+    {
+        "name": "Cable Row"
+    },
+    {
+        "name": "Leg Press"
+    },
+    {
+        "name": "Quad Extension"
+    },
+    {
+        "name": "Hamstring Curl"
+    },
+    {
+        "name": "Calf Raise"
+    },
+    {
+        "name": "Hip Thrust"
+    },
+    {
+        "name": "Hip Abduction"
+    },
+    {
+        "name": "Hip Adduction"
+    },
+    {
+        "name": "Dips"
+    },
+    {
+        "name": "Planks"
+    },
+    {
+        "name": "Lateral Raise"
+    },
+    {
+        "name": "Face Pull"
+    },
+    {
+        "name": "Back Extensions"
+    },
+    {
+        "name": "Inverted Row"
+    }
+]
