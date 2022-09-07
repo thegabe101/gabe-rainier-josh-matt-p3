@@ -56,8 +56,10 @@ This app is composed of several packages and technologies:
 -   [MySQL2](https://www.npmjs.com/package/mysql2)
 -   [Heroku](https://heroku.com/)
 -   [Connect Session Sequelize](https://www.npmjs.com/package/connect-session-sequelize)
--
--
+-   [Netlify]
+-   [React]
+-   [Axios]
+-   [bcrypt]
 -   [Express Session](https://www.npmjs.com/package/express-session)
 
 It also involved the usage of the app, [Insomnia](https://insomnia.rest/), which is used outside of the users code editing software as a standalone application.

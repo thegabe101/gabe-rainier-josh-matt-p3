@@ -58,20 +58,9 @@ const MainNav = () => {
 					className='nav-link'
 					activeClassName='router-link-exact-active'
 				><RiTeamLine />Roster</NavLink>
-				<a class="square" href="#">
-					<div class="burgerwrap">
-						<span></span>
-						<span></span>
-						<span></span>
-					</div>
-				</a>
-
 				<h4>
 					Welcome, coach
 				</h4>
-				{/* <div class="container">
-					<div className="btn"><a href="#"></a>Welcome, Coach</div>
-				</div> */}
 			</div>
 		)
 	} else {
@@ -113,9 +102,6 @@ const MainNav = () => {
 				<h4>
 					Welcome, liftr
 				</h4>
-				{/* <div class="container">
-					<div className="btn"><a href="#"></a>Welcome, liftr</div>
-				</div> */}
 			</div>
 		);
 	}

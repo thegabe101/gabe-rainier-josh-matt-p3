@@ -12,7 +12,8 @@ const URL_PREFIX = "http://localhost:3001/" || "http://lifter-backend-build.hero
 
 const Profile = () => {
 
-	const [imageSelected, setImageSelected] = useState('')
+	// const [imageSelected, setImageSelected] = useState(localStorage.getItem('publicId'))
+	const [imageSelected, setImageSelected] = useState("");
 
 	const [publicId, setPublicId] = useState("");
 
@@ -28,6 +29,7 @@ const Profile = () => {
 	})
 
 	useEffect(() => {
+		console.log(publicId)
 		console.log('use effect is on')
 		// getData();
 		const isACoach = localStorage.getItem("isCoach")
@@ -36,7 +38,10 @@ const Profile = () => {
 			console.log('we is a coach')
 			axios.get(URL_PREFIX + `api/coaches/${localStorage.getItem('id')}`)
 				.then((response) => {
+					console.log(response)
+					console.log(response.data.publicId)
 					setPublicId(response.data.publicId)
+					setImageSelected(localStorage.getItem("publicId"))
 					const profileT = {
 						firstName: response.data.firstName,
 						lastName: response.data.lastName,
@@ -45,10 +50,11 @@ const Profile = () => {
 						country: response.data.country,
 						city: response.data.city,
 						status: response.data.status,
-						public_id: response.data.publicId
+						public_id: response.data.public_id
 					}
 					// localStorage.setItem("publicId", publicId)
 					// console.log(localStorage.getItem(publicId))
+					console.log(profileT)
 					setProfile(profileT)
 				})
 		} else {
@@ -57,6 +63,7 @@ const Profile = () => {
 				.then((response) => {
 					setPublicId(response.data.publicId)
 					console.log(response.data.username)
+					setImageSelected(localStorage.getItem("publicId"))
 					const profileT = {
 						firstName: response.data.firstName,
 						lastName: response.data.lastName,
@@ -65,7 +72,7 @@ const Profile = () => {
 						country: response.data.country,
 						city: response.data.city,
 						status: response.data.status,
-						public_id: response.data.publicId
+						public_id: response.data.public_id
 					}
 					// localStorage.setItem("publicId", publicId)
 					// console.log(localStorage.getItem("publicId"))
@@ -111,6 +118,8 @@ const Profile = () => {
 				localStorage.getItem('publicId')
 			)
 		}
+		console.log('got here')
+		// window.location.reload()
 	}
 
 	function handleFormChange(e) {
@@ -123,7 +132,7 @@ const Profile = () => {
 	// 	// return imageId
 	// }
 
-	const uploadImage = async () => {
+	async function uploadImage() {
 		// console.log(files[0]);
 		const formData = new FormData()
 		formData.append('file', imageSelected)
@@ -136,6 +145,7 @@ const Profile = () => {
 			.then((response) => {
 				localStorage.setItem("publicId", response.data.public_id)
 				console.log(response)
+				console.log(response.data.public_id)
 				setProfile({ ...profile, public_id: response.data.public_id })
 			})
 	}
@@ -155,10 +165,10 @@ const Profile = () => {
 						/>
 						<span className='text-black-50'></span>
 						<Image
-							className='superCoolProfilePicture'
-							width='150px'
 							cloudName={cloudNameGuy}
 							publicId={publicId}
+							width='150px'
+							className='superCoolProfilePicture'
 						/>
 					</div>
 				</div>
