@@ -106,10 +106,10 @@ export default function LoginForm() {
                 <form className="signinForm" onSubmit={handleSubmit(onSubmit)} action="#">
                     <h1 className="signIn">Welcome to liftr</h1>
                     <div onChange={setRadAnswer} className="coolStyleOuter">
-                        <div className="coolStyle">
-                            <input name="radAnswer" type="radio" className="superCoolStyle" label="check" id="checkClient" value="client"></input>
+                        <div className="glowingText">
+                            <input name="radAnswer" type="radio"  label="check" id="checkClient" value="client"></input>
                             <label for="client" className="entry">I am a client.</label>
-                            <input name="radAnswer" type="radio" className="superCoolStyle" label="check" id="checkCoach" value="coach"></input>
+                            <input name="radAnswer" type="radio"  label="check" id="checkCoach" value="coach"></input>
                             <label for="coach" className="entry">I am a coach.</label>
                         </div>
                     </div>
