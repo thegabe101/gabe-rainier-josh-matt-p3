@@ -10,6 +10,7 @@
 .profilePic {
 	font-size: 26px;
 	padding: -25px;
+	margin: 5%;
 }
 
 .profile-button {
@@ -50,9 +51,9 @@
 }
 
 .superCoolProfilePicture {
-	width: 350px;
-	height: 350px;
-	margin-top: 5%;
+	width: 200px;
+	height: 200px;
+	margin-top: 10%;
 	box-shadow: 5px 5px 5px 5px grey;
 }
 

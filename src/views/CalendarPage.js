@@ -60,9 +60,10 @@ export default function Selectable() {
 	useEffect(() => {
 		axios
 			.get(
-				'https://lifter-backend-build.herokuapp.com/' +
-					'api/exercises/search/' +
-					localStorage.getItem('id')
+				'http://localhost:3001/'
+				// 'https://lifter-backend-build.herokuapp.com/' 
+				+ 'api/exercises/search/' +
+				localStorage.getItem('id')
 			)
 			.then((response) => {
 				console.log(response.data)
