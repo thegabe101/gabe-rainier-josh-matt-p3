@@ -1,0 +1,155 @@
+.MuiCard-root {
+	overflow: hidden;
+	width: 200px;
+}
+
+.search-wrapper {
+	display: flex;
+	flex-direction: row;
+	border: #000 solid 1px;
+	justify-content: space-around;
+	margin-top: 0;
+	padding-top: 1%;
+}
+
+.search-input {
+	height:100%;
+}
+
+.addClientButton {
+	background-color: #000;
+	background-image: none;
+	border: 1px solid #000;
+	border-radius: 4px;
+	box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
+	box-sizing: border-box;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	font-family: ITCAvantGardeStd-Bk,Arial,sans-serif;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 10px;
+	margin: 0 5px 10px 0;
+	overflow:hidden;
+	padding: 12px 40px;
+	text-align: center;
+	text-transform: none;
+	touch-action: manipulation;
+	user-select: none;
+	-webkit-user-select: none;
+	vertical-align: middle;
+	white-space: nowrap;
+	width: 20%;
+  }
+  
+  .addClientButton:focus {
+	text-decoration: none;
+  }
+  
+  .addClientButton:hover {
+	text-decoration: none;
+  }
+  
+  .addClientButton:active {
+	box-shadow: rgba(0, 0, 0, .125) 0 3px 5px inset;
+	outline: 0;
+  }
+  
+  .addClientButton:not([disabled]):active {
+	box-shadow: #fff 2px 2px 0 0, #000 2px 2px 0 1px;
+	transform: translate(2px, 2px);
+  }
+  
+
+  .card-grid {
+	margin: 3%;
+	display: flex;
+	flex-direction: row;
+	columns: 3;
+	gap: 5%;
+	flex-wrap: wrap;
+}
+
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+.rosterBody {
+ background-color: #dcd6d3c6;
+ font-family: Arial, Helvetica, sans-serif;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ min-height: fit-content;
+ line-height: 1.4;
+ border-radius: 20px;
+ margin: 2%;
+ min-width: fit-content;
+}
+
+.rosterBox {
+ background-repeat: no-repeat;
+ background-position: center;
+ background-size: cover;
+ width: 15vw;
+ height: 35vh;
+ position: relative;
+ box-shadow: 0 0 50px rgba(0, 0, 0, 0.315);
+ border-radius: 20px;
+ 
+}
+
+ .roster__info {
+  bottom: 20%;
+  display: flex;
+  align-items: flex-end;
+  padding: 15px 30px;
+  color: beige;
+ }
+  span {
+   margin-right: 20px;
+  }
+  i {
+   margin-right: 10px;
+  }
+ 
+ .roster__profile {
+  background-color: #e4f2fd;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  bottom: 0;
+ }
+  
+img {
+   width: 60px;
+   height: 60px;
+   /* border-radius: 50%; */
+   object-position: center;
+   object-fit: cover;
+   margin-right: 10px;
+   
+  }
+
+p b {
+   font-style: italic;
+  }
+
+  
+  @media only screen and (max-width: 700px) {
+	.search-form{width: fit-content;}
+
+	.search-input{width: fit-content;}
+
+	.short-text { display: none; }
+
+	.search-wrapper {
+		width: 100%;
+	}
+	.addClientButton {
+		width: fit-content;
+	}
+  }

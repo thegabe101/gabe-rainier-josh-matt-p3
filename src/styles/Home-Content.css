@@ -1,0 +1,93 @@
+
+
+.rosterBox {
+    display: grid;
+    grid-template-columns: 60px 60px 60px 60px ;
+	width: 30%;
+	min-height: 40%;
+	border-radius: 20px;
+	position: relative;
+	-webkit-transition: 0.5s ease-in-out;
+	transition: 0.5s ease-in-out;
+	transform-style: preserve-3d;
+}
+
+.side {
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	padding: 20px 50px;
+	color: #fff;
+	transform-style: preserve-3d;
+	backface-visibility: hidden;
+	border-radius: 20px;
+}
+.content {
+	transform: translatez(70px) scale(0.8);
+	line-height: 1.5em;
+}
+.content h1 {
+	position: relative;
+}
+.content p {
+	margin-top: 50px;
+	line-height: 2em;
+}
+.content h1:before {
+	content: "";
+	position: absolute;
+	bottom: -20px;
+	height: 3px;
+	background-color: rgb(183, 16, 27);
+	width: 70px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.front {
+	z-index: 2;
+	background-size: 100vh;
+	background-size: cover;
+	background-image: url(https://www.dmarge.com/wp-content/uploads/2021/01/dwayne-the-rock--480x320.jpg);
+}
+.back {
+	background-color: #333;
+	transform: rotateY(180deg);
+	z-index: 0;
+	padding-top: 10px;
+	background-image: url(https://media.istockphoto.com/photos/gym-background-with-equipment-picture-id845970122?b=1&k=20&m=845970122&s=170667a&w=0&h=-CMmzFFSkQtwPWhlTOLY8NlkkLAH8Z7cmqE-FsU-Fgg=);
+}
+.rosterBox:hover {
+	-webkit-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+form {
+	text-align: left;
+}
+.back h1 {
+	margin: 0;
+}
+
+.inputThingy {
+    display: flex;
+    justify-content: center;
+    margin-top: 15%;
+}
+
+.inputBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width: 700px) {
+	.rosterBox {
+		display: column;
+		display: flex;
+		word-wrap: wrap;
+	}
+}
+
+
+
+

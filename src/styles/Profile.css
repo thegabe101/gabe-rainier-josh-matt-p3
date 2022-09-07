@@ -1,0 +1,76 @@
+.divBody {
+	background: white;
+}
+
+.form-control:focus {
+	box-shadow: none;
+	border-color: #ba68c8;
+}
+
+.profilePic {
+	font-size: 26px;
+	padding: -25px;
+	margin: 5%;
+}
+
+.profile-button {
+	background: rgb(99, 39, 120);
+	box-shadow: none;
+	border: none;
+	margin-left: 20px;
+}
+
+.profile-button:hover {
+	background: #682773;
+}
+
+.profile-button:focus {
+	background: #682773;
+	box-shadow: none;
+}
+
+.profile-button:active {
+	background: #682773;
+	box-shadow: none;
+}
+
+.back:hover {
+	color: #80318e;
+	cursor: pointer;
+}
+
+.labels {
+	font-size: 11px;
+}
+
+.add-experience:hover {
+	background: #ba68c8;
+	color: #fff;
+	cursor: pointer;
+	border: solid 1px #ba68c8;
+}
+
+.superCoolProfilePicture {
+	width: 200px;
+	height: 200px;
+	/* margin-top: 10%; */
+	box-shadow: 3px 3px 3px 3px grey;
+	border-radius: 20%;
+}
+
+.superCoolProfilePictureProf {
+	width: 200px;
+	height: 200px;
+	margin-top: 10%;
+	box-shadow: 3px 3px 3px 3px grey;
+	border-radius: 50%;
+}
+
+@media only screen and (max-width: 700px) {
+	.superCoolProfilePicture .divBody .profileInfo {
+		display: column;
+		display: flex;
+		word-wrap: wrap;
+		flex-shrink: 50px;
+	}
+}

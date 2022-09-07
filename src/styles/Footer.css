@@ -1,0 +1,19 @@
+.flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footy {
+    position: relative;
+}
+
+.siteLogo {
+    height: 50px;
+    width: 60px;
+}
+
+.twitter {
+    color:black;
+}
