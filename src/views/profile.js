@@ -7,8 +7,9 @@ import { get } from 'react-hook-form'
 
 const cloudNameGuy = 'ddkr1ny4l'
 const presetName = 'pyqqyzxb'
-// const URL_PREFIX = "http://localhost:3001/" || "http://lifter-backend-build.herokuapp.com/";
-const URL_PREFIX = `https://lifter-backend-build.herokuapp.com/api/clients/search/1`
+
+const URL_PREFIX = "http://localhost:3001/" || "http://lifter-backend-build.herokuapp.com/";
+// const URL_PREFIX = 'http://lifter-backend-build.herokuapp.com/'
 
 
 const Profile = () => {
@@ -16,7 +17,7 @@ const Profile = () => {
 	// const [imageSelected, setImageSelected] = useState(localStorage.getItem('publicId'))
 	const [imageSelected, setImageSelected] = useState("");
 
-	const [publicId, setPublicId] = useState(localStorage.getItem("publicId"));
+	const [publicId, setPublicId] = useState("");
 
 	const [profile, setProfile] = useState({
 		firstName: '',
@@ -51,7 +52,7 @@ const Profile = () => {
 						country: response.data.country,
 						city: response.data.city,
 						status: response.data.status,
-						public_id: response.data.public_id
+						publicId: response.data.publicId
 					}
 					// localStorage.setItem("publicId", publicId)
 					// console.log(localStorage.getItem(publicId))
@@ -73,7 +74,7 @@ const Profile = () => {
 						country: response.data.country,
 						city: response.data.city,
 						status: response.data.status,
-						public_id: response.data.public_id
+						publicId: response.data.publicId
 					}
 					// localStorage.setItem("publicId", publicId)
 					// console.log(localStorage.getItem("publicId"))
