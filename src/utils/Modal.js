@@ -10,6 +10,7 @@ export default function Modal({ setOpenModal }) {
     const [q, setQ] = useState("");
     const [searchParam] = useState(["username"]);
     const [filterParam, setFilterParam] = useState(["All"]);
+
     // const URL_PREFIX = 'http://lifter-backend-build.herokuapp.com/'
     const URL_PREFIX = 'http://localhost:3001/' || 'http://lifter-backend-build.herokuapp.com/'
 
@@ -17,6 +18,7 @@ export default function Modal({ setOpenModal }) {
         fetch(
             'http://localhost:3001/api/clients/search/1'
             // "http://lifter-backend-build.herokuapp.com/api/clients/search/1"
+
         )
             .then((res) => res.json())
             .then(
