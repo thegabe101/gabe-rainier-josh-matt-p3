@@ -8,9 +8,10 @@ import { useForm } from "react-hook-form";
 import axios from 'axios';
 import API from '../utils/API';
 import SignUpContainer from "../utils/SignUpContainer";
+import { useHistory } from "react-router-dom";
 
-// const URL_PREFIX = "http://localhost:3001/" || "http://lifter-backend-build.herokuapp.com/";
-const URL_PREFIX = 'https://lifter-backend-build.herokuapp.com/';
+const URL_PREFIX = "http://localhost:3001/" || "http://lifter-backend-build.herokuapp.com/";
+// const URL_PREFIX = 'https://lifter-backend-build.herokuapp.com/';
 
 
 const SignUpForm = ({
@@ -43,6 +44,9 @@ const SignUpForm = ({
     }
 
   }
+
+  let lebronJames = useHistory();
+
 
   return (
     <div className="loginBox">
@@ -99,13 +103,18 @@ const SignUpForm = ({
           primary={true}
           type="submit"
           label="submit"
+        // onClick={() => {
+        //   lebronJames.push("/login")
+        // }}
         />
         <button className="superCoolButton" type="button" onClick={handleOnClick}>{buttonText}</button>
         <label for="coach"></label>
       </form>
       <p>
         Aleady have an account? <br />
-        <a href="/login">Log in here</a>
+        <button className="logButton" onClick={() => {
+          lebronJames.push("/login");
+        }}>Log In</button>
       </p>
     </div>
   );
