@@ -1,6 +1,5 @@
 {
   "name": "auth0-react-sample",
-  "homepage": "http://thegabe101.github.io/liftr/",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
