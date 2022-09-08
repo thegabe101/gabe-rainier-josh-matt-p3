@@ -3,6 +3,7 @@ import API from "../utils/API";
 import { useForm } from "react-hook-form";
 import "../styles/LoginForm.css";
 import { id } from "date-fns/locale";
+import { useHistory } from "react-router-dom";
 
 
 
@@ -99,6 +100,7 @@ export default function LoginForm() {
         }
     }
 
+    let history = useHistory();
 
     return (
         <div><div>
@@ -127,7 +129,10 @@ export default function LoginForm() {
                     <div className="overlay-panel overlay-right">
                         <h1 className="signInHeader">or</h1>
                         <p className="signInP">If you haven't signed up yet, please click the button below.</p>
-                        <a href="/signup"><button className="ghost logButton" id="signUp">Sign Up</button></a>
+                        {/* <a href="/signup"><button className="ghost logButton" id="signUp">Sign Up</button></a> */}
+                        <button className="ghost logButton" id="signUp" onClick={() => {
+                            history.push("/signup");
+                        }}>Sign Up</button>
                     </div>
                 </div>
             </div>
