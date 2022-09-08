@@ -79,8 +79,8 @@ export default function Selectable() {
 			console.log('client')
 			axios
 				.get(
-					// 'http://localhost:3001/'
-					'https://lifter-backend-build.herokuapp.com/'
+					'http://localhost:3001/'
+					// 'https://lifter-backend-build.herokuapp.com/'
 					+ 'api/exercises/search/' +
 					localStorage.getItem('id')
 				)
@@ -105,8 +105,8 @@ export default function Selectable() {
 			console.log("logged in as a coach")
 			axios
 				.get(
-					// 'http://localhost:3001/'
-					'https://lifter-backend-build.herokuapp.com/'
+					'http://localhost:3001/'
+					// 'https://lifter-backend-build.herokuapp.com/'
 					+ 'api/exercises/search/' +
 					localStorage.getItem('clientId')
 				)
