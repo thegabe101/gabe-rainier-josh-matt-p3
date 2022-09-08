@@ -8,8 +8,10 @@ import { useForm } from "react-hook-form";
 import axios from 'axios';
 import API from '../utils/API';
 import SignUpContainer from "../utils/SignUpContainer";
-// const URL_PREFIX = "http://localhost:3001/" || "http://lifter-backend-build.herokuapp.com/";
-const URL_PREFIX = `https://lifter-backend-build.herokuapp.com/`;
+
+const URL_PREFIX = "http://localhost:3001/" || "http://lifter-backend-build.herokuapp.com/";
+// const URL_PREFIX = 'http://lifter-backend-build.herokuapp.com/';
+
 
 const SignUpForm = ({
   history,
