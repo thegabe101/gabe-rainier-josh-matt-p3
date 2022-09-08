@@ -70,46 +70,29 @@ Building liftr also involved the use of the app [Insomnia](https://insomnia.rest
 
 ## usage
 
-This web application is designed with both athletes and trainers alike in mind; thus, there are two different login routes that clients and coaches may log in via.
+This web application is designed with both athletes and trainers alike in mind; thus, there are two different login routes that clients and coaches may log in via. When a coach logs in, they can navigate easily to their roster, from which they may choose a client to assign workouts to via the calendar. The client, on the other hand, logs in and can navigate to the calendar, where they can view workouts assigned to them by their coach. Both client and coach alike may update their profile (social integration is a feature targeted for future development) and click the workouts tab for a quick look at workouts they may want to try out at the gym or at home.
 
 ## reflections
 
--   The motivation for creating this project was continuing to develop our coding skills while utilizing a brand-new, complex and exciting tool in React. Some of the other key tools we used included:
-
-    -   Node.js
-    -   Sequelize
-    -
+-   The motivation for creating this project was continuing to develop our coding skills while utilizing a brand-new, complex and exciting tool in React. React is a whole new ball game in the world of Javascript, and it presented plenty of unique and exciting challenges us during dev ops. We had to relearn numerous aspects of the ways in which we coded, communicated, and deployed in order to work in sync with React and its approach to dynamic, quick-rendering websites. We absolutely loved working with React and are excited to use it in the future; it is easy to see the potential it offers, even after a single project.
 
     While we met our fair share of difficulties in building our application, we stayed motivated throughout to work through and comprehend code issues we were having. Said issues were including but not limited to:
 
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
-    -
+    -   Deployment difficulties
+    -   Linking our front and back ends
+    -   Creating a surface-simple but complex database that appropriately associated lifters, coaches, and exercises.
+    -   Learning how to navigate between renders in React.
+    -   Learning when it was appropriate- and not so- to use effects in React.
+    -   Timing issues between local storage and quick-acting mechanics in React.
+    -   Rendering large sets of data simultaneously.
+    -   Using JWT tokens for the first time.
+    -   Login functionality that originally relied upon the Auth0 package but had to be refactored to use our own JWT.
+    -   Backend retrieval with usernames versus ids.
+    -   Database associations.
 
--   We built this project largely in order to...
--   This is a useful project in that it enables a user to...
+-   We built this project largely in order to coalesce the skills we'd learned in class into one large undertaking. This project challenged us to use everything we had learned throughout the course, front to back, and we found ourselves repeatedly referring back to lessons we'd learned throughout the course as far back as the beginning. We were able to gain a more certain understanding by building liftr of the process a group goes through when constructing a website from front to back using modern, evolving tech like React.
+-   This is a useful project in that it enables a user to easily schedule and track their workouts, or a coach to assign and track workouts. We strived to make an intuitive UI that wouldn't be needlessly complex and enable a user to get to where they want to go (primarily the calendar) quickly and without confusion, and we believe we accomplished that task.
 -   This project represented an incredible jump in difficulty and learning curve that we were proud to tackle. We may not have overcome every hurdle we faced, but we overcame many. It was endlessly fascinating for us to learn, especially, how integrated front and back end are and the coordination they require between developers. We all feel infinitely more prepared for what is to come in our code adventures after this project.
-
-## resources
-
-List of resources utilized in this project:
-
--   [React Icons](https://react-icons.github.io/react-icons/)
--
--
--
--   [W3 Schools](https://www.w3schools.com/)
--
--
--
 
 ## contributors
 
@@ -128,8 +111,8 @@ And shout out to our friends, TAs, and tutors who lended a hand,
 
 ## screenshots
 
--   ![Alt= ](./screenshots/screenshot1.jpg)
--   ![Alt= ](./screenshots/screenshot2.jpg)
--   ![Alt= ](./screenshots/screenshot3.jpg)
--   ![Alt= ](./screenshots/screenshot4.jpg)
--   ![Alt= ](./screenshots/screenshot5.jpg)
+-   ![Alt= Screenshot of login page ](./screenshots/screenshot1.jpg)
+-   ![Alt= Screenshot of signup page ](./screenshots/screenshot2.jpg)
+-   ![Alt= Screenshot of landing page ](./screenshots/screenshot3.jpg)
+-   ![Alt= Screenshot of calendar page ](./screenshots/screenshot4.jpg)
+-   ![Alt= Screenshot of roster page](./screenshots/screenshot5.jpg)
