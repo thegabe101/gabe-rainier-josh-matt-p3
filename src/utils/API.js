@@ -1,8 +1,8 @@
 import axios from 'axios'
 
 
-// const URL_PREFIX = 'http://localhost:3001/' || 'https://lifter-backend-build.herokuapp.com/'
-const URL_PREFIX = 'https://lifter-backend-build.herokuapp.com/'
+const URL_PREFIX = 'http://localhost:3001/' || 'https://lifter-backend-build.herokuapp.com/'
+// const URL_PREFIX = 'https://lifter-backend-build.herokuapp.com/'
 
 //COACH API REQ----------------------------------------------------------------
 //TODO: Adding a conditional to determine which route to hit.

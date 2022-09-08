@@ -1,16 +1,21 @@
 import React, { Component } from 'react'
 import SignUpForm from '../views/Signup'
 import API from '../utils/API'
+import { Link } from 'react-router-dom'
 const axios = require('axios')
 const FormValidators = require('./validate')
 const validateSignUpForm = FormValidators.validateSignUpForm
 const zxcvbn = require('zxcvbn')
 
-// const URL_PREFIX = "http://localhost:3001/" || "https://lifter-backend-build.herokuapp.com/";
-const URL_PREFIX = 'https://lifter-backend-build.herokuapp.com/'
+
+
+const URL_PREFIX = "http://localhost:3001/" || "https://lifter-backend-build.herokuapp.com/";
+// const URL_PREFIX = 'https://lifter-backend-build.herokuapp.com/'
 
 
 class SignUpContainer extends Component {
+
+
 	constructor(props) {
 		super(props)
 
@@ -27,6 +32,7 @@ class SignUpContainer extends Component {
 			score: '0',
 			radioButtonCoach: false,
 		}
+
 
 		this.pwMask = this.pwMask.bind(this)
 		this.handleChange = this.handleChange.bind(this)
@@ -138,10 +144,10 @@ class SignUpContainer extends Component {
 			if (this.state.radioButtonCoach == true) {
 				this.submitSignupCoach(user)
 				console.log(user)
-				window.location = '/login'
+				// window.location = '/login'
 			} else this.submitSignupClient(user)
 			console.log(user)
-			window.location = '/login'
+			// window.location = '/login'
 		}
 		// } else {
 		//     const errors = payload.errors;
